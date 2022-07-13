@@ -1,0 +1,40 @@
+.options{
+    position: absolute;
+    top: 80px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow:  0 0 3px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.options.active{
+    display: block;
+    transition: 0.5s;
+}
+
+.options .option{
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius:8px;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+.options .option:hover{
+    background: #F2F2F2;
+}
+
+.options .option i{
+    font-size: 25px;
+    margin-right: 12px;
+
+}
+
+.option .option-text{
+    font-size:18px;
+    color:#333;
+}

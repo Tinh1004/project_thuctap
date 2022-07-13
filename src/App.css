@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-ol, ul{
+ol, ul, p, a, h1,h2, h3, h4, h5,h6{
     padding:0;
     margin:0;
 }
@@ -14,11 +14,11 @@ ol, ul{
 
     /* ==== Colors ==== */
     --body-color: #E4E9F7;
-    --sidebar-color: rgba(0, 0, 0, 0.116);
+    --sidebar-color: rgba(0, 0, 0, 0.05);
     --primary-color: #695CFE;
     --primary-color-light: #F6F5FF;
-    --toggle-color: #DDD;
-    --text-color: #707070;
+    --toggle-color: #fff;
+    --text-color: #000;
 
     /* === transition ===  */
     --tran-02: all 0.2s ease;
@@ -203,7 +203,7 @@ body.dark .search-box input{
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
-    color: var(--sidebar-color)
+    color: var(--toggle-color)
 }   
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
@@ -324,10 +324,17 @@ body.dark .switch::before{
     right: 0;
     transition: var(--tran-05);
     z-index: 1;
+    padding-left: 60px;
+    padding-right: 40px;
 }
 
 
 .sidebar.close ~ .header-navbar{
     width: calc(100% - 88px);
     height: 65px;
+}
+@media only screen and (max-width: 768px){
+    .header-navbar{
+        padding-left: 0;
+    }
 }
