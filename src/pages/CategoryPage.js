@@ -1,8 +1,8 @@
-export default function ProfilePage(props) {
+export default function CategoryPage(props) {
     return (
         <section className="home">
             <div className="text">
-                Profile Page
+                Category Page
             </div>
       </section>
     )
