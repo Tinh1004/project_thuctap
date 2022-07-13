@@ -4,14 +4,16 @@ import Search from './search/index';
 import BackToIcon from './back_to/index';
 import Avatar from './avatar/index';
 
-export default function SearchAppBar() {
+export default function NavBar() {
   return (
     <div class="header-navbar">
       <div className="left">
         <BackToIcon/>
         <Search/>
       </div>
-      <Avatar/>
+      <div className="right">
+        <Avatar/>
+      </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.navbar-back_to .icon{
+.navbar-back_to i.icon{
     font-size: 24px;
     color: var(--text-color);
     cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 
-.navbar-back_to .icon:hover{
+.navbar-back_to i.icon:hover{
     transform: scale(1.1);
 }
 
