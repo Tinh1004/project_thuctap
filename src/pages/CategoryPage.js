@@ -1,9 +1,14 @@
+import AppDefault from './app_default/AppDefault';
+
 export default function CategoryPage(props) {
     return (
-        <section className="home">
-            <div className="text">
-                Category Page
-            </div>
-      </section>
+        <AppDefault>
+            <section className="home">
+                <div className="text">
+                    Category Page
+                </div>
+            </section>
+        </AppDefault>
+
     )
 }
