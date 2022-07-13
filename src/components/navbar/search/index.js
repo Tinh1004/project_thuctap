@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Search() {
     const [input, setInput] = useState("");
@@ -10,7 +11,9 @@ export default function Search() {
     }
     return (
         <div className="search ">
-            <div className="icon"></div>
+            <Link to={`/search/${input}`}>
+                <div className="icon"></div>
+            </Link>
             <div className="input">
                 <input 
                     type="text" 

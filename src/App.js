@@ -23,7 +23,11 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/ca-nhan" element={<ProfilePage/>}/>
         <Route path="/the-loai" element={<CategoryPage/>}/>
-        <Route path="/search" element={<SearchPage/>}/>
+        
+        <Route path="/search" element={<SearchPage/>}>
+          <Route path=":search" element={<SearchPage />} />
+        </Route>
+        
         <Route path="/login" element={<LoginPage/>}/>
       </Routes>
       <Footer/>

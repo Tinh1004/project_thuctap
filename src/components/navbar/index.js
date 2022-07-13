@@ -11,7 +11,9 @@ export default function SearchAppBar() {
         <BackToIcon/>
         <Search/>
       </div>
-      <Avatar/>
+      <div className="right">
+        <Avatar/>
+      </div>
     </div>
   );
 }
