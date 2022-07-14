@@ -7,11 +7,13 @@ export default function SearchPage(props) {
     return (
         <AppDefault>
             <section className="home">
-                <div className="text">
-                    Search Page + {search}
+                <div className="search-question">
+                    <h2 className="seatch-title">Tìm Kiếm: {search}</h2>
+                </div>
+                <div className="search-page">
+                    
                 </div>
             </section>
         </AppDefault>
-
     )
 }

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 *{
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -108,6 +110,10 @@ body.dark{
     justify-content: center;
     font-size: 20px;
 }
+.sidebar li .text{
+    font-weight: 600;
+
+}
 
 .sidebar li .icon,
 .sidebar li .text
@@ -136,7 +142,7 @@ body.dark{
 }
 
 .header-text .name{
-    font-weight: 600;
+    font-weight: bold;
 }
 .header-text .profession{
     margin-top: -2px;
@@ -218,6 +224,7 @@ body.dark .sidebar li a:hover .text{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: 16px;
 }
 
 .menu-bar .mode{
@@ -295,12 +302,6 @@ body.dark .switch::before{
     margin-top: 60px;
 }
 
-.home .text{
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 8px 40px;
-}
 
 .sidebar.close ~ .home{
     left: 88px;
@@ -339,4 +340,19 @@ body.dark .switch::before{
     .header-navbar{
         padding-left: 0;
     }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Source+Sans+Pro:wght@200;300&display=swap');
+.search-page{
+    padding-left: 60px;
+}
+
+.search-question{
+    width: 100%;
+    padding: 10px 60px;
+    border-bottom: 2px solid var(--sidebar-color)
+}
+.search-question h2.seatch-title{
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
 }
