@@ -5,6 +5,12 @@
     background-color: #fff;
 }
 
+.header-navbar.header-navbar-scroll{
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: var(--tran-03);
+}
+
 .header-navbar .left{
     height: 100%;
     width: calc(400px + 100px);

@@ -1,0 +1,160 @@
+.contentContainer {
+  z-index: 2;
+  overflow: auto;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar{
+    display: none;
+  } 
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background: rgb(146, 140, 140);
+    z-index: -1;
+  }
+  .songSlide {
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    border: 1px solid rgb(107, 107, 107);
+    // padding-top: 10px;
+    // .title1{
+    //     font-size: 25px;
+    //     font-weight: 600;
+    //     color: white;
+    // }
+    // .text1{
+    //     font-size: 12px;
+    //     font-weight: 400;
+    //     color: rgb(255, 255, 255);
+    //     margin: 5px;
+    // }
+    // .button{
+    //     margin-top: 15px;
+    //     button{
+    //         width: 130px;
+    //         height: 30px;
+    //         border: 2px solid rgb(142, 199, 180);
+    //         outline: none;
+    //         font-size: 16px;
+    //         border-radius: 20px;
+    //         color: white;
+    //         cursor: pointer;
+    //         background: rgb(161, 161, 238);
+    //         transition: .3s linear;
+    //         margin-left: 20px;
+    //         &:hover{
+    //             background: none;
+    //             color: rgb(160, 160, 160);
+    //             border: 2px solid rgb(109, 241, 219);
+    //         }
+    //     }
+    //     button:nth-child(2){
+    //         background: none;
+    //         color: rgb(160, 160, 160);
+    //         border: 2px solid rgb(109, 241, 219);
+    //         &:hover{
+    //             border: 2px solid rgb(142, 199, 180);
+    //             background: rgb(161, 161, 238);
+    //             color: rgb(255, 255, 255);
+    //         }
+    //     }
+    // }
+    .slide {
+      width: 100%;
+      height: 200px;
+      .d-block {
+        height: 300px;
+      }
+    }
+  }
+  .popular_song {
+    width: 90%;
+    height: auto;
+    // border: 1px solid rgb(75, 75, 75);
+    margin: auto;
+    margin-top: 30px;
+    .item1{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h4{
+            margin-left: 10px;
+            color: black;
+            font-size: 23px;
+            font-weight: 600;
+        }
+        .btn{
+            background: none;
+            border:none;
+            border-radius: 50%;
+            &:hover{
+                transform: scale(1.1)
+            }
+            .fas{
+                color: black;
+                // cursor: pointer;
+                transition: .3s linear;
+            }   
+        }
+       
+    }
+    .pop_song{
+        width: 100%;
+        height: 180px;
+        margin-bottom: 20px;
+        display: flex;
+        overflow: auto;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar{
+          display: none;
+        }
+    }
+
+  }
+  .popular_artists {
+    width: 90%;
+    height: auto;
+    // border: 1px solid rgb(75, 75, 75);
+    margin: auto;
+    margin-top: 30px;
+    .item2{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h4{
+            margin-left: 10px;
+            color: black;
+            font-size: 23px;
+            font-weight: 600;
+        }
+        .btn{
+            background: none;
+            border:none;
+            border-radius: 50%;
+            &:hover{
+                transform: scale(1.1)
+            }
+            .fas{
+                color: black;
+                // cursor: pointer;
+                transition: .3s linear;
+            }   
+        }
+       
+    }
+    .artists{
+        width: 100%;
+        height: 180px;
+        margin-bottom: 20px;
+        display: flex;
+        overflow: auto;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar{
+          display: none;
+        }
+    }
+
+  }
+}

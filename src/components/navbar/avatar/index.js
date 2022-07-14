@@ -12,7 +12,6 @@ export default function Avatar() {
         setIsClick(prev => !prev);
     }
     return (
-
         <div className="nav-right">
             <Image 
                 IMAGE_AVATAR={IMAGE_AVATAR} 
