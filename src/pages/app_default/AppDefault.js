@@ -9,6 +9,7 @@ export default function AppDefault({ children }) {
             <Sidebar />
             <NavBar />
             {children}
+            <div style={{height: '70px'}}></div>
             <Footer />
         </div>
     )

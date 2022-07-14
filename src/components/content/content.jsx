@@ -3,8 +3,9 @@ import "./styles.scss";
 import Carousel from "react-bootstrap/Carousel";
 import SongItem from "./song_item/SongItem";
 import image2 from '../../assets/img/image2.jpg'
-import image3 from '../../assets/img/image3.jpg'
+import image11 from '../../assets/img/image11.png'
 import Artists from "./artists/artists";
+import {songs} from './data'
 export default function Content() {
   return (
     <div className="contentContainer">
@@ -60,12 +61,16 @@ export default function Content() {
         </div>
 
         <div className="pop_song">
+            {songs.map((item) =>(
+              <SongItem key = {item.id} img = {item.img} alt = {item.alt} name = {item.name} subtitle = {item.subtitle}/>
+              // <SongItem key={index} music = {item}/>
+            ))}
+            {/* <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
             <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
             <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
             <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
             <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
-            <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />
-            <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />     
+            <SongItem img={image2} atl='image2' name='Rapitaloud EP' subtitle='Rapital Gang' />      */}
         </div>
       </div>
       <div className="popular_artists">
@@ -77,12 +82,12 @@ export default function Content() {
           </div>
         </div>  
         <div className="artists">
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
-          <Artists img={image3} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
+          <Artists img={image11} alt='Singer' name='Space Speaker'/>
         </div>
       </div>
     </div>

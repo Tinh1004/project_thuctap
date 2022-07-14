@@ -292,7 +292,7 @@ body.dark .switch::before{
     height: calc(100% + 80px);
     /* background: var(--body-color); */
     transition: var(--tran-05);
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .home .text{
@@ -300,6 +300,7 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
+
 }
 
 .sidebar.close ~ .home{
@@ -328,19 +329,17 @@ body.dark .switch::before{
     z-index: 1;
     padding-left: 60px;
     padding-right: 40px;
+    /* background-color: #fff; */
 }
 
 
 .sidebar.close ~ .header-navbar{
     width: calc(100% - 88px);
     height: 65px;
-}
-<<<<<<< HEAD
 
-=======
+}
 @media only screen and (max-width: 768px){
     .header-navbar{
         padding-left: 0;
     }
 }
->>>>>>> main

@@ -11,7 +11,7 @@
     }
     .img_play{
         position: relative;
-        width: 130px;
+        width: 140px;
         height: 130px;
         display: flex;
         align-items: center;
@@ -20,7 +20,9 @@
         .img{
             width: 100%;
             height: 100%;
+            // opacity: ;
             &:hover{
+    
                 transform:scale(1.1) ;
                 transition: 600ms;
             }

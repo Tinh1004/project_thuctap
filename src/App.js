@@ -5,12 +5,8 @@ import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
+import {Routes, Route} from 'react-router-dom'; 
 
-<<<<<<< HEAD
-import {Routes, Route, Link} from 'react-router-dom'; 
-=======
-import { Routes, Route, Link } from 'react-router-dom';
->>>>>>> main
 
 function App() {
 

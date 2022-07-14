@@ -3,11 +3,11 @@
     align-items: center;
     padding: 20px 20px;
     // width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0,0.8);
     .wave{
         width: 30px;
         height: 30px;
-        border: 1px solid rgb(248, 248, 248);
+        // border: 1px solid rgb(248, 248, 248);
         display: flex;
         padding-bottom: 5px;
         padding-left: 2px;
@@ -69,26 +69,29 @@
     .icon{
         font-size: 20px;
         color: white;
-        margin: 0px 20px 0px 40px;
-        .fas{
-            cursor: pointer;
-            outline: none;
-            // border:1px solid rgb(65, 65, 65);
-            border-radius: 50%;
-            padding:1px 3px 0px 6px;
-            margin:0px 5px;
-            // fas:nth-child(2){
-            //     border:1px solid rgb(65, 65, 65);
-            //     border-radius: 50%;
-            //     padding:1px 3px 0px 6px;
-            //     margin:0px 5px;
-                
-            // }
-            transition:0.3s linear;
-            &:hover{
-                color: rgb(65, 65, 65);
+        margin: 0px 20px 0px 10px;
+        width: 100px;
+            .fas{
+                cursor: pointer;
+                outline: none;
+                // border:1px solid rgb(65, 65, 65);
+                margin:0px 5px;
+            // border-radius: 50%;
+                color: rgb(255, 255, 255);
+                // fas:nth-child(2){
+                //     border:1px solid rgb(65, 65, 65);
+                //     border-radius: 50%;
+                //     padding:1px 3px 0px 6px;
+                //     margin:0px 5px;
+                    
+                // }
+                transition:0.3s linear;
+                &:hover{
+                    color: rgb(231, 231, 231); 
+                }
             }
-        }
+        
+       
    
     }
     span{
@@ -97,7 +100,7 @@
         font-size: 14px;
         font-weight: 400;
         #currentStart{
-            margin: 0px 0px 0px 20px;
+            margin: 0px 0px 0px 10px;
         }
     }
     .bar{
@@ -204,7 +207,19 @@
             box-shadow: inset 0px 0px 3px rgb(160, 228, 228);
         }
     }
-
+    .speed{
+        margin-left: 20px;
+        width: 100px;
+        height: 30px;
+        button{
+            font-size: 12px;
+            margin-left: 7px;
+            background: none;
+            color: white;
+            border: none;
+            
+        }
+    }
 
 
 }
