@@ -319,7 +319,7 @@ body.dark .switch::before{
 
 .header-navbar{
     width: calc(100% - 230px);
-    height: 60px;
+    height: 70px;
     /* background: var(--sidebar-color); */
     position: fixed;
     top: 0;
@@ -335,12 +335,8 @@ body.dark .switch::before{
     width: calc(100% - 88px);
     height: 65px;
 }
-<<<<<<< HEAD
-
-=======
 @media only screen and (max-width: 768px){
     .header-navbar{
         padding-left: 0;
     }
 }
->>>>>>> main
