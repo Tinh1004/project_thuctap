@@ -1,11 +1,18 @@
 import * as React from 'react';
+import './styles.css';
+import Search from './search/index';
+import BackToIcon from './back_to/index';
+import Avatar from './avatar/index';
 
-export default function SearchAppBar() {
+export default function NavBar() {
   return (
     <div class="header-navbar">
-      <div>
-        <i class='bx bx-chevron-left back'></i>
-        <i class='bx bx-chevron-right to'></i>
+      <div className="left">
+        <BackToIcon/>
+        <Search/>
+      </div>
+      <div className="right">
+        <Avatar/>
       </div>
     </div>
   );
