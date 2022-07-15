@@ -7,6 +7,7 @@ import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { Routes, Route, Link } from 'react-router-dom';
+// import ReactFacebookLogin from 'react-facebook-login';
 
 function App() {
 
@@ -23,8 +24,9 @@ function App() {
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage/>} />
+      
     </Routes>
-
+   
   );
 }
 
