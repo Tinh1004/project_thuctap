@@ -4,14 +4,13 @@ import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/search_page/SearchPage';
 import SearchSingerPage from './pages/search_page/SearchSingerPage';
 import SearchSongPage from './pages/search_page/SearchSongPage';
-
 import NotFoundPage from './pages/NotFoundPage';
 import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
 import { Routes, Route} from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
-
   return (
     <Routes>
       <Route path='*' element={<NotFoundPage />} />
@@ -28,6 +27,7 @@ function App() {
       </Route>
 
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<RegisterPage/>} />
     </Routes>
 
   );

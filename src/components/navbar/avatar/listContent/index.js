@@ -1,7 +1,7 @@
+import {Link} from 'react-router-dom';
 
 export default function ListContent({ isClick }) {
     return (
-
         <ul className={`options ${isClick ? " active" : ""}`}>
             <div className="avatar-name">
                 <p id="name">Pham Ngoc Tinh</p>
@@ -11,8 +11,10 @@ export default function ListContent({ isClick }) {
                 <span className="option-text">Cá nhân</span>
             </li>
             <li className="option">
-                <i className="bx bx-log-out"></i>
-                <span className="option-text">Đăng xuất</span>
+                <Link to={`/login`}>   
+                    <i className="bx bx-log-out"></i>
+                    <span className="option-text">Đăng xuất</span>
+                </Link>
             </li>
         </ul>
     );

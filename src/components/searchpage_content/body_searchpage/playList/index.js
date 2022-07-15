@@ -64,8 +64,6 @@ export default function PlayList(props) {
                             <p>Anh Quân Idol, Thanh Hưng, Đỉnh Tùng</p>
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
         </div>

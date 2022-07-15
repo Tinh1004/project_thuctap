@@ -179,23 +179,6 @@ body.dark .sidebar header .toggle{
 
 }
 
-.search-box input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight:500;
-    background: var(--primary-color-light);
-    transition: var(--tran-04);
-
-}
-
-body.dark .search-box input{
-    color: var(--text-color)
-}
-
 .sidebar li a{
     height: 100%;
     width: 100%;
