@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../login.css";
+import { Link } from "react-router-dom";
 function LoginPage({ Login, error }) {
   const [details, setDetails] = useState({ username: "", password: "" });
 
@@ -24,7 +25,9 @@ function LoginPage({ Login, error }) {
             <span>OR</span>
           </div>
           <div className="form-group">
-            <label htmlFor="username" className="label">Username</label>
+            <label htmlFor="username" className="label">
+              Username
+            </label>
             <input
               type="text"
               class="ls-input"
@@ -33,7 +36,9 @@ function LoginPage({ Login, error }) {
               value={details.name}
             />
             <div className="form-group">
-              <label htmlFor="password" className="label">Password</label>
+              <label htmlFor="password" className="label">
+                Password
+              </label>
               <input
                 type="password"
                 className="ls-input"
@@ -48,9 +53,9 @@ function LoginPage({ Login, error }) {
             </button>
             <p>
               Don't have an account?
-              <a href="signup.html" className="link">
-                Sign Up
-              </a>
+              <Link to="/signup">
+                <a className="link">Sign Up</a>
+              </Link>
             </p>
           </div>
         </div>

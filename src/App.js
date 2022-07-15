@@ -25,11 +25,10 @@ function App() {
         <Route path="ca-si/:search" element={<SearchSingerPage />} />
         <Route path="bai-hat/:search" element={<SearchSongPage />} />
       </Route>
-
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage/>} />
     </Routes>
-
+   
   );
 }
 
