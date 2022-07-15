@@ -22,7 +22,7 @@ const array = [
         singer: "Ưng Hoàng Phúc"
 
     },
-]
+];
 export default function ResultSearch(props) {
     return (
         <div className="search-results">
