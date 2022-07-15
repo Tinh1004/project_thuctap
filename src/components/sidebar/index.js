@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import ListItem from './item/ListItem';
-import {useState, useEffect} from 'react'
 
 const data = [
   {
@@ -25,12 +23,9 @@ const data = [
   }
 ]
 
-export default function Sidebar({
-  isClose,
-  handleClickSetIsClose
-}) {
+export default function Sidebar(props) {
   return (
-    <nav className={isClose ? "sidebar close" : "sidebar"}>
+    <nav className="sidebar">
       <header>
         <div className="image-text">
           <span className="image">
@@ -41,7 +36,7 @@ export default function Sidebar({
             <span className="profession">Web developer</span>
           </div>
         </div>
-        <i className='bx bx-chevron-right toggle' onClick={()=>{handleClickSetIsClose()}}></i>
+        {/* <i className='bx bx-chevron-right toggle' onClick={()=>{handleClickSetIsClose()}}></i> */}
       </header>
       <div className="menu-bar">
         <div className="menu">

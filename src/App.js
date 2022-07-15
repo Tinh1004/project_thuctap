@@ -1,11 +1,14 @@
 import './App.css';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
-import SearchPage from './pages/SearchPage';
+import SearchPage from './pages/search_page/SearchPage';
+import SearchSingerPage from './pages/search_page/SearchSingerPage';
+import SearchSongPage from './pages/search_page/SearchSongPage';
+
 import NotFoundPage from './pages/NotFoundPage';
 import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 
 function App() {
 
@@ -16,8 +19,12 @@ function App() {
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
 
-      <Route path="/search" element={<SearchPage />}>
-        <Route path=":search" element={<SearchPage />} />
+      <Route path="/search">
+        <Route index element={<SearchPage />} />
+        <Route path=":content/*" element={<SearchPage />} />
+        <Route path="tat-ca/:search" element={<SearchPage />} />
+        <Route path="ca-si/:search" element={<SearchSingerPage />} />
+        <Route path="bai-hat/:search" element={<SearchSongPage />} />
       </Route>
 
       <Route path="/login" element={<LoginPage />} />

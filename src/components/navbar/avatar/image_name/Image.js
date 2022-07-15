@@ -8,9 +8,7 @@ export default function Image({
                 <div className="navbar-avatar">
                     <img alt="avarta" src={IMAGE_AVATAR} />
                 </div>
-                <div className="avatar-name">
-                    <p id="name">Pham Ngoc Tinh</p>
-                </div>
+                
             </div>
     );
 }

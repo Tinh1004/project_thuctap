@@ -9,9 +9,10 @@ export default function AppDefault({ children }) {
     return (
         <div>
             <div className="bg"></div>
-            <Sidebar isClose={context.isClose} handleClickSetIsClose={context.toggleSetIsClose}/>
+            <Sidebar/>
             <NavBar />
             {children}
+            <div className="trong" style={{height:'70px'}}></div>
             <Footer />
         </div>
     )

@@ -12,6 +12,11 @@ export default function NavBar() {
       const scrollCheck = window.scrollY >= 80;
       setScroll(scrollCheck);
     })
+    return ()=>{
+      document.removeEventListener("scroll", () => {
+        console.log('remove');
+      })
+    }
   },[])
   return (
     <div class={`header-navbar ${scroll ? "header-navbar-scroll": " "}`} ref={navRef}>

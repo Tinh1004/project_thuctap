@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-ol, ul, p, a, h1,h2, h3, h4, h5,h6{
+ol, ul, p, a, h1,h2, h3, h4, h5, h6{
     padding:0;
     margin:0;
 }
@@ -30,7 +30,7 @@ ol, ul, p, a, h1,h2, h3, h4, h5,h6{
 }
 
 body{
-    height: 100vh; 
+    height: auto; 
 }
 
 .bg{
@@ -66,10 +66,10 @@ body.dark{
     transition: var(--tran-05);
     z-index: 100;
 }
-
+/* 
 .sidebar.close {
     width: 88px;
-}
+} */
 
 
 
@@ -82,10 +82,10 @@ body.dark{
     white-space: nowrap;
     opacity: 1;
 }
-
+/* 
 .sidebar.close .text{
     opacity: 0;
-}
+} */
 
 .sidebar .image{
     min-width: 60px;
@@ -147,7 +147,7 @@ body.dark{
 .header-text .profession{
     margin-top: -2px;
 }
-
+/* 
 .sidebar header .toggle{
     position: absolute;
     top: 50%;
@@ -163,10 +163,10 @@ body.dark{
     font-size: 22px;
     cursor: pointer;
     transition: var(--tran-04);
-}
-.sidebar.close header .toggle{
+} */
+/* .sidebar.close header .toggle{
     transform: translateY(-50%);
-}
+} */
 
 
 body.dark .sidebar header .toggle{
@@ -293,20 +293,24 @@ body.dark .switch::before{
 }
 .home {
     position: relative;
-    height: 100vh;
+    height: auto;
     left: 230px;
     width: calc(100% - 230px);
     height: calc(100% + 80px);
     /* background: var(--body-color); */
     transition: var(--tran-05);
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
+.search-page{
+    width: 100%;
+    height: 800px;  
+}
 
-.sidebar.close ~ .home{
+/* .sidebar.close ~ .home{
     left: 88px;
     width: calc(100% - 88px);
-}
+} */
 
 .audio{
     width: 100%;
@@ -331,28 +335,27 @@ body.dark .switch::before{
     padding-right: 40px;
 }
 
-
+/* 
 .sidebar.close ~ .header-navbar{
-    width: calc(100% - 88px);
-    height: 65px;
-}
-@media only screen and (max-width: 768px){
+    
+} */
+@media only screen and (max-width: 1024px){
     .header-navbar{
         padding-left: 0;
+        width: calc(100% - 88px);
+        height: 65px;
     }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Source+Sans+Pro:wght@200;300&display=swap');
-.search-page{
-    padding-left: 60px;
-}
-
-.search-question{
-    width: 100%;
-    padding: 10px 60px;
-    border-bottom: 2px solid var(--sidebar-color)
-}
-.search-question h2.seatch-title{
-    font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
+    .sidebar {
+        width: 88px;
+    }
+    .toggle{
+        display: none;
+    }
+    .sidebar .text{
+        opacity: 0;
+    }
+    .home{
+        left: 88px;
+        width: calc(100% - 88px);
+    }
 }

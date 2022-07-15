@@ -1,17 +1,24 @@
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate   } from 'react-router-dom';
 
 export default function Search() {
     const [input, setInput] = useState("");
+    let navigate = useNavigate();
+
     const handleClearInput = ()=>{
         setInput("");
     }
     const handleChangeInput =(e)=>{
         setInput(e.target.value);
     }
+
+    const handleSubmitForm = (e)=>{
+        e.preventDefault();
+        navigate(`/search/tat-ca/${input}`, { replace: true });
+    }
     return (
-        <div className="search ">
-            <Link to={`/search/${input}`}>
+        <form className="search" onSubmit={handleSubmitForm}>
+            <Link to={`/search/tat-ca/${input}`}>   
                 <div className="icon"></div>
             </Link>
             <div className="input">
@@ -24,6 +31,6 @@ export default function Search() {
                 />
             </div>
             <span className="clear" onClick={()=>{handleClearInput()}}></span>
-        </div>
+        </form>
     );
 }
