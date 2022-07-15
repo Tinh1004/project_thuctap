@@ -1,0 +1,93 @@
+.khoinhac2{
+    width: auto;
+    height: 225px;
+    border-radius: 3%;
+    margin-left: 22px;
+}
+.khoinhac2{
+    width: 225px;
+    height: auto;
+    position: relative;
+}
+.khoinhac2 .image1{
+    width: 225px;
+    height: 225px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3%;
+}
+.image1 .hinhto2{
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    transition: 0.6s;
+    border-radius: 3%;
+}
+.khoinhac2 .image1:hover .hinhto2{
+    transform: scale(1.1);
+}
+.image1 .icon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 3%;
+}
+.icon .icon1{
+    /* position: absolute;
+    width: 25%;
+    height: 25%; */
+    font-size: 20px;
+    cursor: pointer;
+}
+.icon .icon1:hover{
+    color: chocolate;
+}
+.icon .icon2{
+    font-size: 55px;
+    cursor: pointer;
+}
+.icon .icon2:hover{
+    color: chocolate;
+}
+.icon .icon3{
+    font-size: 20px;
+    cursor: pointer;
+}
+.icon .icon3:hover{
+    color: chocolate;
+}
+.image1 .icon:hover{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.343);
+}
+.khoinhac2 .tenbh{
+    width: auto;
+    height: auto;
+    padding-top: 5px;
+}
+.tenbh p{
+    height: auto;
+    margin-bottom: 0;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+.tenbh p:hover{
+    color:chocolate;
+}
+.tenbh span{
+    font-size: 13px;
+    margin-bottom: 0;
+    color: rgb(52, 52, 52);
+    transition: 0.6s;
+}
+.tenbh span:hover{
+    color: chocolate;
+}
