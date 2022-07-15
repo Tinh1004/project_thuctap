@@ -1,0 +1,8 @@
+.playerContainer{
+    background: rgba(231, 231, 231, 0.5) !important ;
+    height: 6rem;
+    padding-bottom: 30px;  
+}
+.rhap_time, .rhap_current-time {
+    color: rgb(0, 0, 0) !important;
+}

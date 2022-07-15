@@ -1,9 +1,9 @@
-import React from 'react'
-import './styles.scss'
-import image1 from '../../../assets/img/image1.jpg'
-import { useState } from 'react'
-import { useRef } from 'react'
-import audio4 from '../../../assets/audio/audio9.mp3'
+import React from 'react';
+import './styles.scss';
+import image1 from '../../../assets/img/image1.jpg';
+import { useState } from 'react';
+import { useRef } from 'react';
+import audio6 from '../../../assets/audio/audio6.mp3';
 // import { music } from '../../content/data'
 
 export default function MasterPlay() {
@@ -12,6 +12,7 @@ export default function MasterPlay() {
 
   const [currentTime,setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
+  const [player, setPlayer] = useState(false)
 
   // let masterPlayer = document.getElementById('masterPlayer')
   // const handlePlayer = () => {
@@ -26,12 +27,16 @@ export default function MasterPlay() {
   //     masterPlayer.classList.remove("fas fa-pause");
   //   }
   // }
+  // const handlePlayer = () => {
+  //   { player ?  audioPlayer.current.play() : audioPlayer.current.pause()} ;
+  //   setPlayer(!player)
+  // }
   const play = () => {
     audioPlayer.current.play();
   };
-  const pause = () => {
-    audioPlayer.current.pause()
-  };
+  // const pause = () => {
+  //   audioPlayer.current.pause()
+  // };
   const stop = () =>{
     audioPlayer.current.pause();
     audioPlayer.current.currentTime=0;
@@ -64,7 +69,7 @@ export default function MasterPlay() {
         <br/>
         <div className='subtitle'>Xam ft AK49</div>
       </h5>
-      <audio src={audio4}ref={audioPlayer} onTimeUpdate={onPlaying}> <code>audio</code> element.</audio>
+      <audio src={audio6}ref={audioPlayer} onTimeUpdate={onPlaying}> <code>audio</code> element.</audio>
       {/* <p>{currentTime}</p> */}
       <div className='icon'>
         <i className="fas fa-step-backward" id='back'/>
@@ -82,7 +87,7 @@ export default function MasterPlay() {
       <span id="currentEnd">0:00</span>
       <div className="vol">
         <i className="fas fa-volume-down" />
-        <input className='volumeRange' type="range" id="vol" min='0' value='30' max='100'/>
+        <input className='volumeRange' type="range" id="vol" min='0' value='30' max='100'/> 
         <div className="volBar"></div>
         <div className="volDot"></div>
       </div>

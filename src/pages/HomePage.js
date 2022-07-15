@@ -1,7 +1,6 @@
 import Content from "../components/content/content";
-
-import AppDefault from "./app_default/AppDefault";
-
+import React from "react";
+import AppDefault from './app_default/AppDefault';
 export default function HomePage(props) {
   return (
     <AppDefault>
