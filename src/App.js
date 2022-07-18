@@ -9,6 +9,7 @@ import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
 import { Routes, Route} from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
+import Datapage2 from './components/category/page2/Datapage2'; 
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
-
+        <Route path="/page2" element={<Datapage2 />} />
       <Route path="/search">
         <Route index element={<SearchPage />} />
         <Route path=":content/*" element={<SearchPage />} />

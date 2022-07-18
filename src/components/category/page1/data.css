@@ -1,0 +1,55 @@
+.box{
+    width: 1560px;
+    height: 930px;
+    /* justify-content: center;
+    align-items: center; */
+    /* padding-left: 300px;
+    overflow-y:auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; */
+    padding-left: 70px;
+}
+.box .banner{
+    width: 1235px;
+    height: 360px;
+    display: block;
+    border-radius: 5px;
+}
+.box .tl1{
+    width: 1235px;
+    height: 200px;
+}
+.chude{
+    margin-top: 55px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.tl1 .ds1{
+    width: 1235px;
+    height: 180px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.box .tl2{
+    width: 1235px;
+    height: 250px;
+}
+.tl2 .ds2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.box .tl3{
+    width: 1235px;
+    height: 345px;
+    padding-top: 10px;
+}
+.tl3 .ds3{
+    width: 1235px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+}
