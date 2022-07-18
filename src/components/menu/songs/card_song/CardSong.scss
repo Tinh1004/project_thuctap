@@ -1,0 +1,171 @@
+.song_tag {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #00000026;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  &:hover {
+    background-color: #00000026;
+    border-radius: 4px;
+  }
+}
+
+.media {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  text-align: left;
+  padding: 10px;
+  border-radius: 5px;
+
+  .media_left {
+    display: flex;
+    width: 50%;
+
+    .song_prefix {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      color: #32323d80;
+      padding-right: 12px;
+
+      i {
+        font-size: 1.1rem;
+      }
+    }
+
+    .song_thumb {
+      margin-right: 10px;
+      flex-shrink: 0;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+
+      .image {
+        width: 40px;
+        height: 20px;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .card_info {
+      overflow: hidden;
+
+      .title_wrapper {
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+
+        .title {
+          display: flex;
+          align-items: center;
+          flex: 1 1;
+          line-height: 1.3;
+          text-transform: none;
+
+          & > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .subtitle {
+        display: block;
+        font-size: 0.8rem;
+        margin-top: 3px;
+        line-height: 1.33;
+        color: #32323d80;
+        font-weight: 400;
+
+        a {
+          text-decoration: none;
+          color: #32323d80;
+          font-weight: 400;
+
+          &:hover {
+            text-decoration: underline;
+            color: #c662ef;
+          }
+        }
+      }
+    }
+  }
+
+  .media_content {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left;
+    align-self: center;
+    width: 0;
+
+    .album_info {
+      color: #32323d80;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: 400;
+      max-width: 100%;
+
+      & > span {
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          color: #c662ef;
+        }
+      }
+    }
+  }
+
+  .media_right {
+    margin-left: 10px;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    .level {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .level_item {
+        flex-grow: 1;
+        align-items: center;
+        display: flex;
+        flex-basis: auto;
+        flex-shrink: 0;
+        justify-content: center;
+
+        button {
+          background-color: transparent;
+          border: none;
+
+          i {
+            color: #7200a1;
+          }
+        }
+      }
+
+      .duration {
+        font-size: 0.9rem;
+        width: 46px;
+        color: #32323d80;
+        padding-left: 24px;
+      }
+    }
+  }
+}

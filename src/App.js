@@ -14,7 +14,7 @@ import Datapage2 from './components/category/page2/Datapage2';
 function App() {
   return (
     <Routes>
-      <Route path='*' element={<NotFoundPage />} />
+      <Route path="*" element={<NotFoundPage />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
@@ -27,9 +27,8 @@ function App() {
         <Route path="bai-hat/:search" element={<SearchSongPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<RegisterPage/>} />
+      <Route path="/signup" element={<RegisterPage />} />
     </Routes>
-   
   );
 }
 
