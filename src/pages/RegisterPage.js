@@ -1,42 +1,72 @@
-import { Component } from "react";
-import FacebookLogin from "react-facebook-login";
-
-export default class Facebook extends Component {
-  state = {
-    auth: false,
-    name: "",
-    picture: "",
-  };
-  componentClicked = () => {
-    console.log("facebook");
-  };
-  responseFacebook = (response) => {
-    console.log(response);
-    this.setState({
-      auth: true,
-      name: response.name,
-      picture: response.picture.data.url,
-    });
-  };
-  render() {
-    let facebookData;
-
-    this.state.auth
-      ? (facebookData = (
-          <div>
-            <img src={this.state.picture} alt={this.state.name} />
-            <h2>welcome {this.state.name}</h2>
-          </div>
-        ))
-      : (facebookData = (
-          <FacebookLogin
-            appId="556246546227879"
-            autoLoad={true}
-            fields="name,picture"
-            onClick={this.componentClicked}
-            callback={this.responseFacebook}
+import React from "react";
+import "../login.css";
+import { Link } from "react-router-dom";
+function RegisterPage() {
+  return (
+    <form>
+      <div className="inner-form">
+        <h1>Sign up</h1>
+        <div className="form-group">
+          <label htmlFor="fullname" className="label">
+            Full name
+          </label>
+          <input
+            type="text"
+            id="fullname"
+            className="ls-input"
+            placeholder="Eg: Nguyen Van A"
           />
-        ));
-    return <>{facebookData}</>;
-  }
+        </div>
+        <div className="form-group">
+          <label htmlFor="email" className="label">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="ls-input"
+            placeholder="Eg: anguyen@gmai.com"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="username" className="label">
+            Username
+          </label>
+          <input
+            type="text"
+            className="ls-input"
+            placeholder="Email or username"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password" className="label">
+            Password
+          </label>
+          <input type="password" className="ls-input" placeholder="Password" />
+        </div>
+        <div classname="form-group">
+          <label htmlFor="gender" className="label">
+            Gender
+          </label>
+          <div className="gender">
+            <input type="radio" name="gender" defaultValue="male" /> Male
+          </div>
+          <div className="gender">
+            <input type="radio" name="gender" defaultValue="female" /> Female
+          </div>
+          <div className="gender">
+            <input type="radio" name="gender" defaultValue="other" /> Other
+          </div>
+        </div>
+        <button className="submit">Sign up</button>
+        <p className="signup-already">
+          <span>Already have an account ?</span>
+          <Link to="/login">
+            <a className="link">Login</a>
+          </Link>
+        </p>
+      </div>
+    </form>
+  );
 }
+export default RegisterPage;

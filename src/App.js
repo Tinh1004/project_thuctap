@@ -9,7 +9,12 @@ import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
 import { Routes, Route} from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
+<<<<<<< HEAD
 import Datapage2 from './components/category/page2/Datapage2'; 
+=======
+import { Routes, Route, Link } from 'react-router-dom';
+// import ReactFacebookLogin from 'react-facebook-login';
+>>>>>>> Thuy
 
 function App() {
   return (
@@ -27,8 +32,9 @@ function App() {
         <Route path="bai-hat/:search" element={<SearchSongPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<RegisterPage />} />
+      <Route path="/signup" element={<RegisterPage/>} />
     </Routes>
+   
   );
 }
 
