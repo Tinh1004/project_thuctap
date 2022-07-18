@@ -62,4 +62,17 @@ export const listItems = {
 }
 
 
-export const listSinger = {}
+export const listSinger = [
+    {
+        singer: "Cao Tùng Anh",
+        image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/covers/c/6/c68d1398d2f0500d06b2f4ae8f752ca6_1389153722.jpg",
+    },
+    {
+        image: "https://photo-resize-zmp3.zmdcdn.me/w165_r1x1_webp/avatars/e/e/ee58fcc0ff45002b8d416bd7685809ce_1487040461.jpg",
+        singer: "Sơn Tùng M-TP"
+    },
+    {
+        image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/covers/5/b/5b65f25142bbd070ae105dcc90ca1c4f_1339740245.jpg",
+        singer: "Cao Thái Sơn",
+    }
+]

@@ -18,14 +18,10 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
-        <Route path="/page2" element={<Datapage2 />} />
-      <Route path="/search">
-        <Route index element={<HomePage />} />
-        <Route path=":content/*" element={<NotFoundPage />} />
-        <Route path="tat-ca/:search" element={<SearchPage />} />
-        <Route path="ca-si/:search" element={<SearchSingerPage />} />
-        <Route path="bai-hat/:search" element={<SearchSongPage />} />
-      </Route>
+      <Route path="/page2" element={<Datapage2 />} />
+      
+      <Route path="search/*" element={<SearchPage />} />
+      
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
     </Routes>

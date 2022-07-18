@@ -8,7 +8,7 @@ export default function ListSinger({data}) {
                 <span>Tất cả <i className='bx bx-chevron-right icon'></i></span>
             </div>
             <div className="bottom">
-                <ListCardItem array={data.array}/>
+                <ListCardItem array={data}/>
             </div>
         </div>
     )
