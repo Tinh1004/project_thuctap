@@ -1,0 +1,21 @@
+.card_singer_content{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    button{
+        border: none;
+        font-size:16px;
+        padding: 0.2rem 0.6rem;
+        font-weight: 500;
+        color: #fff;
+        background: rgb(202, 0, 202);
+        transition: var(--tran-03);
+        border-radius: 18px;
+        margin: 8px 0;
+    }
+    button:hover {
+        background: purple;
+    }
+
+}

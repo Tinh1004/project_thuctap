@@ -20,8 +20,8 @@ function App() {
       <Route path="/the-loai" element={<CategoryPage />} />
         <Route path="/page2" element={<Datapage2 />} />
       <Route path="/search">
-        <Route index element={<SearchPage />} />
-        <Route path=":content/*" element={<SearchPage />} />
+        <Route index element={<HomePage />} />
+        <Route path=":content/*" element={<NotFoundPage />} />
         <Route path="tat-ca/:search" element={<SearchPage />} />
         <Route path="ca-si/:search" element={<SearchSingerPage />} />
         <Route path="bai-hat/:search" element={<SearchSongPage />} />

@@ -1,6 +1,6 @@
 export const listItems = {
-    singer : {
-        title: "Nghệ Sĩ",
+    playlist : {
+        title: "Playlist",
         array: [
             {
                 name: "Người ta có thương mình đâu",
@@ -30,7 +30,7 @@ export const listItems = {
         ]
     },
     album : {
-        title: "Nghệ Sĩ",
+        title: "Album",
         array: [
             {
                 name: "Anh Biết Anh Sai Rồi (Single)",
@@ -60,3 +60,6 @@ export const listItems = {
         ]
     }
 }
+
+
+export const listSinger = {}

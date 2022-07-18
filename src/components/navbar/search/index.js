@@ -1,10 +1,10 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import { Link,useNavigate   } from 'react-router-dom';
 
 export default function Search() {
     const [input, setInput] = useState("");
     let navigate = useNavigate();
-
+    const inputRef = useRef();
     const handleClearInput = ()=>{
         setInput("");
     }
@@ -14,15 +14,21 @@ export default function Search() {
 
     const handleSubmitForm = (e)=>{
         e.preventDefault();
-        navigate(`/search/tat-ca/${input}`, { replace: true });
+        // window.alert("input: "+input);
+        if(input.trim().length>0){
+            navigate(`/search/tat-ca/${input}`, { replace: true });
+        }else{
+            window.alert("Nhập vào");
+        }
+        inputRef.current.focus();
+        
     }
     return (
         <form className="search" onSubmit={handleSubmitForm}>
-            <Link to={`/search/tat-ca/${input}`}>   
-                <div className="icon"></div>
-            </Link>
+            <a onClick={handleSubmitForm}><div className="icon"></div></a>
             <div className="input">
                 <input 
+                    ref={inputRef}
                     type="text" 
                     placeholder="Search..." 
                     id="mysearch" 
@@ -30,7 +36,7 @@ export default function Search() {
                     onChange={handleChangeInput}
                 />
             </div>
-            <span className="clear" onClick={()=>{handleClearInput()}}></span>
+            {input && <span className="clear" onClick={()=>{handleClearInput()}}></span>}
         </form>
     );
 }
