@@ -304,17 +304,17 @@ body.dark .switch::before {
   transition: var(--tran-05);
 }
 
-.header-navbar{
-    width: calc(100% - 230px);
-    height: 70px;
-    /* background: var(--sidebar-color); */
-    position: fixed;
-    top: 0;
-    right: 0;
-    transition: var(--tran-05);
-    z-index: 2;
-    padding-left: 60px;
-    padding-right: 40px;
+.header-navbar {
+  width: calc(100% - 230px);
+  height: 70px;
+  /* background: var(--sidebar-color); */
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: var(--tran-05);
+  z-index: 2;
+  padding-left: 60px;
+  padding-right: 40px;
 }
 
 /* 
@@ -340,4 +340,16 @@ body.dark .switch::before {
     left: 88px;
     width: calc(100% - 88px);
   }
+}
+
+/* CSS scrollbar */
+
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 4px;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #6b3483;
 }

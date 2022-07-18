@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PlaylistTitle.scss";
 
 function PlaylistTitle() {
@@ -11,9 +12,9 @@ function PlaylistTitle() {
           <span className="tooltip_text">Tạo playlist mới</span>
         </div>
       </h3>
-      <a href="#" className="all" onclick="showAllPlaylist()">
+      <Link to="/ca-nhan/library" className="all">
         Tất cả <i className="fa-solid fa-chevron-right"></i>
-      </a>
+      </Link>
     </div>
   );
 }
