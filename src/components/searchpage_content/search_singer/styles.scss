@@ -1,0 +1,11 @@
+.list_card_singer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+
+    .card_singer{
+        min-height: 300px;
+        min-width: 200px;
+    }
+}

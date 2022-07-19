@@ -3,7 +3,7 @@ import PlayList from "../body_searchpage/playList/index";
 import ListSinger from "./listSinger/ListSinger";
 import { listItems, listSinger } from "../../../commons/list_item"
 
-export default function SearchBody(props) {
+export default function SearchSinger(props) {
     return (
         <div className="search-body">
             <ResultSearch />
