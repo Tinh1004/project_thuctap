@@ -13,4 +13,12 @@
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+
+  .card_playlist {
+    width: 25%;
+
+    .carousel_playlist {
+      width: 90%;
+    }
+  }
 }
