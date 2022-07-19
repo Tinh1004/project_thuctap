@@ -5,7 +5,7 @@ export default function Songfirt(props) {
     <div>
         <div className='khoinhac'>
             <div className='nhac1'>
-                <img className='hinhto' src={props.imgto} alt={props.alt}></img>
+                <img className='hinhto' src={props.imgto}></img>
                 <div className='ndtrenhinh'>
                     <p className='tentl'>{props.name}</p>
                     <div className='imgnd'>

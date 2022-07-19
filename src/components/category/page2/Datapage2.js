@@ -9,7 +9,7 @@ import h5 from '../../../assets/img/p2h5.jpg'
 import Sidebar from '../../sidebar'
 import Footer from '../../footer'
 import NavBar from '../../navbar'
-
+import { songpage2 } from './data'
 export default function Datapage2() {
   return (
     <>
@@ -24,18 +24,24 @@ export default function Datapage2() {
                   <span className='gradien'></span>
               </div>
               <div className='listtl'> 
-                  <Ctpage2 imgp2={h1} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+              {songpage2.map((item)=>(
+                <Ctpage2 key={item.id} imgp2={item.imgp2} tenbh={item.tenbh} casi={item.casi}></Ctpage2>
+              ))}
+                  {/* <Ctpage2 imgp2={h1} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h2} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h3} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h4} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
-                  <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2> */}
               </div>
               <div className='listtl'>
-                  <Ctpage2 imgp2={h1} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+              {songpage2.map((item)=>(
+                <Ctpage2 key={item.id} imgp2={item.imgp2} tenbh={item.tenbh} casi={item.casi}></Ctpage2>
+              ))}
+                  {/* <Ctpage2 imgp2={h1} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h2} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h3} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h4} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
-                  <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2> */}
               </div>
             </div>
     </div>
