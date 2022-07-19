@@ -9,10 +9,10 @@ export default function MenuProfile() {
   return (
     <div class="bottom_section">
       <MenuTitle />
-      <SongComponent />
-      {/* <Podcast />
-      <Album />
-      <MvComponent /> */}
+      {/* <SongComponent /> */}
+      {/* <Podcast /> */}
+      {/* <Album /> */}
+      {/* <MvComponent /> */}
     </div>
   );
 }

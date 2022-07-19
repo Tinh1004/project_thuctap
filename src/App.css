@@ -353,3 +353,8 @@ html *::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: #6b3483;
 }
+
+.home_content {
+  left: 0;
+  width: 100%;
+}

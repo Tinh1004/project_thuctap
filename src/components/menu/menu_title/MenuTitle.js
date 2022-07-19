@@ -14,17 +14,17 @@ function MenuTitle() {
           </li>
           <li class="navbar_item" onclick="return toggle('podcast')">
             <div class="nav_link">
-              <a href="#">Podcast</a>
+              <Link to="/ca-nhan/podcast">Podcast</Link>
             </div>
           </li>
           <li class="navbar_item" onclick="return toggle('album')">
             <div class="nav_link">
-              <a href="#">Album</a>
+              <Link to="/ca-nhan/album">Album</Link>
             </div>
           </li>
           <li class="navbar_item" onclick="return toggle('mv')">
             <div class="nav_link">
-              <a href="#">MV</a>
+              <Link to="/ca-nhan/mv">MV</Link>
             </div>
           </li>
         </ul>
