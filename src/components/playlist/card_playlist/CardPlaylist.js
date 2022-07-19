@@ -1,8 +1,9 @@
 import React from "react";
+import "../../menu/album/card_album/CardAlbum.scss";
 
 function CardPlaylist() {
   return (
-    <div className="carousel_playlist" onclick="showDetailPlaylist()">
+    <div className="carousel_playlist">
       <div className="image">
         <img
           src="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
