@@ -16,7 +16,7 @@ export default function Search() {
         e.preventDefault();
         // window.alert("input: "+input);
         if(input.trim().length>0){
-            navigate(`/search/tat-ca/${input}`, { replace: true });
+            navigate(`/search/${input}/tat-ca`, { replace: true });
         }else{
             window.alert("Nhập vào");
         }

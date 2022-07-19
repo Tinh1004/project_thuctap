@@ -1,17 +1,14 @@
 import './styles.scss';
-import { useParams } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import SearchBody from "./body_searchpage/index";
-import MenuSearch from "../../components/searchpage_content/menu_top/index";
 
 export default function SearchContent(props) {
-    const { search } = useParams();
     return (
-        <>
-            <div className="search-question">
-                <h2 className="seatch-title">Tìm Kiếm: {search}</h2>
-            </div>
-            <MenuSearch search={search} />
-            <SearchBody/>
-        </>
+        <Routes>
+            <Route path={`/tat-ca`} element={<SearchBody />} />
+            <Route path={`/ca-si`} element={<h1>Ca si</h1>} />
+            <Route path={`/bai-hat`} element={<h1>Bai hat</h1>} />
+            <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
     )
 }
