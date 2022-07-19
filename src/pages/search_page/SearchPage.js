@@ -10,12 +10,12 @@ export default function SearchPage(props) {
     return (
         <AppDefault>
             <section className="home">
-                <Routes>
-                    <Route path="/tat-ca/:search" element={<SearchContent />} />
-                    <Route path="/ca-si/:search" element={<SearchContent />} />
-                    <Route path="/bai-hat/:search" element={<SearchContent />} />
-                    <Route path="*" element={<Navigate to="/"/>}/>
-                </Routes>
+                <div className="search-question">
+                    <h2 className="seatch-title">Tìm Kiếm: {search}</h2>
+                </div>
+                <MenuSearch search={search} />
+                <SearchContent />
+                
             </section>
         </AppDefault>
     )
