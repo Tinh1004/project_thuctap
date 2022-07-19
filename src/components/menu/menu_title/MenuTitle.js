@@ -7,7 +7,7 @@ function MenuTitle() {
     <nav class="navbar">
       <div class="navbar_container">
         <ul class="navbar_menu">
-          <li class="navbar_item active" onclick="return toggle('songs')">
+          <li class={`navbar_item active`} onclick="return toggle('songs')">
             <div class="nav_link">
               <Link to="/ca-nhan/song">Bài hát</Link>
             </div>
