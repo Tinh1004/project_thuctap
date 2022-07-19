@@ -9,12 +9,7 @@ import CategoryPage from './pages/CategoryPage';
 import LoginPage from './pages/LoginPage';
 import { Routes, Route} from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
-<<<<<<< HEAD
 import Datapage2 from './components/category/page2/Datapage2'; 
-=======
-import { Routes, Route, Link } from 'react-router-dom';
-// import ReactFacebookLogin from 'react-facebook-login';
->>>>>>> Thuy
 
 function App() {
   return (
@@ -23,18 +18,23 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
-        <Route path="/page2" element={<Datapage2 />} />
-      <Route path="/search">
-        <Route index element={<HomePage />} />
+      <Route path="/page2" element={<Datapage2 />} />
+
+      <Route path="search/*" element={<SearchPage />} />
+        
+      {/* <Route path="search/*">
+        <Route index element={<SearchPage />} />
         <Route path=":content/*" element={<NotFoundPage />} />
         <Route path="tat-ca/:search" element={<SearchPage />} />
         <Route path="ca-si/:search" element={<SearchSingerPage />} />
         <Route path="bai-hat/:search" element={<SearchSongPage />} />
-      </Route>
+      </Route> */}
+
+
+      
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<RegisterPage/>} />
+      <Route path="/signup" element={<RegisterPage />} />
     </Routes>
-   
   );
 }
 
