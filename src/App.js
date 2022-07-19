@@ -5,14 +5,14 @@ import SearchPage from "./pages/search_page/SearchPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CategoryPage from "./pages/CategoryPage";
 import LoginPage from "./pages/LoginPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 import Datapage2 from "./components/category/page2/Datapage2";
 
 function App() {
   return (
     <Routes>
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="*" element={<Navigate to="/404" />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan/*" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
@@ -22,6 +22,7 @@ function App() {
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
+      <Route path="/404" element={<NotFoundPage />} />
     </Routes>
   );
 }

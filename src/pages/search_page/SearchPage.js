@@ -15,7 +15,6 @@ export default function SearchPage(props) {
                 </div>
                 <MenuSearch search={search} />
                 <SearchContent />
-                
             </section>
         </AppDefault>
     )
