@@ -1,0 +1,50 @@
+.cardPopularArtistContainer{
+    width: 220px;
+    height: 220px;
+    list-style-type: none;
+    margin-right:20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    transition:  .3s linear;
+    background: rgb(238, 238, 238);
+    border-radius: 15px;
+    cursor: pointer;
+    &:hover{
+        background: rgba(230, 230, 230,0.5);
+        -webkit-box-shadow: -2px -1px 19px 2px rgba(0,0,0,0.2); 
+        box-shadow: -2px -1px 19px 2px rgba(0,0,0,0.2);
+            .img{   
+                transform:scale(1.1) ;
+                transition: 600ms;
+            }
+        
+    }
+    .popularArtistItem{
+        padding: 15px 15px 15px 20px;
+        align-items: center;
+        justify-content: space-between;
+        .imageArtist{
+            border-radius: 50%;
+            position: relative;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            .img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+        .info{
+            padding: 10px 10px 20px 25px;
+            line-height: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            
+        }
+    }
+        
+}

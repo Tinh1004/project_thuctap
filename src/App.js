@@ -1,5 +1,5 @@
 import "./App.css";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/profile_page/ProfilePage";
 import SearchPage from "./pages/search_page/SearchPage";
 import NotFoundPage from "./pages/NotFoundPage";
