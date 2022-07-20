@@ -1,4 +1,4 @@
-form.form {
+.form {
     width: 100%;
     min-height: 100vh;
     background-color: #f2f3f5;
@@ -17,7 +17,7 @@ form.form {
  
   }
   
-  form.form h1 {
+  h1 {
     font-size: 30px;
     font-weight: bold;
     color: #373941;
@@ -162,7 +162,7 @@ form.form {
     font-size: 15px;
   }
   
-  form.form p {
+  p {
     color: #999;
     box-sizing: border-box;
     text-align: center;

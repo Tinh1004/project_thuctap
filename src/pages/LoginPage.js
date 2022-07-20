@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import "../login.css";
 import { Link } from "react-router-dom";
-import Facebook from "../components/form_login/FacebookLogin";
 // import Facebook from "../components/form_login/FacebookLogin";
-import Google from "../components/form_login/GoogleLogin"
+
+// import Google from "../components/form_login/GoogleLogin"
+// import Login from "../components/form_login/GoogleLogin"
+
+import { LoginSocialFacebook, LoginSocialGoogle } from "reactjs-social-login";
+import {
+  FacebookLoginButton,
+  GoogleLoginButton,
+} from "react-social-login-buttons";
 
 const LoginPage = () => {
   const [Username, setUsername] = useState("");
@@ -11,37 +18,78 @@ const LoginPage = () => {
 
   const user = {
     username: "test123",
-    password: "12345"
+    password: "12345",
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (Username ===user.username ) {
-      if (password === user.password){
+    if (Username === user.username) {
+      if (password === user.password) {
         console.log("User Loged in");
-      } else{
+      } else {
         console.log("wrong password");
       }
-    } else{
-      console.log("please check username ")
+    } else {
+      console.log("please check username ");
     }
   };
+
+  const [provider, setProvider] = useState("");
+  const [profile, setProfile] = useState("");
+  const googleRef = useRef();
+  const facebookRef = useRef();
+
+  const onLoginStart = useCallback(() => {
+    console.log("login start");
+  }, []);
+
+  const onLogoutFailure = useCallback(() => {
+    console.log("logout fail");
+  }, []);
 
   return (
     <form className="form" onSubmit={submitHandler}>
       <div className="inner-form">
         <h1>Login</h1>
-        {/* <button className="login-fb">
-          <i className="fa fa-facebook login-icon"></i>
-          <span className="login-social-text">Login with Facebook</span>
-        </button> */}
-        <Facebook className="login-fb"/>
-        {/* <button className="login-gg">
-          <i className="fa fa-google login-icon"></i>
-          <span className="login-social-text">Login with Google</span>
-        </button> */}
-        <Google className="login-gg"/>
+
+        <div className={`App ${provider && profile ? "hide" : ""}`}>
+          <LoginSocialFacebook
+            ref={facebookRef}
+            appId={"556246546227879"}
+            onLoginStart={onLoginStart}
+            onResolve={({ provider, data }) => {
+              setProvider(provider);
+              setProfile(data);
+              console.log(data, "data");
+              console.log(provider, "provider");
+            }}
+            onReject={(err) => {
+              console.log(err);
+            }}
+          >
+            <FacebookLoginButton style={{ margin: 10 }} />
+          </LoginSocialFacebook>
+
+          <LoginSocialGoogle
+            ref={googleRef}
+            client_id="1009598528563-a0roh8h4vpdi366hdh9uoqv4qucmct41.apps.googleusercontent.com"
+            onLogoutFailure={onLogoutFailure}
+            onLoginStart={onLoginStart}
+            onResolve={({ provider, data }) => {
+              setProvider(provider);
+              setProfile(data);
+              console.log(data, "data");
+              console.log(provider, "provider");
+            }}
+            onReject={(err) => {
+              console.log("hbhbdhd", err);
+            }}
+          >
+            <GoogleLoginButton />
+          </LoginSocialGoogle>
+        </div>
+
         <div>
           <div className="login-or">
             <span>OR</span>
@@ -54,7 +102,7 @@ const LoginPage = () => {
               type="text"
               className="ls-input"
               placeholder="Email or username"
-              onChange={(e) => setUsername(e.target.value )}
+              onChange={(e) => setUsername(e.target.value)}
               value={Username}
               // required
             />
@@ -72,9 +120,7 @@ const LoginPage = () => {
               />
             </div>
             <Link to="/forgot">
-            <a className="forgot-password">
-              Forgot Password?
-            </a>
+              <a className="forgot-password">Forgot Password?</a>
             </Link>
             <button className="submit" type="submit">
               Login
@@ -90,7 +136,5 @@ const LoginPage = () => {
       </div>
     </form>
   );
-      }
+};
 export default LoginPage;
-
-

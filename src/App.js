@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Datapage2 from "./components/category/page2/Datapage2";
 import ForgotPassword from "./pages/ForgotPassword";
 
+
 function App() {
   return (
     <Routes>
@@ -24,6 +25,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
       <Route path="/forgot" element={<ForgotPassword />} />
+
     </Routes>
   );
 }

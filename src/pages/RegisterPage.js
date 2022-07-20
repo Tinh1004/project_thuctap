@@ -83,7 +83,7 @@ const RegisterPage = () => {
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        {/* <div classname="form-group">
+        <div classname="form-group">
           <label htmlFor="gender" className="label">
             Gender
           </label>
@@ -96,7 +96,7 @@ const RegisterPage = () => {
           <div className="gender">
             <input type="radio" name="gender" defaultValue="other" /> Other
           </div>
-        </div> */}
+        </div>
         <button onClick={() => handleSubmit()} type="submit" className="submit">
           Sign up
         </button>
