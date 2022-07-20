@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import SongItem from "./song_item/CardSongItem";
 
 import image11 from '../../assets/img/image11.png'
-import Artists from "./artists/Artists";
+import Artists from "./artists/artists";
 import {songs} from './song_item/data'
 import NewRelease from "./release/NewRelease";
 import { Link } from "react-router-dom";
