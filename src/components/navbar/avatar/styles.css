@@ -1,6 +1,12 @@
+a{
+    text-decoration: none;
+    color: #000;
+}
 .options{
     position: absolute;
-    top: 80px;
+    width: 200px;
+    top: 75px;
+    right: 20px;
     padding: 20px;
     border-radius: 8px;
     background: #fff;
@@ -31,10 +37,15 @@
 .options .option i{
     font-size: 25px;
     margin-right: 12px;
-
+    text-decoration: none;
 }
 
 .option .option-text{
     font-size:18px;
     color:#333;
 }
+
+.avatar-name{
+    border-bottom: 1px solid var(--sidebar-color);
+}
+

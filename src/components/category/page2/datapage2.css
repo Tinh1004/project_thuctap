@@ -1,0 +1,37 @@
+.box2{
+    width: 1235px;
+    height: 930px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 300px;
+    padding-top: 30px;
+    /* overflow-y:auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; */
+}
+.box2 .hinhto{
+    width: 1235px;
+    height: 360px;
+    position: relative;
+}
+.hinhto .gradien{
+    position: absolute;
+    display: inline-block;
+    width: 1235px;
+    height: 360px;
+    background-image: linear-gradient(#00000000,#ffffff63 );
+}
+.box2 img#banner{
+    position: absolute;
+    width: 1235px;
+    height: 360px;
+}
+.box2 .listtl{
+    width: 1235px;
+    height: auto;
+    margin-top: -30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    position: relative;
+}

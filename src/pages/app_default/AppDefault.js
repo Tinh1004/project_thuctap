@@ -6,10 +6,11 @@ export default function AppDefault({ children }) {
     return (
         <div>
             <div className="bg"></div>
-            <Sidebar />
+            <Sidebar/>
             <NavBar />
             {children}
-            <div style={{height: '70px'}}></div>
+            {/* <div style={{height: '70px'}}></div> */}
+            <div className="trong" style={{height:'70px'}}></div>
             <Footer />
         </div>
     )

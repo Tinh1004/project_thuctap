@@ -13,7 +13,6 @@
 .header-navbar .left{
     height: 100%;
     width: calc(400px + 100px);
-
     display: flex;
     align-items: center;
     justify-content: space-between;

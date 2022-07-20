@@ -1,0 +1,59 @@
+.carousel_playlist {
+  .image {
+    height: 30vh;
+    position: relative;
+
+    .duration {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 4px 8px;
+      background-color: #000000b3;
+      border-radius: 4px;
+      color: #fff;
+
+      span {
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  .name {
+    .media_left {
+      display: flex;
+      width: 100%;
+      height: auto;
+
+      .song_thumb {
+        margin-right: 10px;
+        flex-shrink: 0;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        cursor: pointer;
+
+        .image {
+          width: 40px;
+          height: 40px;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .card_info {
+        display: block;
+        .subtitle {
+          color: #00000099;
+          font-weight: 300;
+          line-height: 1;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

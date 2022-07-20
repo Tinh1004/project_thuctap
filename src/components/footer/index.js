@@ -13,7 +13,6 @@ export default function Footer(props) {
     else
            setSong(song)
   }
-
     return (
         <div className="audio">
             <Songs.Provider value = {{DataSongs, song, handleSetSong }}>
