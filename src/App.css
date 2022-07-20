@@ -136,7 +136,7 @@ h6 {
   --primary-color: #695cfe;
   --primary-color-light: #f6f5ff;
   --toggle-color: #fff;
-  --text-color: #000;
+  --text-color: rgb(0, 0, 0);
 
   /* === transition ===  */
   --tran-02: all 0.2s ease;
@@ -181,10 +181,6 @@ body.dark {
   transition: var(--tran-05);
   z-index: 100;
 }
-/* 
-.sidebar.close {
-    width: 88px;
-} */
 
 /* ==== Resuable CSS ==== */
 .sidebar .text {
@@ -256,30 +252,7 @@ body.dark {
 .header-text .profession {
   margin-top: -2px;
 }
-/* 
-.sidebar header .toggle{
-    position: absolute;
-    top: 50%;
-    right: -25px;
-    transform: translateY(-50%) rotate(180deg);
-    height: 25px;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    transition: var(--tran-04);
-} */
-/* .sidebar.close header .toggle{
-    transform: translateY(-50%);
-} */
 
-body.dark .sidebar header .toggle {
-  color: var(--text-color);
-}
 
 .sidebar .search-box {
   background: var(--primary-color-light);
@@ -345,25 +318,7 @@ body.dark .menu-bar .mode i.moon {
   opacity: 0;
 }
 
-.menu-bar .mode .toggle-switch {
-  position: absolute;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-width: 60px;
-  cursor: pointer;
-  background: var(--primary-color-light);
-}
-.toggle-switch .switch {
-  position: relative;
-  border-radius: 25px;
-  height: 22px;
-  width: 44px;
-  background: var(--toggle-color);
-  cursor: pointer;
-}
+
 .switch::before {
   content: "";
   position: absolute;
@@ -437,9 +392,7 @@ body.dark .switch::before {
   .sidebar {
     width: 88px;
   }
-  .toggle {
-    display: none;
-  }
+
   .sidebar .text {
     opacity: 0;
   }
