@@ -1,5 +1,5 @@
 .box{
-    width: 1560px;
+    width: 1230px;
     height: 930px;
     /* justify-content: center;
     align-items: center; */
@@ -7,7 +7,7 @@
     overflow-y:auto;
     scrollbar-width: none;
     -ms-overflow-style: none; */
-    padding-left: 70px;
+    padding-left: 40px;
 }
 .box .banner{
     width: 1235px;
@@ -40,6 +40,7 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 .box .tl3{
     width: 1235px;
@@ -52,4 +53,5 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: -5px;
+    margin-top: 10px;
 }

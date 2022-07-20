@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "../login.css";
 import { Link } from "react-router-dom";
-function RegisterPage() {
+
+const RegisterPage = () => {
+  const [fullname, setFullname] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    if (id === "fullname") {
+      setFullname(value);
+    }
+    if (id === "email") {
+      setEmail(value);
+    }
+    if (id === "username") {
+      setUsername(value);
+    }
+    if (id === "password") {
+      setPassword(value);
+    }
+  };
+  const handleSubmit = () => {
+    console.log(fullname, email, username, password);
+  };
+
   return (
-    <form>
+    <form className="form">
       <div className="inner-form">
         <h1>Sign up</h1>
         <div className="form-group">
@@ -15,6 +40,8 @@ function RegisterPage() {
             id="fullname"
             className="ls-input"
             placeholder="Eg: Nguyen Van A"
+            value={fullname}
+            onChange={(e) => handleInputChange(e)}
           />
         </div>
         <div className="form-group">
@@ -26,6 +53,8 @@ function RegisterPage() {
             id="email"
             className="ls-input"
             placeholder="Eg: anguyen@gmai.com"
+            value={email}
+            onChange={(e) => handleInputChange(e)}
           />
         </div>
         <div className="form-group">
@@ -33,18 +62,28 @@ function RegisterPage() {
             Username
           </label>
           <input
+            id="username"
             type="text"
             className="ls-input"
-            placeholder="Email or username"
+            placeholder=" username"
+            value={username}
+            onChange={(e) => handleInputChange(e)}
           />
         </div>
         <div className="form-group">
           <label htmlFor="password" className="label">
             Password
           </label>
-          <input type="password" className="ls-input" placeholder="Password" />
+          <input
+            id="password"
+            type="password"
+            className="ls-input"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => handleInputChange(e)}
+          />
         </div>
-        <div classname="form-group">
+        {/* <div classname="form-group">
           <label htmlFor="gender" className="label">
             Gender
           </label>
@@ -57,8 +96,10 @@ function RegisterPage() {
           <div className="gender">
             <input type="radio" name="gender" defaultValue="other" /> Other
           </div>
-        </div>
-        <button className="submit">Sign up</button>
+        </div> */}
+        <button onClick={() => handleSubmit()} type="submit" className="submit">
+          Sign up
+        </button>
         <p className="signup-already">
           <span>Already have an account ?</span>
           <Link to="/login">
@@ -68,5 +109,5 @@ function RegisterPage() {
       </div>
     </form>
   );
-}
+};
 export default RegisterPage;

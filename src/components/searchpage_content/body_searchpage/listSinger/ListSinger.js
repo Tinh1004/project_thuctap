@@ -1,6 +1,6 @@
 import './styles.scss';
-import ListCardItem from './list_card_singer/ListCardItem'
-export default function ListSinger({data}) {
+import ListCardItem from './list_card_singer/ListCardItem';
+export default function ListSinger({ data }) {
     return (
         <div className="playList">
             <div className="top">
@@ -8,7 +8,7 @@ export default function ListSinger({data}) {
                 <span>Tất cả <i className='bx bx-chevron-right icon'></i></span>
             </div>
             <div className="bottom">
-                <ListCardItem array={data}/>
+                <ListCardItem array={data} />
             </div>
         </div>
     )

@@ -32,15 +32,15 @@ export default function Sidebar(props) {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png" alt="logo" />
           </span>
           <div className="text header-text">
-            <span className="name">Pham ngoc Tinh</span>
-            <span className="profession">Web developer</span>
+            <span className="name">Web Name</span>
+            <span className="profession">Web ...</span>
           </div>
         </div>
         {/* <i className='bx bx-chevron-right toggle' onClick={()=>{handleClickSetIsClose()}}></i> */}
       </header>
       <div className="menu-bar">
         <div className="menu">
-          <ListItem data={data}/>
+          <ListItem data={data} />
         </div>
       </div>
     </nav>

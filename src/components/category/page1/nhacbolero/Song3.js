@@ -8,7 +8,7 @@ export default function Song3(props) {
                     <img className='hinhto2' src={props.img3}></img>
                     <div className='icon'>
                         <i className="icon1 fa fa-heart-o" />
-                        <i className="icon2 fa fa-play-circle" onClick="alert('hello')" aria-hidden="true" />
+                        <i className="icon2 fa fa-play-circle" aria-hidden="true" />
                         <i className="icon3 fa fa-ellipsis-h" />
                     </div>
                 </div>
