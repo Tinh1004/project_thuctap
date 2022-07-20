@@ -9,9 +9,9 @@ export default function Songfirt(props) {
                 <div className='ndtrenhinh'>
                     <p className='tentl'>{props.name}</p>
                     <div className='imgnd'>
-                        <img className='hinhnho' src={props.imgnho}></img>
-                        <img className='hinhnho' src={props.imgnho}></img>
-                        <img className='hinhnho' src={props.imgnho}></img>
+                        <img className='hinhnho' src={props.imgnho1}></img>
+                        <img className='hinhnho' src={props.imgnho2}></img>
+                        <img className='hinhnho' src={props.imgnho3}></img>
                     </div>
                 </div>
             </div>
