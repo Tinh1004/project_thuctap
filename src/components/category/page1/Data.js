@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Songfirt from './nhactheochude/Song1';
 import Song01 from '../../../assets/img/Song1.jpg'
 import Song02 from '../../../assets/img/Song2.jpg'
@@ -30,6 +30,7 @@ export default function Data() {
             <div className='ds1'>
                 {song1page.map((item)=>(
                     <Songfirt key={item.id} imgto={item.imgto} name={item.name} imgnho={item.imgnho}></Songfirt>
+                    // <Link key={item.id} to={`/theloai/${id}`}><Songfirt key={item.id} imgto={item.imgto} name={item.name} imgnho={item.imgnho}></Songfirt></Link>
                 ))}
                 {/* <Link to ="/page2"><Songfirt imgto={Song01} name='KHÚC NHẠC VUI' imgnho={hinhnho1}></Songfirt></Link>
                 <Songfirt imgto={Song02} name='GAME' imgnho={hinhnho1}></Songfirt>
