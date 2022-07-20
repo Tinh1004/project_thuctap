@@ -11,7 +11,6 @@ import MvComponent from "../../components/menu/mv/MvComponent";
 
 function ProfileContent() {
   return (
-    // <AppDefault>
     <section className="home home_content ">
       <PlayList />
       <MenuProfile />
@@ -25,7 +24,6 @@ function ProfileContent() {
         </Routes>
       </div>
     </section>
-    // </AppDefault>
   );
 }
 
