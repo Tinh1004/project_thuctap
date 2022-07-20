@@ -11,7 +11,7 @@ export default function ForgotPassword() {
             New Password
           </label>
           <input
-            type="text"
+            type="password"
             className="ls-input"
             placeholder="New Password"
             required
@@ -22,7 +22,7 @@ export default function ForgotPassword() {
             Confirm Password
           </label>
           <input
-            type="text"
+            type="password"
             className="ls-input"
             placeholder="Confirm Password"
             required
