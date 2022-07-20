@@ -11,21 +11,21 @@ import MvComponent from "../../components/menu/mv/MvComponent";
 
 function ProfileContent() {
   return (
-    <AppDefault>
-      <section className="home home_content ">
-        <PlayList />
-        <MenuProfile />
-        <div className="bottom_section">
-          <Routes>
-            <Route index element={<SongComponent />} />
-            <Route path={`/song`} element={<SongComponent />} />
-            <Route path={`/podcast`} element={<Podcast />} />
-            <Route path={`/album`} element={<Album />} />
-            <Route path={`/mv`} element={<MvComponent />} />
-          </Routes>
-        </div>
-      </section>
-    </AppDefault>
+    // <AppDefault>
+    <section className="home home_content ">
+      <PlayList />
+      <MenuProfile />
+      <div className="bottom_section">
+        <Routes>
+          <Route index element={<SongComponent />} />
+          <Route path={`/song`} element={<SongComponent />} />
+          <Route path={`/podcast`} element={<Podcast />} />
+          <Route path={`/album`} element={<Album />} />
+          <Route path={`/mv`} element={<MvComponent />} />
+        </Routes>
+      </div>
+    </section>
+    // </AppDefault>
   );
 }
 
