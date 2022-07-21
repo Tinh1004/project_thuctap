@@ -19,7 +19,7 @@ export default function CardSinger({ handleChangeWidth, item }) {
     return (
         <div className="playList-item" ref={itemRef}>
             <div className="image-item" style={{ height: width, borderRadius: '50%' }}>
-                <img src={item.image} />
+                <img src={item.images[0].url} />
             </div>
             <div className="content-item card_singer_content">
                 <h5>{item.singer}</h5>

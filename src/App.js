@@ -9,8 +9,24 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 import Datapage2 from "./components/category/page2/Datapage2";
 import ForgotPassword from "./pages/ForgotPassword";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDatas } from "./redux/dataSlice/dataSlice";
+import { useEffect } from "react";
+import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
 
 function App() {
+
+  const data = useSelector(dataSelector);
+  const search = useSelector(searchTextSelector);
+
+  console.log(data)
+  console.log(search)
+
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDatas())
+  }, [])
   return (
     <Routes>
       <Route path="*" element={<Navigate to="/404" />} />
@@ -18,7 +34,6 @@ function App() {
       <Route path="/ca-nhan/*" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
       <Route path="/page2" element={<Datapage2 />} />
-
       <Route path="search/:search/*" element={<SearchPage />} />
 
       <Route path="/login" element={<LoginPage />} />
