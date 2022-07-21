@@ -1,10 +1,15 @@
+import * as React from "react";
 import { useRef, useState, useCallback } from "react";
-import "./login.css";
-import { Link } from "react-router-dom";
-// import Facebook from "../components/form_login/FacebookLogin";
-
-// import Google from "../components/form_login/GoogleLogin"
-// import Login from "../components/form_login/GoogleLogin"
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Divider } from "@mui/material";
 
 import { LoginSocialFacebook, LoginSocialGoogle } from "reactjs-social-login";
 import {
@@ -12,30 +17,17 @@ import {
   GoogleLoginButton,
 } from "react-social-login-buttons";
 
+const theme = createTheme();
 
-const Login = () => {
-  const [Username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const user = {
-    username: "test123",
-    password: "12345",
+export default function Login() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      username: data.get("username"),
+      password: data.get("password"),
+    });
   };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (Username === user.username) {
-      if (password === user.password) {
-        console.log("User Loged in");
-      } else {
-        console.log("wrong password");
-      }
-    } else {
-      console.log("please check username ");
-    }
-  };
-
   const [provider, setProvider] = useState("");
   const [profile, setProfile] = useState("");
   const googleRef = useRef();
@@ -50,10 +42,12 @@ const Login = () => {
   }, []);
 
   return (
-    <form className="form" onSubmit={submitHandler}>
-      <div className="inner-form">
-        <h1>Login</h1>
-
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h1" variant="h4" align="center">
+          Login
+        </Typography>
         <div className={`App ${provider && profile ? "hide" : ""}`}>
           <LoginSocialFacebook
             ref={facebookRef}
@@ -89,53 +83,52 @@ const Login = () => {
           >
             <GoogleLoginButton />
           </LoginSocialGoogle>
+          <Divider orientation="horizontal">OR</Divider>
         </div>
-
-        <div>
-          <div className="login-or">
-            <span>OR</span>
-          </div>
-          <div className="form-group">
-            <label htmlFor="username" className="label">
-              Username
-            </label>
-            <input
-              type="text"
-              className="ls-input"
-              placeholder="Email or username"
-              onChange={(e) => setUsername(e.target.value)}
-              value={Username}
-              // required
-            />
-            <div className="form-group">
-              <label htmlFor="password" className="label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="ls-input"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                // required
-              />
-            </div>
-            <Link to="/forgot">
-              <a className="forgot-password">Forgot Password?</a>
-            </Link>
-            <button className="submit" type="submit">
-              Login
-            </button>
-            <p>
-              Don't have an account?
-              <Link to="/signup">
-                <a className="link">Sign Up</a>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="User name"
+            name="username"
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <Grid container>
+            <Grid item xs alignItems="flex-end">
+              <Link href="/forgot" variant="body2" underline="none">
+                Forgot password?
               </Link>
-            </p>
-          </div>
-        </div>
-      </div>
-    </form>
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Login
+          </Button>
+          <Grid container>
+            <Grid item alignItems="center">
+              Don't have an account?
+              <Link href="/signup" variant="body2">
+                {" Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
-};
-export default Login;
+}
