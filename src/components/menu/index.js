@@ -1,6 +1,6 @@
 import Album from "./album/Album";
 import "./Menu.scss";
-import MenuTitle from "./menu_title/MenuTitle";
+import MenuTitle from "./menu_title/MenuTitle.tsx";
 import MvComponent from "./mv/MvComponent";
 import Podcast from "./podcast/Podcast";
 import SongComponent from "./songs/SongComponent";
