@@ -13,6 +13,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
 import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
+import ListPopularSong from "./pages/HomePage/ListPopularSong";
+import ListPopularArtists from "./pages/HomePage/ListPopularArtist";
+
 
 function App() {
 
@@ -31,6 +34,8 @@ function App() {
     <Routes>
       <Route path="*" element={<Navigate to="/404" />} />
       <Route path="/" element={<HomePage />} />
+        <Route path="/list-popular-artist" element={<ListPopularArtists/>} />
+        <Route path="/list-popular-song" element={<ListPopularSong/>} />
       <Route path="/ca-nhan/*" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
       <Route path="/page2" element={<Datapage2 />} />
