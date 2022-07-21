@@ -6,6 +6,7 @@ import DataSongs from "./data/songs.json";
 
 export default function Footer(props) { 
   const [song, setSong] = useState(DataSongs[0])
+  console.log(song)
   const handleSetSong = (idSong) => {
     const song = DataSongs.find(song => song.id === idSong)
     if(!song) 

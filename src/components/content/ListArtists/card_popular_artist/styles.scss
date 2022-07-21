@@ -43,7 +43,11 @@
             line-height: 15px;
             font-size: 18px;
             font-weight: 600;
-            
+            &:hover{
+                color: rgb(137, 137, 255);
+                text-decoration: underline;
+                cursor: pointer;
+            }
         }
     }
         

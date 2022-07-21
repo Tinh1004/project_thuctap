@@ -1,54 +1,44 @@
-.songItem{
-    min-width: 130px;
-    height: 130px;
-    list-style-type: none;
-    margin-right:10px;
-    margin-left: 20px;
-    transition:  .3s linear;
-    // margin-bottom: 20px;
-    &:hover{
-        background: rgb(151, 151, 151);
-    }
-    .img_play{
-        position: relative;
-        width: 140px;
-        height: 130px;
+.songItemContainer{
+    .songItem{
         display: flex;
         align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        .img{
-            width: 100%;
-            height: 100%;
-            // opacity: ;
+        justify-content: space-between;
+        h4{
+            margin-left: 10px;
+            color: black;
+            font-size: 23px;
+            font-weight: 600;
         }
-        .far{
-            position: absolute;
-            font-size: 30px;
-            cursor: pointer;
-            transition:  .3 linear;
-            opacity: 0;
-            color: rgb(255, 255, 255);
-        } 
-        &:hover{
-            .img{
-                transform:scale(1.1) ;
-                background: rgb(0, 0, 0);
-                transition: 600ms;
-                opacity: 0.7;
+        label{
+            background: none;
+            border:none;
+            border-radius: 50%;
+          
+          .fas{
+            color: black;
+            // cursor: pointer;
+            transition: .3s linear;
+          }   
+          &:hover{
+            .btn{
+              color:rgb(221, 221, 221);
+              .fas{
+                color:rgb(221, 221, 221);
+              }
             }
-            .far{
-                opacity: 1; 
-            }
+            transition: 500ms; 
+          }
         }
     }
-    .info{
-        padding: 5px 0px 0px 5px;
-        line-height: 15px;
-        font-size: 12px;
-        .subtitle{
-            font-size: 11px;
-            color: rgb(163, 163, 163);
+    .cardSongItem{
+        width: 100%;
+        height: 180px;
+        margin-bottom: 20px;
+        display: flex;
+        overflow: auto;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar{
+          display: none;
         }
     }
 }
