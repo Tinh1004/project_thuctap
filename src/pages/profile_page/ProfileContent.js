@@ -14,7 +14,7 @@ function ProfileContent() {
     <section className="home home_content ">
       <PlayList />
       <MenuProfile />
-      <div className="bottom_section">
+      {/* <div className="bottom_section">
         <Routes>
           <Route index element={<SongComponent />} />
           <Route path={`/song`} element={<SongComponent />} />
@@ -22,7 +22,7 @@ function ProfileContent() {
           <Route path={`/album`} element={<Album />} />
           <Route path={`/mv`} element={<MvComponent />} />
         </Routes>
-      </div>
+      </div> */}
     </section>
   );
 }
