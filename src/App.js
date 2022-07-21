@@ -18,7 +18,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
-      <Route path="/page2" element={<Datapage2 />} />
+        <Route path="/theloai/page2" element={<Datapage2 />} />
       <Route path="/search">
         <Route index element={<SearchPage />} />
         <Route path=":content/*" element={<SearchPage />} />

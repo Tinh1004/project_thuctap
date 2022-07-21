@@ -43,6 +43,16 @@ export default function Datapage2() {
                   <Ctpage2 imgp2={h4} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
                   <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2> */}
             </div>
+            <div className='listtl'>
+              {songpage2.map((item) => (
+                <Ctpage2 key={item.id} imgp2={item.imgp2} tenbh={item.tenbh} casi={item.casi}></Ctpage2>
+              ))}
+              {/* <Ctpage2 imgp2={h1} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h2} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h3} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h4} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2>
+                  <Ctpage2 imgp2={h5} tenbh='Your Favorite CoffeeHouse' casi='Emilee, Surf Mesa....'></Ctpage2> */}
+            </div>
           </div>
         </section>
         <Footer />
