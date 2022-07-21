@@ -6,8 +6,6 @@ export default function CardPopularArtist() {
       <div className="popularArtistItem">
         <div className="imageArtist">
           <img className="img" src='https://www.spacespeakers.vn/images/HOME/ssg.jpg' alt='imageArtist' />
-          <i className="far fa-play-circle" />
-
         </div>
         <h5 className="info">SpaceSpeaker</h5>
       </div>

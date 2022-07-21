@@ -12,7 +12,7 @@ export const songs = [
     },
     {
         id: 2,
-        img: "https://vanhoaduongpho.com/storage/news/vroom-phat-dan-ra-mat-cua-ric-duoi-mai-nha-95g_1695.jpeg",
+        img: "https://img.theinfluencer.vn/thumb_w/850/uploads/2022/07/Jr5PG0CoIK9ZOahM9HrlrqCELLL25uLwd70pl8tG.png",
         alt: 'Player',
         name:'VROOM',
         subtitle: 'R.I.C ft tlinh',

@@ -1,9 +1,9 @@
 import React from "react";
 import './styles.scss'
 
-export default function SongItem(music) {
+export default function CardSongItem(music) {
   return (
-      <li className="songItem">
+      <li className="cardSong">
         <div className="img_play">
           <img className="img" src={music.img} alt={music.alt} />
           <i className="far fa-play-circle" />
