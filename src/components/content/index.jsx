@@ -4,13 +4,13 @@ import SongItem from "./song_item/SongItem";
 
 import NewRelease from "./release/NewRelease";
 import SongSlide from "./slide/SongSlide";
-import Artists from "./artists/Artists";
+import Artists from "./artists/artists";
 
 export default function Content() {
   return (
     <div className="contentContainer">
       <div className="songSlide">
-          <SongSlide/>
+        <SongSlide/>
       </div>
       <div className="newRelease">
         <NewRelease/>
