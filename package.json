@@ -26,6 +26,7 @@
     "react-social-login-buttons": "^3.6.0",
     "reactjs-social-login": "^2.5.1",
     "sass": "^1.53.0",
+    "utilities": "^1.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
