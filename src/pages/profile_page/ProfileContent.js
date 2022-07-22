@@ -1,13 +1,13 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 
-import AppDefault from "../app_default/AppDefault";
+// import AppDefault from "../app_default/AppDefault";
 import PlayList from "../../components/playlist/index";
 import MenuProfile from "../../components/menu/index";
-import SongComponent from "../../components/menu/songs/SongComponent";
-import Podcast from "../../components/menu/podcast/Podcast";
-import Album from "../../components/menu/album/Album";
-import MvComponent from "../../components/menu/mv/MvComponent";
+// import SongComponent from "../../components/menu/songs/SongComponent";
+// import Podcast from "../../components/menu/podcast/Podcast";
+// import Album from "../../components/menu/album/Album";
+// import MvComponent from "../../components/menu/mv/MvComponent";
 
 function ProfileContent() {
   return (
