@@ -14,6 +14,7 @@ import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
 import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
 
+
 function App() {
 
   const data = useSelector(dataSelector);
@@ -40,6 +41,7 @@ function App() {
       <Route path="/signup" element={<RegisterPage />} />
       <Route path="/404" element={<NotFoundPage />} />
       <Route path="/forgot" element={<ForgotPassword />} />
+
     </Routes>
   );
 }
