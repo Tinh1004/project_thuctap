@@ -95,7 +95,7 @@ export default function Register() {
           >
             Sign Up
           </Button>
-          <Grid container>
+          <Grid container justifyContent="center" display="flex">
             <Grid item>
               Already have an account ?
               <Link href="/login" variant="body2">

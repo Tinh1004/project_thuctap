@@ -47,14 +47,14 @@ export default function ForgotPassword() {
           >
             Save
           </Button>
-          <Grid container>
+          <Grid container justifyContent="center" display="flex">
             <Grid item>
-              <Link href="/login" variant="body2" align="center">
+              <Link href="/login" variant="body2" underline="none">
                 {"Back to Login"}
               </Link>
             </Grid>
           </Grid>
-        </Box> 
+        </Box>
       </Container>
     </ThemeProvider>
   );

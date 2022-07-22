@@ -83,7 +83,9 @@ export default function Login() {
           >
             <GoogleLoginButton />
           </LoginSocialGoogle>
-          <Divider orientation="horizontal">OR</Divider>
+          <Divider orientation="horizontal" sx={{ mt: 2 }}>
+            OR
+          </Divider>
         </div>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -105,8 +107,13 @@ export default function Login() {
             autoComplete="current-password"
           />
           <Grid container>
-            <Grid item xs alignItems="flex-end">
-              <Link href="/forgot" variant="body2" underline="none">
+            <Grid item xs>
+              <Link
+                href="/forgot"
+                variant="body2"
+                underline="none"
+                sx={{ float: "right" }}
+              >
                 Forgot password?
               </Link>
             </Grid>
@@ -119,8 +126,8 @@ export default function Login() {
           >
             Login
           </Button>
-          <Grid container>
-            <Grid item alignItems="center">
+          <Grid container justifyContent="center" display="flex">
+            <Grid item>
               Don't have an account?
               <Link href="/signup" variant="body2">
                 {" Sign Up"}
