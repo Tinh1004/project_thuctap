@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import { Routes, Route} from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import Datapage2 from './components/category/page2/Datapage2'; 
+import Datapage3 from './components/category/page3/Datapage3';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/ca-nhan" element={<ProfilePage />} />
       <Route path="/the-loai" element={<CategoryPage />} />
-        <Route path="/theloai/page2" element={<Datapage2 />} />
+        <Route path="/the-loai/page2" element={<Datapage2 />} />
+        <Route path="/the-loai/page3" element={<Datapage3 />} />
       <Route path="/search">
         <Route index element={<SearchPage />} />
         <Route path=":content/*" element={<SearchPage />} />
