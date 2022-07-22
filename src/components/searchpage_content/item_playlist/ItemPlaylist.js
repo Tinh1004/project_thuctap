@@ -3,11 +3,15 @@ export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
     useEffect(() => {
-        window.addEventListener("resize", () => {
+        const handleResize = () => {
             console.log(itemRef.current.offsetWidth);
             setWidth(itemRef.current.offsetWidth);
             handleChangeWidth(itemRef.current.offsetWidth);
-        })
+        }
+        window.addEventListener("resize", handleResize)
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
     }, [])
 
     return (

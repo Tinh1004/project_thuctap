@@ -12,12 +12,22 @@ export default class Facebook extends Component {
   };
   responseFacebook = (response) => {
     console.log(response);
+    this.setState({
+      auth: true,
+      name: response.name,
+      picture: response.picture.data.url,
+    });
   };
   render() {
     let facebookData;
 
     this.state.auth
-      ? (facebookData = <div>hi</div>)
+      ? (facebookData = (
+          <div>
+            <img src={this.state.picture} alt={this.state.name} />
+            <h2>welcome {this.state.name}</h2>
+          </div>
+        ))
       : (facebookData = (
           <FacebookLogin
             appId="556246546227879"

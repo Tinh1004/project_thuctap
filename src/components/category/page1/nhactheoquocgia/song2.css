@@ -26,14 +26,17 @@
     width: 290px;
     height: 200px;
     position: absolute;
-    padding-left: 25%;
-    padding-top: 40%;
+    /* padding-left: 25%;
+    padding-top: 40%; */
     background-color: #00000058;
     border-radius: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .ndtrenhinh1 span{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     font-size: 28px;
     color: #fff;
     font-weight: bold;

@@ -10,7 +10,7 @@ export default function Content() {
   return (
     <div className="contentContainer">
       <div className="songSlide">
-        <SongSlide/>
+          <SongSlide/>
       </div>
       <div className="newRelease">
         <NewRelease/>

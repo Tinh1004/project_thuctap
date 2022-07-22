@@ -1,21 +1,22 @@
-import React from "react";
-// import ReactDOM from 'react-dom/client';
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
-import { CloseProvider } from "./contexts/CloseContext";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <CloseProvider>
+  <Provider store={store}>
+    <React.StrictMode>
       <Router>
         <App />
       </Router>
-    </CloseProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </Provider>
+
 );
 // ReactDOM.render(
 //   <React.StrictMode>

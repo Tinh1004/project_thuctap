@@ -1,14 +1,26 @@
 import './styles.scss';
-import { useParams } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import SearchBody from "./body_searchpage/index";
+import SearchSong from "./search_song/SearchSong";
+import SearchSinger from "./search_singer/SearchSinger";
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import filterSlice from '../../redux/filterSlice/filterSlice';
 export default function SearchContent(props) {
     const { search } = useParams();
+    const dispatch = useDispatch();
+    useLayoutEffect(() => {
+        dispatch(filterSlice.actions.searchFilterChange(search));
+        console.log("search:", search)
+    }, [])
+
     return (
-        <>
-            <div className="search-question">
-                <h2 className="seatch-title">Tìm Kiếm: {search}</h2>
-            </div>
-            <SearchBody search={search}/>
-        </>
+        <Routes>
+            <Route path={`/tat-ca`} element={<SearchBody />} />
+            <Route path={`/ca-si`} element={<SearchSinger />} />
+            <Route path={`/bai-hat`} element={<SearchSong />} />
+            <Route path={`/playlist`} element={<SearchBody />} />
+            <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
     )
 }

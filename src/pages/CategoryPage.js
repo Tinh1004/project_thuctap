@@ -1,6 +1,8 @@
 import AppDefault from './app_default/AppDefault';
 import Data from '../components/category/page1/Data';
-export default function CategoryPage(props) {
+import { useParams } from 'react-router-dom';
+
+export default function CategoryPage() {
     return (
         <AppDefault>
             <section className="home">
