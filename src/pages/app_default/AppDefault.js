@@ -25,6 +25,7 @@ export default function AppDefault({ children }) {
                     <Route path="the-loai" element={<CategoryPage />} />
                     <Route path="page2" element={<Datapage2 />} />
                     <Route path="search/:search/*" element={<SearchPage />} />
+
                     {/* 
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<RegisterPage />} />
