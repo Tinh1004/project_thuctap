@@ -1,9 +1,9 @@
 .cardSong{
-    width: 150px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     list-style-type: none;
     margin-right:10px;
-    margin-left: 20px;
+    margin-left: 30px;
     transition:  .3s linear;
     
     // margin-bottom: 20px;
@@ -12,8 +12,8 @@
     }
     .img_play{
         position: relative;
-        width: 150px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -27,7 +27,7 @@
         }
         .far{
             position: absolute;
-            font-size: 30px;
+            font-size: 45px;
             cursor: pointer;
             transition:  .3 linear;
             opacity: 0;
@@ -52,9 +52,9 @@
     .info{
         padding: 5px 0px 0px 5px;
         line-height: 15px;
-        font-size: 12px;
+        font-size: 15px;
         .subtitle{
-            font-size: 11px;
+            font-size: 13px;
             color: rgb(163, 163, 163);
             &:hover{
                 color: rgb(104, 104, 231);

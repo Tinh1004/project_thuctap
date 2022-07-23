@@ -8,8 +8,7 @@ export default function HomePage(props) {
   return (
     <AppDefault>
       <section className="home">    
-      <Content/>
-        
+        <Content/> 
       </section>
     </AppDefault>
   );

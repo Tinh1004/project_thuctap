@@ -35,7 +35,31 @@
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  &::-webkit-scrollbar {
+  &::-webkit-scrollbar{
+    width: 6px;
+    height: 10px;
     display: none;
+    color: gray;
+    -webkit-box-shadow: inset 0 0 6px rgba(180, 180, 180, 0.2);
   }
+  @media screen and (max-width: 1024px) and (min-width:740px) {
+    .songItem{ 
+      h4{
+        font-size: 20px;
+      }
+    }
+   
+    &::-webkit-scrollbar{
+      display:initial;
+    }
+    &::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+      background-color: rgba(199, 199, 199,0.5);
+    }
+
+  }
+  @media screen and (max-width:740px) {
+    
+  }
+  
 }
