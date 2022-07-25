@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 export const searchTextSelector = (state) => state.filter.search;
 export const dataSelector = (state) => state.data.array;
 export const songSelector = (state) => state.data.song;
-export const idSongSelector = (state) => state.data.id;
+// export const idSongSelector = (state) => state.data.id;
 
 
 export const arraySearchSong = createSelector(
@@ -44,13 +44,15 @@ export const arraySearchSinger = createSelector(
     }
 );
 
-export const nextSongAudio = createSelector(
-    songSelector,idSongSelector, (songAudio, idSongAudio) => {
-            return songAudio.filter((item) => {
-                if ( item.id === idSongAudio) {
-                    return item.url
-                }
-            })
-    }
+// export const nextSongAudio = createSelector(
+//     songSelector,idSongSelector, (songAudio, idSongAudio) => {
+//             return songAudio.find((item) => {
+//                 if ( item.id === idSongAudio) {
+//                     return item.url
+//                 }
+//             })
+//     }
 
-) 
+// ) 
+
+// export const nextSongAudio = createSelector()

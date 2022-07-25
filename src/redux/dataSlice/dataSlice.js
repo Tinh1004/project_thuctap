@@ -1,23 +1,34 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-
 export default createSlice({
     name: 'data',
     initialState: {
         status: 'idle',
         array: [],
         song: {},
-        id: 0
     },
     reducers: {
         audioPlayerNextSong: (state, action) => {
-            state.id = action.payload
+            if (action.payload >= state.array.length){
+                state.song = state.array[0]
+            }
+            else {
+                const currentSong = state.array.filter(song => song.id === action.payload);
+                state.song = currentSong[0]
+            }
         },
         audioPlayerPreSong: (state,action) => {
-            state.id = action.payload
+            if (action.payload < 0){
+                state.song = state.array.length - 1;
+                state.song = state.array[83]
+            }
+            else {
+                const currentSong = state.array.filter(song => song.id === action.payload);
+                state.song = currentSong[0]
+            }
         }
     },
- 
+
     extraReducers: builder => {
         builder
             .addCase(fetchDatas.pending, (state, action) => {
@@ -41,3 +52,6 @@ export const fetchDatas = createAsyncThunk('data/fetchDatas', async () => {
     let stringData = JSON.stringify(dataFile);
     return stringData;
 })
+
+
+

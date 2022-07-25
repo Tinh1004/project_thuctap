@@ -10,7 +10,7 @@ export default function ReleaseItem(props) {
             <br/>
             <div className='subtitle'>{props.subtitle}</div>
         </h6>
-
+        <i className="fas fa-align-justify" />
     </div>
   )
 }

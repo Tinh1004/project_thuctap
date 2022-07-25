@@ -53,7 +53,7 @@
           }
          
           &::-webkit-scrollbar{
-            display:initial;
+            display:initial;  
           }
           &::-webkit-scrollbar-thumb{
             border-radius: 10px;
@@ -62,8 +62,22 @@
 
         }
         @media screen and (max-width:740px) {
-          
+          .songItem{ 
+            h4{
+              font-size: 17px;
+            }
+          }
+         
+          &::-webkit-scrollbar{
+            display:initial;  
+          }
+          &::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            background-color: rgba(199, 199, 199,0.5);
+          }
+
         }
+        
         
     }
 }
