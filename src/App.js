@@ -14,6 +14,10 @@ import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
 import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
+// import Datapage2 from "./components/category/page2/Datapage2";
+import ChangePassword from "./pages/ChangePassword";
+import ForgotPasswordPage from "./pages/ForgotPassword";
+
 
 function App() {
 
@@ -41,7 +45,9 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
       <Route path="/404" element={<NotFoundPage />} />
-      <Route path="/forgot" element={<ForgotPassword />} />
+      <Route path="/forgot" element={<ForgotPasswordPage />} />
+      <Route path="/change" element={<ChangePassword />} />
+
     </Routes>
   );
 }

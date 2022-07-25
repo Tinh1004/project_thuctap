@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -13,9 +14,85 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
+import Form from "../utilities/Form";
 
 const theme = createTheme();
 export default function Register() {
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [validate, setValidate] = useState({});
+
+  const user = {
+    fullName: "Pham Ngoc Tinh",
+    email: "ngoctinhxx1@gmail.com",
+    userName: "ngoctinh1",
+    password: "123456",
+    gender: "Male",
+  };
+
+  const validateRegister = () => {
+    let isValid = true;
+
+    let validator = Form.validator({
+      fullname: {
+        value: fullname,
+        isRequired: true,
+      },
+      email: {
+        value: email,
+        isRequired: true,
+        isEmail: true,
+      },
+      username: {
+        value: username,
+        isRequired: true,
+      },
+      password: {
+        value: password,
+        isRequired: true,
+        minLength: 6,
+      },
+    });
+
+    if (validator !== null) {
+      setValidate({
+        validate: validator.errors,
+      });
+      isValid = false;
+    }
+    return isValid;
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+
+    const validate = validateRegister();
+    if (fullname === user.fullName) {
+      if (email === user.email) {
+        if (username === user.username) {
+          if (password === user.password) {
+            console.log("User Loged in");
+          } else {
+            console.log("wrong password");
+          }
+        } else {
+          console.log("please check username ");
+        }
+      }
+    }
+
+    if (validate) {
+      console.log("Successfully Register User" + username);
+      setValidate({});
+      setFullname("");
+      setEmail("");
+      setUsername("");
+      setPassword("");
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -23,7 +100,13 @@ export default function Register() {
         <Typography component="h1" variant="h4" align="center">
           Sign Up
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={register}
+          autoComplete={"off"}
+          noValidate
+          sx={{ mt: 1 }}
+        >
           <TextField
             margin="normal"
             required
@@ -35,15 +118,29 @@ export default function Register() {
             autoFocus
           />
           <TextField
+            className={`form-control ${
+              validate.validate && validate.validate.email ? "is-invalid " : ""
+            }`}
             margin="normal"
             required
             fullWidth
             id="email"
             label="Email"
             name="email"
-            autoComplete="email"
-            autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
+          <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.email
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.email
+              ? validate.validate.email[0]
+              : ""}
+          </div>
           <TextField
             margin="normal"
             required
@@ -95,7 +192,7 @@ export default function Register() {
           >
             Sign Up
           </Button>
-          <Grid container>
+          <Grid container justifyContent="center" display="flex">
             <Grid item>
               Already have an account ?
               <Link href="/login" variant="body2">

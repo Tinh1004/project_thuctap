@@ -16,18 +16,11 @@ import {
   FacebookLoginButton,
   GoogleLoginButton,
 } from "react-social-login-buttons";
+// import Form from "../utilities/Form";
 
 const theme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get("username"),
-      password: data.get("password"),
-    });
-  };
   const [provider, setProvider] = useState("");
   const [profile, setProfile] = useState("");
   const googleRef = useRef();
@@ -40,6 +33,7 @@ export default function Login() {
   const onLogoutFailure = useCallback(() => {
     console.log("logout fail");
   }, []);
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -83,30 +77,44 @@ export default function Login() {
           >
             <GoogleLoginButton />
           </LoginSocialGoogle>
-          <Divider orientation="horizontal">OR</Divider>
+          <Divider orientation="horizontal" sx={{ mt: 2 }}>
+            OR
+          </Divider>
         </div>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+         
+          noValidate
+          sx={{ mt: 1 }}
+        >
           <TextField
             margin="normal"
+            
             required
             fullWidth
             id="username"
             label="User name"
             name="username"
+           
           />
           <TextField
-            margin="normal"
+          margin="normal"
             required
             fullWidth
             name="password"
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
           />
+
           <Grid container>
-            <Grid item xs alignItems="flex-end">
-              <Link href="/forgot" variant="body2" underline="none">
+            <Grid item xs>
+              <Link
+                href="/forgot"
+                variant="body2"
+                underline="none"
+                sx={{ float: "right" }}
+              >
                 Forgot password?
               </Link>
             </Grid>
@@ -119,8 +127,8 @@ export default function Login() {
           >
             Login
           </Button>
-          <Grid container>
-            <Grid item alignItems="center">
+          <Grid container justifyContent="center" display="flex">
+            <Grid item>
               Don't have an account?
               <Link href="/signup" variant="body2">
                 {" Sign Up"}
