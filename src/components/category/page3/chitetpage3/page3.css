@@ -41,6 +41,7 @@
 .tentl i{
     color: black;
     font-size: 13px;
+    cursor: pointer;
 }
 .tentl i:hover{
     color: chocolate;

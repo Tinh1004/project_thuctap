@@ -51,9 +51,9 @@ export default function Data() {
                     // <Link key={item.id} to={`/theloai/${id}`}><Songfirt key={item.id} imgto={item.imgto} name={item.name} imgnho={item.imgnho}></Songfirt></Link>
                 ))} */}
                 <Link to ="/the-loai/page2"><Songfirt imgto={cfto} name='COFFEE' imgnho1={cfnho1} imgnho2={cfnho2} imgnho3={cfnho3}></Songfirt></Link>
-                <Link to="/the-loai/page2"><Songfirt imgto={Song02} name='GAME' imgnho1={g1} imgnho2={g2} imgnho3={g3}></Songfirt></Link>
-                <Link to="/the-loai/page2"><Songfirt imgto={Song03} name='RUNNING' imgnho1={r1} imgnho2={r2} imgnho3={r3}></Songfirt></Link>
-                <Link to="/the-loai/page3"><Songfirt imgto={Song04} name='RELAX' imgnho1={w1} imgnho2={w2} imgnho3={w3}></Songfirt></Link>
+                <Link to ="/the-loai/page2"><Songfirt imgto={Song02} name='GAME' imgnho1={g1} imgnho2={g2} imgnho3={g3}></Songfirt></Link>
+                <Link to ="/the-loai/page2"><Songfirt imgto={Song03} name='RUNNING' imgnho1={r1} imgnho2={r2} imgnho3={r3}></Songfirt></Link>
+                <Link to ="/the-loai/page3"><Songfirt imgto={Song04} name='RELAX' imgnho1={w1} imgnho2={w2} imgnho3={w3}></Songfirt></Link>
             </div>
         </div>
         <div className='tl2'>
