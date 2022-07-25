@@ -1,6 +1,6 @@
 import React from 'react'
-import Ctpage2 from './chitetpage2/Ctpage2'
-import './datapage2.css'
+import Ctpage2 from './chitetpage3/Ctpage3'
+import './datapage3.css'
 import h1 from '../../../assets/img/p2h1.jpg'
 import h2 from '../../../assets/img/p2h2.jpg'
 import h3 from '../../../assets/img/p2h3.jpg'
@@ -20,7 +20,7 @@ export default function Datapage2() {
         <section className="home">
           <div className='box2'>
             <div className='hinhto'>
-              <img id='banner' src="https://photo-zmp3.zmdcdn.me/cover/9/5/3/4/9534e6652f113fc11d79247f5cdd69dd.jpg"></img>
+              <img id='banner' src="https://photo-zmp3.zmdcdn.me/cover/d/f/b/2/dfb2357709d81574da689144f0348c78.jpg"></img>
               <span className='gradien'></span>
             </div>
             <div className='listtl'>

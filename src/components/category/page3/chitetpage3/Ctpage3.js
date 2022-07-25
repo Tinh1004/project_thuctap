@@ -1,5 +1,5 @@
 import React from 'react'
-import './page2.css'
+import './page3.css'
 export default function Ctpage2(props) {
   return (
     <div>

@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "@reduxjs/toolkit": "^1.8.3",
+    "@mui/styled-engine-sc": "^5.8.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -32,6 +33,7 @@
     "redux": "^4.2.0",
     "sass": "^1.53.0",
     "utilities": "^1.0.6",
+    "styled-components": "^5.3.5",
     "vm-browserify": "^1.1.2",
     "web-vitals": "^2.1.4"
   },
