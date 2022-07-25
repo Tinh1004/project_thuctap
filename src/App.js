@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
+import FormPlaylist from "./pages/FormPlaylist";
 import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
 
 
@@ -36,6 +37,7 @@ function App() {
       <Route path="/the-loai" element={<CategoryPage />} />
       <Route path="/page2" element={<Datapage2 />} />
       <Route path="search/:search/*" element={<SearchPage />} />
+      <Route path="/tao-playlist" element={<FormPlaylist />} />
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />

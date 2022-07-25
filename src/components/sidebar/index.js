@@ -19,7 +19,7 @@ const data = [
   {
     title: "Tạo playlist",
     icon: <i className='bx bx-plus icon'></i>,
-    url: "/dsdsa"
+    url: "/tao-playlist"
   }
 ]
 

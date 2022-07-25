@@ -21,9 +21,11 @@ import { Link } from 'react-router-dom';
 import { song1page } from './datacategory';
 import { song2page } from './datacategory';
 import { song3page } from './datacategory';
+import { Modal } from 'bootstrap';
 export default function Data() {
   return (
     <div className='box'>
+        
         <img className='banner' src="https://photo-zmp3.zmdcdn.me/cover/f/d/1/5/fd1597b58c06b161a37a7d1fb77176c1.jpg" alt="" />
         <div className='tl1'>
             <p className='chude'>Tâm Trạng Và Hoạt Động</p>
@@ -63,6 +65,7 @@ export default function Data() {
                 <Song3 img3={tt5} tenbh='Miền Trung Ngàn Năm Biển Đợi' casi='Che Linh, Son Tuyen...'></Song3> */}
             </div>
         </div>
+        
         <div className='tl3'>
             <p className='chude'> Nhạc Bolero</p>
             <div className="ds3">
