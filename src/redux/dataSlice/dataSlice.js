@@ -6,7 +6,7 @@ export default createSlice({
     initialState: {
         status: 'idle',
         array: [],
-       
+        song: ""
     },
     reducers: {
 
@@ -18,8 +18,12 @@ export default createSlice({
             })
             .addCase(fetchDatas.fulfilled, (state, action) => {
                 state.status = 'idle';
-                // console.log(action);
-                state.array = JSON.parse(action.payload);
+                // console.log(action);\
+                const data = JSON.parse(action.payload)
+                state.array = data;
+                if (data.length > 0) {
+                    state.song = data[0].url;
+                }
             })
     }
 

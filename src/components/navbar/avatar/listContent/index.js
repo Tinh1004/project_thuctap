@@ -11,6 +11,12 @@ export default function ListContent({ isClick }) {
                 <span className="option-text">Cá nhân</span>
             </li>
             <li className="option">
+                <Link to="/change">
+                <i className=''></i>
+                <span className='option-text'>Đổi mật khẩu</span>
+                </Link>
+            </li>
+            <li className="option">
                 <Link to={`/login`}>   
                     <i className="bx bx-log-out"></i>
                     <span className="option-text">Đăng xuất</span>

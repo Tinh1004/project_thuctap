@@ -1,42 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import ForgotPassword from '../components/form_forgot/ForgotPassword';
+// import ForgotPassword from '../components/form_forgot/forgot';
 
-export default function ForgotPassword() {
-  return (
-    <form className="form">
-      <div className="inner-form">
-        <h1>Forgot Password</h1>
-        <div className="form-group">
-          <label htmlFor="password" className="label">
-            New Password
-          </label>
-          <input
-            type="password"
-            className="ls-input"
-            placeholder="New Password"
-            required
-          />
+export default function ForgotPasswordPage(props) {
+    return (
+        <div>
+            <form>
+                <ForgotPassword></ForgotPassword>
+            </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="password" className="label">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="ls-input"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-        <button className="submit" type="submit">
-          Save
-        </button>
-        <p> 
-              <Link to="/login">
-                <a className="link">Back to Login</a>
-              </Link>
-            </p>
-      </div>
-    </form>
-  );
+
+    )
 }
