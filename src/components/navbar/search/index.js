@@ -6,19 +6,29 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { dataSelector } from "../../../redux/selectors";
+import { Button, FormControl, InputAdornment, InputBase } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search() {
     const [input, setInput] = useState("");
     let navigate = useNavigate();
     const inputRef = useRef();
     const dispatch = useDispatch();
+    let data = useSelector(dataSelector);
+
 
     const handleClearInput = () => {
         setInput("");
     }
     const handleChangeInput = (e) => {
         console.log(e.target.value)
-        setInput(e.target.value);
+        if (e.target.value === 0) {
+            setInput(data[e.target.value].name);
+        }
+        else {
+            setInput(e.target.value);
+
+        }
     }
 
     const handleSubmitForm = (e) => {
@@ -32,12 +42,9 @@ export default function Search() {
         }
     }
 
-    let data = useSelector(dataSelector);
-
-
     return (
         <form className="search" onSubmit={handleSubmitForm}>
-            <Stack spacing={2} sx={{ width: 400, height: 35, padding: 0 }}>
+            <Stack spacing={2} sx={{ width: 400, padding: 0 }}>
                 <Autocomplete
                     sx={{ padding: 0 }}
                     freeSolo
@@ -46,26 +53,51 @@ export default function Search() {
                     options={data.map((option) => option.name)}
                     getOptionLabel={(option) => {
                         console.log("option: ", option);
-                        // setInput(option);
                         return (option ? option : "");
                     }}
                     value={input}
                     onChange={handleChangeInput}
                     renderInput={(params) => (
                         <TextField
+                            className="input-search"
                             sx={{ padding: 0 }}
                             {...params}
-                            label="Search"
+                            label="Search..."
                             InputProps={{
                                 ...params.InputProps,
                                 type: 'search',
                                 style: {
-                                    padding: 0,
                                     fontSize: 16,
-                                }
-                            }}
+                                    padding: 0,
+                                    paddingLeft: 10,
+                                    borderRadius: 50,
+                                },
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <Button
+                                            disabled={false}
+                                            size="small"
+                                            type="submit"
+                                            sx={{
+                                                // color: '#f91880',
+                                                borderRadius: 25,
+                                                cursor: 'pointer',
+                                                '&:disabled': {
+                                                    color: '#999ea3',
+                                                },
+                                            }}
+                                        >
+                                            <SearchIcon />
+                                        </Button>
+                                    </InputAdornment>)
+
+                            }
+
+                            }
+
                         />
                     )}
+
                 />
             </Stack>
         </form>

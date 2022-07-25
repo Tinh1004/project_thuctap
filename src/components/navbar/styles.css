@@ -170,3 +170,7 @@
 .avatar .avatar-name p {
     text-align: center;
 }
+
+.input-search label{
+    top: -7px;
+}
