@@ -3,7 +3,6 @@ import rl2 from '../../../assets/img/rl2.jpg'
 import rl3 from '../../../assets/img/rl3.jpg'
 import rl4 from '../../../assets/img/rl4.jpg'
 import rl5 from '../../../assets/img/rl5.jpg'
-import { Link } from 'react-router-dom'
 export const songpage2=[
     {
         id:1,
