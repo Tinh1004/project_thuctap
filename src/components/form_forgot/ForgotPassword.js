@@ -58,6 +58,7 @@ export default function ForgotPassword() {
         </Typography>
         <Box
           component="form"
+          method="POST"
           onSubmit={forgotPassword}
           autoComplete={"off"}
           noValidate

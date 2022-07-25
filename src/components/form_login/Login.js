@@ -16,7 +16,7 @@ import {
   FacebookLoginButton,
   GoogleLoginButton,
 } from "react-social-login-buttons";
-// import Form from "../utilities/Form";
+import Form from "../utilities/Form";
 
 const theme = createTheme();
 
@@ -34,7 +34,46 @@ export default function Login() {
     console.log("logout fail");
   }, []);
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [validate, setValidate] = useState({});
 
+  const validateforgotPassword = () => {
+    let isValid = true;
+
+    let validator = Form.validator({
+      username: {
+        value: username,
+        isRequired: true,
+      },
+      password: {
+        value: password,
+        isRequired: true,
+        minLength: 6,
+      },
+    });
+
+    if (validator !== null) {
+      setValidate({
+        validate: validator.errors,
+      });
+
+      isValid = false;
+    }
+    return isValid;
+  };
+  const login = (e) => {
+    e.preventDefault();
+
+    const validate = validateforgotPassword();
+
+    if (validate) {
+      console.log("Successfully Login " + username);
+      setValidate({});
+      setUsername("");
+      setPassword("");
+    }
+  };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -44,6 +83,7 @@ export default function Login() {
         </Typography>
         <div className={`App ${provider && profile ? "hide" : ""}`}>
           <LoginSocialFacebook
+          
             ref={facebookRef}
             appId={"556246546227879"}
             onLoginStart={onLoginStart}
@@ -57,7 +97,7 @@ export default function Login() {
               console.log(err);
             }}
           >
-            <FacebookLoginButton style={{ margin: 10 }} />
+            <FacebookLoginButton justifyContent="center" display="flex" style={{ margin: 10 }} />
           </LoginSocialFacebook>
 
           <LoginSocialGoogle
@@ -75,7 +115,7 @@ export default function Login() {
               console.log("hbhbdhd", err);
             }}
           >
-            <GoogleLoginButton />
+            <GoogleLoginButton justifyContent="center" display="flex"/>
           </LoginSocialGoogle>
           <Divider orientation="horizontal" sx={{ mt: 2 }}>
             OR
@@ -83,30 +123,60 @@ export default function Login() {
         </div>
         <Box
           component="form"
-         
+          onSubmit={login}
+          autoComplete={"off"}
           noValidate
           sx={{ mt: 1 }}
         >
           <TextField
             margin="normal"
-            
+            className={`form-control ${
+              validate.validate && validate.validate.username ? "is-invalid " : ""
+            }`}
             required
             fullWidth
             id="username"
             label="User name"
             name="username"
-           
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
+          <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.username
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.username
+              ? validate.validate.username[0]
+              : ""}
+          </div>
           <TextField
-          margin="normal"
+            margin="normal"
+            className={`form-control ${
+              validate.validate && validate.validate.password ? "is-invalid " : ""
+            }`}
             required
             fullWidth
             name="password"
             label="Password"
             type="password"
             id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-
+           <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.password
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.password
+              ? validate.validate.password[0]
+              : ""}
+          </div>
           <Grid container>
             <Grid item xs>
               <Link

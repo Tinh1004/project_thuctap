@@ -24,13 +24,13 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [validate, setValidate] = useState({});
 
-  const user = {
-    fullName: "Pham Ngoc Tinh",
-    email: "ngoctinhxx1@gmail.com",
-    userName: "ngoctinh1",
-    password: "123456",
-    gender: "Male",
-  };
+  // const user = {
+  //   fullname: "Pham Ngoc Tinh",
+  //   email: "ngoctinhxx1@gmail.com",
+  //   userName: "ngoctinh1",
+  //   password: "123456",
+  //   gender: "Male",
+  // };
 
   const validateRegister = () => {
     let isValid = true;
@@ -69,19 +69,19 @@ export default function Register() {
     e.preventDefault();
 
     const validate = validateRegister();
-    if (fullname === user.fullName) {
-      if (email === user.email) {
-        if (username === user.username) {
-          if (password === user.password) {
-            console.log("User Loged in");
-          } else {
-            console.log("wrong password");
-          }
-        } else {
-          console.log("please check username ");
-        }
-      }
-    }
+    // if (fullname === user.fullName) {
+    //   if (email === user.email) {
+    //     if (username === user.username) {
+    //       if (password === user.password) {
+    //         console.log("User Loged in");
+    //       } else {
+    //         console.log("wrong password");
+    //       }
+    //     } else {
+    //       console.log("please check username ");
+    //     }
+    //   }
+    // }
 
     if (validate) {
       console.log("Successfully Register User" + username);
@@ -103,20 +103,38 @@ export default function Register() {
         <Box
           component="form"
           onSubmit={register}
+          method="POST"
           autoComplete={"off"}
           noValidate
           sx={{ mt: 1 }}
         >
           <TextField
             margin="normal"
+            className={`form-control ${
+              validate.validate && validate.validate.fullname
+                ? "is-invalid "
+                : ""
+            }`}
             required
             fullWidth
             id="fullname"
             label="Full Name"
             name="fullname"
-            autoComplete="fullname"
-            autoFocus
+            value={fullname}
+            onChange={(e) => setFullname(e.target.value)}
           />
+          <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.fullname
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.fullname
+              ? validate.validate.fullname[0]
+              : ""}
+          </div>
+
           <TextField
             className={`form-control ${
               validate.validate && validate.validate.email ? "is-invalid " : ""
@@ -141,26 +159,56 @@ export default function Register() {
               ? validate.validate.email[0]
               : ""}
           </div>
+
           <TextField
             margin="normal"
+            className={`form-control ${
+              validate.validate && validate.validate.username ? "is-invalid " : ""
+            }`}
             required
             fullWidth
             id="username"
             label="User name"
             name="username"
-            autoComplete="username"
-            autoFocus
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
+          <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.username
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.username
+              ? validate.validate.username[0]
+              : ""}
+          </div>
           <TextField
             margin="normal"
+            className={`form-control ${
+              validate.validate && validate.validate.password ? "is-invalid " : ""
+            }`}
             required
             fullWidth
             name="password"
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
+           <div
+            className={`invalid-feedback text-start ${
+              validate.validate && validate.validate.password
+                ? "d-block"
+                : "d-none"
+            }`}
+          >
+            {validate.validate && validate.validate.password
+              ? validate.validate.password[0]
+              : ""}
+          </div>
           <FormControl>
             <FormLabel id="demo-row-radio-buttons-group-label">
               Gender
