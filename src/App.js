@@ -21,7 +21,6 @@ function App() {
 
   const data = useSelector(dataSelector);
   const search = useSelector(searchTextSelector);
-
   console.log(data)
   console.log(search)
 
@@ -30,6 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchDatas())
   }, [])
+
   return (
     <Routes>
       <Route path="/*" element={<AppDefault />} />

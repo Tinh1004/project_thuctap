@@ -15,7 +15,7 @@ export default function SearchSinger(props) {
             {array.length !== 0 ? (
                 <>
                     <ResultSearch />
-                    <ListSinger data={listSinger} />
+                    <ListSinger />
                 </>
             ) : (
                 <div className="search-not_found">

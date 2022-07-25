@@ -26,7 +26,7 @@ export const arraySearchSong = createSelector(
 
 export const arraySearchSinger = createSelector(
     dataSelector,
-    
+    searchTextSelector,
     (data, searchText) => {
         let array = [];
         data.filter((todo) => {
@@ -40,6 +40,7 @@ export const arraySearchSinger = createSelector(
                 }
             }
         })
+
         return array;
     }
 );
@@ -53,6 +54,6 @@ export const arraySearchSinger = createSelector(
 //             })
 //     }
 
-// ) 
+// )
 
 // export const nextSongAudio = createSelector()
