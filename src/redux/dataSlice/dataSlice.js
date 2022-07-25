@@ -19,8 +19,7 @@ export default createSlice({
         },
         audioPlayerPreSong: (state,action) => {
             if (action.payload < 0){
-                state.song = state.array.length - 1;
-                state.song = state.array[83]
+                state.song = state.array[state.array.length - 1]
             }
             else {
                 const currentSong = state.array.filter(song => song.id === action.payload);
