@@ -7,9 +7,9 @@ export default function NavBar(props) {
   const [scroll, setScroll] = useState(false)
   const navRef = useRef();
   useEffect(() => {
-
     document.addEventListener("scroll", () => {
-      const scrollCheck = window.scrollY >= 60;
+      const scrollCheck = window.scrollY >= 10;
+      console.log('remove');
       setScroll(scrollCheck);
     })
 
@@ -22,7 +22,7 @@ export default function NavBar(props) {
 
 
   return (
-    <div class={`header-navbar ${scroll ? "header-navbar-scroll" : " "}`} ref={navRef}>
+    <div className={`header-navbar ${scroll ? "header-navbar-scroll" : " "}`} ref={navRef}>
       <div className="left">
         <BackToIcon />
         <Search />

@@ -4,10 +4,8 @@ import AppDefault from '../app_default/AppDefault'
 
 export default function ListPopularArtists() {
   return (
-    <AppDefault>
-      <section className="home">
-        <ListPopularArtistItem/>    
-      </section>
-    </AppDefault>
+    <section className="home">
+      <ListPopularArtistItem />
+    </section>
   )
 }
