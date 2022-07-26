@@ -13,6 +13,7 @@ export const arraySearchSong = createSelector(
         data.filter((todo) => {
             if (todo.name.toUpperCase().includes(searchText.toUpperCase()) || todo.author.toUpperCase().includes(searchText.toUpperCase())) {
                 array.push({
+                    id: todo.id,
                     title: todo.name,
                     images: todo.links.images,
                     singer: todo.author,

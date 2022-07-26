@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import dataSlice from "../../../../redux/dataSlice/dataSlice";
 
 export default function ItemResutlSong({ item }) {
     const [duration, setDuration] = useState(0);
     console.log(duration);
+
+    const dispatch = useDispatch();
+
+    const handleChangeSong = (id) => {
+        dispatch(dataSlice.actions.audioChangeSong(id))
+    }
 
     const getVal = (audio) => {
         var val = audio.duration;
@@ -24,7 +32,7 @@ export default function ItemResutlSong({ item }) {
 
 
     return (
-        <div className="results-item">
+        <div className="results-item" onClick={() => { handleChangeSong(item.id) }}>
             <div className="item-content">
                 <div className="image-item">
                     <div className="khongtrong"></div>

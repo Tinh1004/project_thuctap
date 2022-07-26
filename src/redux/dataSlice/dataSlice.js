@@ -27,10 +27,11 @@ export default createSlice({
                 state.song = currentSong[0]
             }
         },
-        changeSong: (state, action) => {
+        audioChangeSong: (state, action) => {
             const currentSong = state.array.filter(song => song.id === action.payload);
             state.song = currentSong[0]
-        },
+        }
+
     },
 
     extraReducers: builder => {
