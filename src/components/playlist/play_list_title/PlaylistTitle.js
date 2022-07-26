@@ -32,7 +32,7 @@ function PlaylistTitle() {
           </IconButton>
         </Tooltip>
       </Typography>
-      <Link to="/ca-nhan/library">
+      <Link to="/ca-nhan/library/playlist">
         <Typography
           sx={{
             display: "flex",
