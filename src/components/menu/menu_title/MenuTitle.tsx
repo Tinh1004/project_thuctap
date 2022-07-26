@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Tab, { TabActive } from "../../../commons/Tab";
 
-import SongComponent from "../songs/SongComponent";
+import SongComponent from "../songs/SongComponent.tsx";
 import Podcast from "../podcast/Podcast";
 import Album from "../album/Album";
 import MvComponent from "../mv/MvComponent";
@@ -36,7 +36,11 @@ function MenuTitle({ arrayData }) {
         {isSelectedSong ? (
           <TabActive onClick={() => navigate("/ca-nhan/song")} text="Song" />
         ) : (
-          <Tab onClick={() => navigate("/ca-nhan/song")} text="Song" />
+          <Tab
+            active={false}
+            onClick={() => navigate("/ca-nhan/song")}
+            text="Song"
+          />
         )}
 
         {isSelectedPodcast ? (
@@ -45,19 +49,31 @@ function MenuTitle({ arrayData }) {
             text="podcast"
           />
         ) : (
-          <Tab onClick={() => navigate("/ca-nhan/podcast")} text="podcast" />
+          <Tab
+            active={false}
+            onClick={() => navigate("/ca-nhan/podcast")}
+            text="podcast"
+          />
         )}
 
         {isSelectedAlbum ? (
           <TabActive onClick={() => navigate("/ca-nhan/album")} text="album" />
         ) : (
-          <Tab onClick={() => navigate("/ca-nhan/album")} text="album" />
+          <Tab
+            active={false}
+            onClick={() => navigate("/ca-nhan/album")}
+            text="album"
+          />
         )}
 
         {isSelectedMV ? (
           <TabActive onClick={() => navigate("/ca-nhan/mv")} text="mv" />
         ) : (
-          <Tab onClick={() => navigate("/ca-nhan/mv")} text="mv" />
+          <Tab
+            active={false}
+            onClick={() => navigate("/ca-nhan/mv")}
+            text="mv"
+          />
         )}
       </Box>
       <Box sx={{ borderBottom: "1px solid #c4c4c499" }} mb={4} />

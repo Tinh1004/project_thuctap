@@ -1,16 +1,32 @@
 import React from "react";
 import CardSong from "./card_song/CardSong";
 import { Box, Typography } from "@mui/material";
-import ButtonCustom, {
-  ButtonCustomActive,
-} from "../../../commons/ButtonCustom";
+import ButtonCustom from "../../../commons/ButtonCustom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function SongComponent({ arrayData }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const selectedTab = location.pathname.split("/").slice(-1)[0] as
+    | "favorite"
+    | "upload";
+
+  const isSelected = selectedTab === "favorite";
+
   return (
     <Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <ButtonCustomActive text="Yêu thích" />
-        <ButtonCustom text=" Đã tải lên" />
+        <ButtonCustom
+          onClick={() => console.log("Navigate")}
+          active={!isSelected}
+          text="Yêu thích"
+        />
+        <ButtonCustom
+          onClick={() => console.log("Navigate")}
+          active={isSelected}
+          text=" Đã tải lên"
+        />
       </Box>
 
       <Box mt={3}>
