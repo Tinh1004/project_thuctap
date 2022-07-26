@@ -26,8 +26,8 @@ export const arraySearchSong = createSelector(
 
 export const arraySearchSinger = createSelector(
     dataSelector,
-    
-    (data, searchText) => {
+    searchTextSelector,
+        (data, searchText) => {
         let array = [];
         data.filter((todo) => {
             if (todo.name.toUpperCase().includes(searchText.toUpperCase()) || todo.author.toUpperCase().includes(searchText.toUpperCase())) {
@@ -44,15 +44,19 @@ export const arraySearchSinger = createSelector(
     }
 );
 
-// export const nextSongAudio = createSelector(
-//     songSelector,idSongSelector, (songAudio, idSongAudio) => {
-//             return songAudio.find((item) => {
-//                 if ( item.id === idSongAudio) {
-//                     return item.url
-//                 }
-//             })
-//     }
 
-// ) 
 
-// export const nextSongAudio = createSelector()
+export const arraySinger = createSelector(
+    dataSelector,
+    (data) => {
+        let array = [];
+        data.filter((todo) => {
+            let check = array.filter((item) => todo.author.toUpperCase().includes(item.author.toUpperCase()));
+            if (check.length === 0) {
+                array.push(todo)
+            }
+        })
+        return array;
+    }
+);
+
