@@ -68,7 +68,7 @@ export default function Login() {
     const validate = validateforgotPassword();
 
     if (validate) {
-      console.log("Successfully Login " + username);
+      console.log("Successfully Login " + username + password);
       setValidate({});
       setUsername("");
       setPassword("");
