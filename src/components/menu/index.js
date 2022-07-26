@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import MenuTitle from "./menu_title/MenuTitle.tsx";
 
 // import { Tab } from "@mui/material";
@@ -7,10 +8,10 @@ import MenuTitle from "./menu_title/MenuTitle.tsx";
 // import Podcast from "./podcast/Podcast";
 // import SongComponent from "./songs/SongComponent";
 
-export default function MenuProfile() {
+export default function MenuProfile({ arrayData }) {
   return (
-    <div class="bottom_section">
-      <MenuTitle />
+    <Box sx={{ padding: "20px 60px 0 60px" }}>
+      <MenuTitle arrayData={arrayData} />
       {/* <TabAndContentCustom
         firstTab={
           <Tab
@@ -69,6 +70,6 @@ export default function MenuProfile() {
         thirdContent={<Album />}
         fourthContent={<MvComponent />}
       /> */}
-    </div>
+    </Box>
   );
 }

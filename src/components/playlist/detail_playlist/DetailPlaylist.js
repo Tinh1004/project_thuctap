@@ -18,7 +18,14 @@ import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
 import EmptyComponent from "../../../commons/EmptyComponent";
 import CardSong from "../../menu/songs/card_song/CardSong";
 
-function DetailPlaylist() {
+import { useParams } from "react-router-dom";
+
+function DetailPlaylist({ arrayData }) {
+  const { id } = useParams();
+
+  const imageDetail = arrayData[id].links.images[1].url;
+  console.log("Image playlist detail", imageDetail);
+
   return (
     <>
       <Box sx={{ flexGrow: 1, padding: "50px 40px 0 60px" }}>
@@ -46,7 +53,7 @@ function DetailPlaylist() {
               <CardMedia
                 component="img"
                 height="100%"
-                image="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+                image={imageDetail}
                 alt="playlist image"
                 sx={{
                   borderRadius: 2,
@@ -131,6 +138,7 @@ function DetailPlaylist() {
               icon={<LibraryMusicOutlinedIcon sx={{ fontSize: "6rem" }} />}
               text="Không có bài hát trong playlist của bạn"
             />
+
             <Box>
               <Box
                 sx={{
@@ -165,11 +173,9 @@ function DetailPlaylist() {
                 </Button>
               </Box>
 
-              <CardSong />
-              <CardSong />
-              <CardSong />
-              <CardSong />
-              <CardSong />
+              {arrayData.map((data, index) => (
+                <CardSong data={data} key={index} />
+              ))}
             </Box>
           </Grid>
         </Grid>
