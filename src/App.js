@@ -11,6 +11,7 @@ import RegisterPage from "./pages/RegisterPage";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
+import FormPlaylist from "./pages/FormPlaylist";
 import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";

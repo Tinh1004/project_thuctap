@@ -6,6 +6,8 @@ import HomePage from "../HomePage/HomePage";
 import ProfilePage from "../profile_page/ProfilePage";
 import SearchPage from "../search_page/SearchPage";
 import CategoryPage from "../CategoryPage";
+import FormPlaylist from "../form/FormPlaylist";
+
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import ListPopularSong from '../HomePage/ListPopularSong';
@@ -13,6 +15,7 @@ import ListPopularArtists from '../HomePage/ListPopularArtist';
 import ListPopularAlbum from '../HomePage/ListPopularAlbum';
 import Datapage2 from "../../components/category/page2/Datapage2";
 import Datapage3 from '../../components/category/page3/Datapage3';
+
 
 export default function AppDefault({ children }) {
     return (
@@ -33,6 +36,8 @@ export default function AppDefault({ children }) {
                     <Route path="the-loai/page2" element={<Datapage2 />} />
                     <Route path="the-loai/page3" element={<Datapage3 />} />
                     <Route path="search/:search/*" element={<SearchPage />} />
+                    <Route path="tao-playlist" element={<FormPlaylist />} />
+
 
                     {/* 
                     <Route path="/login" element={<LoginPage />} />

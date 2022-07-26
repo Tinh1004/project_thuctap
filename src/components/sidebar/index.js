@@ -15,8 +15,7 @@ const data = [
     title: "Thể loại",
     icon: <i className='bx bx-music icon' ></i>,
     url: "/the-loai"
-  },
-
+  }
 ]
 
 export default function Sidebar(props) {
