@@ -10,20 +10,20 @@ export default function NewRelease() {
     <div className="newReleaseContainer">
       <h4>Mới phát hành</h4>
       <Container>
-        <Row>
-          <Col className="col">
+        <Row className="row">
+          <Col className="col1">
             {
               data.map((item) => (
                 <ReleaseItem key={item.id} img = {item.img} alt = {item.alt} name = {item.name} subtitle = {item.subtitle}/>
               ))
             }
             </Col>
-          <Col className="col">{
+          <Col className="col2">{
               data.map((item) => (
                 <ReleaseItem key={item.id} img = {item.img} alt = {item.alt} name = {item.name} subtitle = {item.subtitle}/>
               ))
             }</Col>
-          <Col className="col">{
+          <Col className="col3">{
               data.map((item) => (
                 <ReleaseItem key={item.id} img = {item.img} alt = {item.alt} name = {item.name} subtitle = {item.subtitle}/>
               ))

@@ -15,11 +15,6 @@ const data = [
     title: "Thể loại",
     icon: <i className='bx bx-music icon' ></i>,
     url: "/the-loai"
-  },
-  {
-    title: "Tạo playlist",
-    icon: <i className='bx bx-plus icon'></i>,
-    url: "/tao-playlist"
   }
 ]
 

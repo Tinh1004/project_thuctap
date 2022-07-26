@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Tab, { TabActive } from "../../../commons/Tab";
-// import "./MenuTitle.scss";
 
 import SongComponent from "../songs/SongComponent";
 import Podcast from "../podcast/Podcast";
@@ -24,34 +23,7 @@ function MenuTitle() {
   const isSelectedAlbum = selectedTab === "album";
   const isSelectedMV = selectedTab === "mv";
   console.log("here", isSelectedSong);
-
   return (
-    // <nav class="navbar">
-    //   <div class="navbar_container">
-    //     <ul class="navbar_menu">
-    //       <li class={`navbar_item active`}>
-    //         <div class="nav_link">
-    //           <Link to="/ca-nhan/song">Bài hát</Link>
-    //         </div>
-    //       </li>
-    //       <li class="navbar_item">
-    //         <div class="nav_link">
-    //           <Link to="/ca-nhan/podcast">Podcast</Link>
-    //         </div>
-    //       </li>
-    //       <li class="navbar_item">
-    //         <div class="nav_link">
-    //           <Link to="/ca-nhan/album">Album</Link>
-    //         </div>
-    //       </li>
-    //       <li class="navbar_item">
-    //         <div class="nav_link">
-    //           <Link to="/ca-nhan/mv">MV</Link>
-    //         </div>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // </nav>
     <>
       <Box
         sx={{
@@ -88,7 +60,7 @@ function MenuTitle() {
           <Tab onClick={() => navigate("/ca-nhan/mv")} text="mv" />
         )}
       </Box>
-      <Box sx={{ borderBottom: "1px solid #c4c4c499" }} mb={2} />
+      <Box sx={{ borderBottom: "1px solid #c4c4c499" }} mb={4} />
 
       {isSelectedSong && <SongComponent />}
       {isSelectedPodcast && <Podcast />}

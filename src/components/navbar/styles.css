@@ -41,11 +41,11 @@
     position: relative;
     width: 400px;
     height: 35px;
-    border-radius:50px;
+    border-radius:8px;
     background-color: #fff;
     transition: 0.5s;
-    box-shadow: 0 0 0 3px var(--sidebar-color);
-    overflow: hidden;
+    /* box-shadow: 0 0 0 3px var(--sidebar-color);
+    overflow: hidden; */
 }
 
 .search .icon{
@@ -169,4 +169,8 @@
 }
 .avatar .avatar-name p {
     text-align: center;
+}
+
+.input-search label{
+    top: -7px;
 }

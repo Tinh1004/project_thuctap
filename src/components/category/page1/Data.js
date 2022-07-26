@@ -11,7 +11,7 @@ import TQ from '../../../assets/img/TQ.jpg'
 import hinhnho1 from '../../../assets/img/hinhnho1.jpg'
 import './data.css';
 import Song2 from './nhactheoquocgia/Song2';
-import Song3 from './nhacbolero/Song3';
+import Song3 from './listmusic/Song3';
 import tt1 from '../../../assets/img/tt1.jpg'
 import tt2 from '../../../assets/img/tt2.jpg'
 import tt3 from '../../../assets/img/tt3.jpg'
@@ -78,6 +78,7 @@ export default function Data() {
                 <Song3 img3={tt4} tenbh='Miền Trung Ngàn Năm Biển Đợi' casi='Che Linh, Son Tuyen...'></Song3>
                 <Song3 img3={tt5} tenbh='Miền Trung Ngàn Năm Biển Đợi' casi='Che Linh, Son Tuyen...'></Song3> */}
             </div>
+            
         </div>
     </div>
   )

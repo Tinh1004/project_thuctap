@@ -1,6 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 export const searchTextSelector = (state) => state.filter.search;
 export const dataSelector = (state) => state.data.array;
+export const songSelector = (state) => state.data.song;
+// export const idSongSelector = (state) => state.data.id;
+
 
 export const arraySearchSong = createSelector(
     dataSelector,
@@ -28,7 +31,7 @@ export const arraySearchSinger = createSelector(
         let array = [];
         data.filter((todo) => {
             if (todo.name.toUpperCase().includes(searchText.toUpperCase()) || todo.author.toUpperCase().includes(searchText.toUpperCase())) {
-                let check = array.filter((item) => item.singer.toUpperCase() == todo.author.toUpperCase());
+                let check = array.filter((item) => item.singer.toUpperCase() === todo.author.toUpperCase());
                 if (check.length === 0) {
                     array.push({
                         singer: todo.author,
@@ -37,6 +40,20 @@ export const arraySearchSinger = createSelector(
                 }
             }
         })
+
         return array;
     }
 );
+
+// export const nextSongAudio = createSelector(
+//     songSelector,idSongSelector, (songAudio, idSongAudio) => {
+//             return songAudio.find((item) => {
+//                 if ( item.id === idSongAudio) {
+//                     return item.url
+//                 }
+//             })
+//     }
+
+// )
+
+// export const nextSongAudio = createSelector()

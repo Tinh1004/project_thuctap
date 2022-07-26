@@ -1,18 +1,34 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import filterSlice from '../../../redux/filterSlice/filterSlice';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Autocomplete from '@mui/material/Autocomplete';
+import { dataSelector } from "../../../redux/selectors";
+import { Button, FormControl, InputAdornment, InputBase } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
 export default function Search() {
     const [input, setInput] = useState("");
     let navigate = useNavigate();
     const inputRef = useRef();
     const dispatch = useDispatch();
+    let data = useSelector(dataSelector);
+
 
     const handleClearInput = () => {
         setInput("");
     }
     const handleChangeInput = (e) => {
-        setInput(e.target.value);
+        console.log(e.target.value)
+        if (e.target.value === 0) {
+            setInput(data[e.target.value].name);
+        }
+        else {
+            setInput(e.target.value);
+
+        }
     }
 
     const handleSubmitForm = (e) => {
@@ -24,23 +40,67 @@ export default function Search() {
         } else {
             window.alert("Nhập vào");
         }
-        inputRef.current.focus();
-
     }
+
     return (
         <form className="search" onSubmit={handleSubmitForm}>
-            <a onClick={handleSubmitForm}><div className="icon"></div></a>
-            <div className="input">
-                <input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Search..."
-                    id="mysearch"
+            <Stack spacing={2} sx={{ width: 400, padding: 0 }}>
+                <Autocomplete
+                    sx={{ padding: 0 }}
+                    freeSolo
+                    id="free-solo-2-demo"
+                    disableClearable
+                    options={data.map((option) => option.name)}
+                    getOptionLabel={(option) => {
+                        console.log("option: ", option);
+                        return (option ? option : "");
+                    }}
                     value={input}
                     onChange={handleChangeInput}
+                    renderInput={(params) => (
+                        <TextField
+                            className="input-search"
+                            sx={{ padding: 0 }}
+                            {...params}
+                            label="Search..."
+                            InputProps={{
+                                ...params.InputProps,
+                                type: 'search',
+                                style: {
+                                    fontSize: 16,
+                                    padding: 0,
+                                    paddingLeft: 10,
+                                    borderRadius: 50,
+                                },
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <Button
+                                            disabled={false}
+                                            size="small"
+                                            type="submit"
+                                            sx={{
+                                                // color: '#f91880',
+                                                borderRadius: 25,
+                                                cursor: 'pointer',
+                                                '&:disabled': {
+                                                    color: '#999ea3',
+                                                },
+                                            }}
+                                        >
+                                            <SearchIcon />
+                                        </Button>
+                                    </InputAdornment>)
+
+                            }
+
+                            }
+
+                        />
+                    )}
+
                 />
-            </div>
-            {input && <span className="clear" onClick={() => { handleClearInput() }}></span>}
+            </Stack>
         </form>
+
     );
 }

@@ -1,24 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 
 import AppDefault from "../app_default/AppDefault";
-import LibraryPlaylistPage from "./LibraryPlaylistPage";
-import DetailPlaylistPage from "./DetailPlaylistPage";
 import ProfileContent from "./ProfileContent";
-import SongComponent from "../../components/menu/songs/SongComponent";
-import Podcast from "../../components/menu/podcast/Podcast";
-import Album from "../../components/menu/album/Album";
-import MvComponent from "../../components/menu/mv/MvComponent";
+import LibraryPlaylist from "../../components/playlist/library_playlist/LibraryPlaylist";
+import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
 
 export default function ProfilePage(props) {
   return (
-    <AppDefault>
-      <section className="home">
-        <Routes>
-          <Route path="/*" element={<ProfileContent />} />
-          <Route path="/library" element={<LibraryPlaylistPage />} />
-          <Route path="/detail" element={<DetailPlaylistPage />} />
-        </Routes>
-      </section>
-    </AppDefault>
+    <section className="home">
+      <Routes>
+        <Route path="/*" element={<ProfileContent />} />
+        <Route path="/library" element={<LibraryPlaylist />} />
+        <Route path="/detail" element={<DetailPlaylist />} />
+      </Routes>
+    </section>
   );
 }

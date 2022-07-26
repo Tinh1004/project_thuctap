@@ -14,7 +14,7 @@
     text-align: left;
     padding: 10px;
     border-radius: 5px;
-
+    
     .media_left {
       display: flex;
       width: 50%;
@@ -97,6 +97,7 @@
           line-height: 1.33;
           color: #32323d80;
           font-weight: 400;
+          
 
           a {
             text-decoration: none;
@@ -119,6 +120,9 @@
       text-align: left;
       align-self: center;
       width: 0;
+      @media screen and (max-width: 685px) {
+        margin-left: 65px;
+      }
 
       .album_info {
         color: #32323d80;
@@ -170,6 +174,10 @@
                 transition: 600ms;
               }
             }
+            @media screen and (max-width: 685px) {
+              display: none;
+            }
+      
           }
         }
 
@@ -178,6 +186,9 @@
           width: 46px;
           color: #32323d80;
           padding-left: 24px;
+          @media screen and (max-width: 685px) {
+            display: none;
+          }
         }
       }
     }
