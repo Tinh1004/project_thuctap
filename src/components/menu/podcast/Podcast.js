@@ -7,7 +7,7 @@ import ButtonCustom, {
 import PodcastsOutlinedIcon from "@mui/icons-material/PodcastsOutlined";
 import EmptyComponent from "../../../commons/EmptyComponent";
 
-function Podcast() {
+function Podcast({ arrayData }) {
   return (
     <Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>

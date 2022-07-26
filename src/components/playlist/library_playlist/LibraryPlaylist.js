@@ -3,7 +3,7 @@ import React from "react";
 import TabAndContentCustom from "../../../commons/TabAndContentCustom.tsx";
 import LibraryPlaylistContent from "./LibraryPlaylistContent";
 
-function LibraryPlaylist() {
+function LibraryPlaylist({ arrayData }) {
   return (
     <Box sx={{ width: "100%" }}>
       <TabAndContentCustom
@@ -31,8 +31,8 @@ function LibraryPlaylist() {
             label="Của tôi"
           />
         }
-        firstContent={<LibraryPlaylistContent />}
-        secondContent={<LibraryPlaylistContent />}
+        firstContent={<LibraryPlaylistContent arrayData={arrayData} />}
+        secondContent={<LibraryPlaylistContent arrayData={arrayData} />}
         display="block"
         paddingLeft="66px"
       />
