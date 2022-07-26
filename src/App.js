@@ -8,7 +8,6 @@ import LoginPage from "./pages/LoginPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 // import Datapage2 from "./components/category/page2/Datapage2";
-import ForgotPassword from "./pages/ForgotPassword";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
