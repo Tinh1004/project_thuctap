@@ -1,10 +1,16 @@
 import "./CardSong.scss";
 import { useState, useEffect } from "react";
-
-
+import { useDispatch } from 'react-redux';
+import dataSlice from "../../../../redux/dataSlice/dataSlice";
 function CardSong({ item }) {
   const [duration, setDuration] = useState(0);
   console.log(duration);
+
+  const dispatch = useDispatch();
+
+  const handleChangeSong = (id) => {
+    dispatch(dataSlice.actions.audioChangeSong(id))
+  }
 
   const getVal = (audio) => {
     var val = audio.duration;
@@ -34,7 +40,7 @@ function CardSong({ item }) {
             <div class="song_prefix">
               <i class="fa-solid fa-music"></i>
             </div>
-            <div class="song_thumb">
+            <div class="song_thumb" onClick={() => handleChangeSong(item.id)}>
               <figure class="image">
                 <img
                   src={item.images[1].url}
@@ -42,7 +48,7 @@ function CardSong({ item }) {
                 />
               </figure>
             </div>
-            <div class="card_info">
+            <div class="card_info" onClick={() => handleChangeSong(item.id)}  >
               <div class="title_wrapper">
                 <span class="title">
                   <span>{item.title}</span>

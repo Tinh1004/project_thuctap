@@ -9,7 +9,7 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 
 import CardItem from "../../../commons/CardItem";
 
-function LibraryPlaylistContent() {
+function LibraryPlaylistContent({ arrayData }) {
   return (
     <Box>
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -38,21 +38,24 @@ function LibraryPlaylistContent() {
           </Box>
         </Grid>
 
-        <Grid item xs={4} sm={4} md={3}>
-          <Link className="card_playlist" to="/ca-nhan/detail">
-            <CardItem
-              firstIcon={<ClearOutlinedIcon />}
-              firstTitle="Xóa"
-              secondIcon={
-                <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />
-              }
-              threeIcon={<MoreHorizOutlinedIcon />}
-              secondTitle="Khác"
-              nameItem="Mặt trời của em"
-              nameAuthor="Phương Ly"
-            />
-          </Link>
-        </Grid>
+        {arrayData.map((data, index) => (
+          <Grid item xs={4} sm={4} md={3} key={index}>
+            <Link className="card_playlist" to="/ca-nhan/detail">
+              <CardItem
+                data={data}
+                firstIcon={<ClearOutlinedIcon />}
+                firstTitle="Xóa"
+                secondIcon={
+                  <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />
+                }
+                threeIcon={<MoreHorizOutlinedIcon />}
+                secondTitle="Khác"
+                nameItem={data.name}
+                nameAuthor={data.author}
+              />
+            </Link>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );

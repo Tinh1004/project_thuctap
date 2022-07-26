@@ -8,11 +8,11 @@ import MenuProfile from "../../components/menu/index";
 // import Album from "../../components/menu/album/Album";
 // import MvComponent from "../../components/menu/mv/MvComponent";
 
-function ProfileContent() {
+function ProfileContent({ arrayData }) {
   return (
     <section className="home home_content ">
-      <PlayList />
-      <MenuProfile />
+      <PlayList arrayData={arrayData} />
+      <MenuProfile arrayData={arrayData} />
       {/* <div className="bottom_section">
         <Routes>
           <Route index element={<SongComponent />} />

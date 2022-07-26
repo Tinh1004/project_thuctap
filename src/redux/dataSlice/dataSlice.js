@@ -10,7 +10,7 @@ export default createSlice({
     },
     reducers: {
         audioPlayerNextSong: (state, action) => {
-            if (action.payload >= state.array.length){
+            if (action.payload >= state.array.length) {
                 state.song = state.array[0]
             }
             else {
@@ -18,15 +18,20 @@ export default createSlice({
                 state.song = currentSong[0]
             }
         },
-        audioPlayerPreSong: (state,action) => {
-            if (action.payload < 0){
+        audioPlayerPreSong: (state, action) => {
+            if (action.payload < 0) {
                 state.song = state.array[state.array.length - 1]
             }
             else {
                 const currentSong = state.array.filter(song => song.id === action.payload);
                 state.song = currentSong[0]
             }
+        },
+        audioChangeSong: (state, action) => {
+            const currentSong = state.array.filter(song => song.id === action.payload);
+            state.song = currentSong[0]
         }
+
     },
 
     extraReducers: builder => {

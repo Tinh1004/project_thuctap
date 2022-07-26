@@ -8,22 +8,48 @@ import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import CardItem from "../../../commons/CardItem";
+import { useState, useEffect } from "react";
 
-function MvComponent() {
+function MvComponent({ arrayData }) {
+  // const [duration, setDuration] = useState(0);
+  // console.log(duration);
+
+  // const getVal = (audio) => {
+  //   var val = audio.duration;
+  //   setDuration(val);
+  // };
+  // const convertDuration = (url) => {
+  //   return `${Math.round(duration / 60)}:${
+  //     Math.floor(duration % 60) >= 10
+  //       ? Math.floor(duration % 60)
+  //       : `0${Math.floor(duration % 60)}`
+  //   }`;
+  // };
+
+  // useEffect(() => {
+  //   var audio = new Audio();
+  //   audio.src = arrayData.url;
+  //   audio.addEventListener("durationchange", () => getVal(audio));
+  //   return () => {
+  //     audio.removeEventListener("durationchange", () => getVal(audio));
+  //   };
+  // }, []);
+
   return (
     <Box>
-      <EmptyComponent
-        icon={<LiveTvOutlinedIcon sx={{ fontSize: "8rem" }} />}
-        text="Chưa có MV nào trong thư viện"
-        textButton="Khám phá ngay"
-        display="block"
-      />
-
-      <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(6)).map((index) => (
-          <Grid item xs={4} sm={4} md={4} key={index}>
-            <Link className="card_playlist" to="/ca-nhan/detail">
+      {arrayData.length <= 0 ? (
+        <EmptyComponent
+          icon={<LiveTvOutlinedIcon sx={{ fontSize: "8rem" }} />}
+          text="Chưa có MV nào trong thư viện"
+          textButton="Khám phá ngay"
+          display="block"
+        />
+      ) : (
+        <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+          {arrayData.map((data, index) => (
+            <Grid item xs={4} sm={4} md={4} key={index}>
               <CardItem
+                data={data}
                 firstIcon={<FavoriteOutlinedIcon />}
                 firstTitle="Xóa khỏi thư viện"
                 secondIcon={
@@ -31,15 +57,14 @@ function MvComponent() {
                 }
                 threeIcon={<MoreHorizOutlinedIcon />}
                 secondTitle="Khác"
-                duration="4:17"
                 display="block"
-                nameItem="Mặt trời của em"
-                nameAuthor="Phương Ly"
+                nameItem={data.name}
+                nameAuthor={data.author}
               />
-            </Link>
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Box>
   );
 }
