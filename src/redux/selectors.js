@@ -32,7 +32,7 @@ export const arraySearchSinger = createSelector(
         let array = [];
         data.filter((todo) => {
             if (todo.name.toUpperCase().includes(searchText.toUpperCase()) || todo.author.toUpperCase().includes(searchText.toUpperCase())) {
-                let check = array.filter((item) => item.singer.toUpperCase() === todo.author.toUpperCase());
+                let check = array.filter((item) => item.singer.toUpperCase() === todo.author.toUpperCase() || todo.author.toUpperCase().includes(item.singer.toUpperCase()));
                 if (check.length === 0) {
                     array.push({
                         singer: todo.author,
@@ -41,7 +41,6 @@ export const arraySearchSinger = createSelector(
                 }
             }
         })
-
         return array;
     }
 );
