@@ -1,18 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { arraySearchSong } from "../../../../redux/selectors";
 import ItemResutlSong from './ItemResutlSong';
+import dataSlice from '../../../../redux/dataSlice/dataSlice';
+
 export default function ResultSearch(props) {
     const arraySong = useSelector(arraySearchSong);
     const array = [...arraySong].splice(0, 4);
     console.log("title: ", array);
+    const dispatch = useDispatch();
 
+    const handleChangeSong = (id) => {
+        dispatch(dataSlice.actions.audioChangeSong(id))
+    }
 
     return (
         <>
             {array.length !== 0 ?
                 (
                     <div className="search-results">
-                        <div className="results-left">
+                        <div className="results-left" onClick={() => handleChangeSong(array[0].id)}>
                             <h3>Kết quả hàng đầu</h3>
                             <div className="container-top">
                                 <div className="music-top-image">

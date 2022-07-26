@@ -2,8 +2,10 @@ import { Avatar, Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Card } from "react-bootstrap";
 import CustomTooltip from "./CustomTooltip";
+import { useState, useEffect } from "react";
 
 function CardItem({
+  data,
   firstIcon,
   secondIcon,
   threeIcon,
@@ -11,10 +13,32 @@ function CardItem({
   secondTitle,
   nameItem,
   nameAuthor,
-  duration,
   display = "none",
   ...rest
 }) {
+  const [duration, setDuration] = useState(0);
+  console.log(duration);
+
+  const getVal = (audio) => {
+    var val = audio.duration;
+    setDuration(val);
+  };
+  const convertDuration = (url) => {
+    return `${Math.round(duration / 60)}:${
+      Math.floor(duration % 60) >= 10
+        ? Math.floor(duration % 60)
+        : `0${Math.floor(duration % 60)}`
+    }`;
+  };
+
+  useEffect(() => {
+    var audio = new Audio();
+    audio.src = data.url;
+    audio.addEventListener("durationchange", () => getVal(audio));
+    return () => {
+      audio.removeEventListener("durationchange", () => getVal(audio));
+    };
+  }, []);
   return (
     <Card
       style={{
@@ -67,7 +91,7 @@ function CardItem({
         <CardMedia
           component="img"
           height="100%"
-          image="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+          image={data.links.images[0].url}
           alt="playlist image"
           sx={{
             position: "relative",
@@ -89,7 +113,7 @@ function CardItem({
             fontSize: "0.8rem",
           }}
         >
-          {duration}
+          {convertDuration(data.url)}
         </Typography>
       </Box>
 
@@ -97,7 +121,7 @@ function CardItem({
         <Avatar
           sx={{ display: { display }, marginRight: 2 }}
           alt="Image singer"
-          src="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+          src={data.links.images[0].url}
         />
         <Box>
           <Grid zeroMinWidth>

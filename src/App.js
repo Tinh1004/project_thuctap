@@ -17,12 +17,10 @@ import AppDefault from "./pages/app_default/AppDefault";
 import ChangePassword from "./pages/ChangePassword";
 import ForgotPasswordPage from "./pages/ForgotPassword";
 
-
 function App() {
 
   const data = useSelector(dataSelector);
   const search = useSelector(searchTextSelector);
-
   console.log(data)
   console.log(search)
 
@@ -31,14 +29,10 @@ function App() {
   useEffect(() => {
     dispatch(fetchDatas())
   }, [])
+
   return (
     <Routes>
       <Route path="/*" element={<AppDefault />} />
-      {/* <Route path="/" element={<HomePage />} /> */}
-      {/* <Route path="/ca-nhan/*" element={<ProfilePage />} />
-      <Route path="/the-loai" element={<CategoryPage />} />
-      <Route path="/page2" element={<Datapage2 />} />
-      <Route path="search/:search/*" element={<SearchPage />} /> */}
 
       <Route path="*" element={<Navigate to="/404" />} />
       <Route path="/login" element={<LoginPage />} />

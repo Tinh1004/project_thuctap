@@ -1,6 +1,8 @@
 import React from "react";
 import './styles.scss'
+import { Link } from "react-router-dom";
 export default function MenuSongPolular() {
+  
   return (
     <div className="menuSongPopularContainer">
       <nav className="navbar">
@@ -8,25 +10,17 @@ export default function MenuSongPolular() {
           <ul className="navbarMenu">
             <li className="navbarItem active" onclick="return toggle('songs')">
               <div className="navLink">
-                <a href="#">Bài hát</a>
+                <a href="#"><Link to = "/list-popular-song">Bài hát</Link></a>
               </div>
             </li>
-            <li className="navbarItem" onclick="return toggle('albums')">
+            <li className="navbarItem " onclick="return toggle('albums')">
               <div className="navLink">
-                <a href="#">Album</a>
+              <a href="#"><Link to = "/list-popular-album">Album</Link></a>
               </div>
             </li>
           </ul>
         </div>
       </nav>
-      <div className="songButton">
-        <a href="#" className="item active">
-          Phổ biến
-        </a>
-        <a href="#" className="item">
-          Nổi bật
-        </a>
-      </div>
     </div>
   );
 }

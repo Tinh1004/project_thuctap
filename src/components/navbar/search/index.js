@@ -20,15 +20,8 @@ export default function Search() {
     const handleClearInput = () => {
         setInput("");
     }
-    const handleChangeInput = (e) => {
-        console.log(e.target.value)
-        if (e.target.value === 0) {
-            setInput(data[e.target.value].name);
-        }
-        else {
-            setInput(e.target.value);
-
-        }
+    const handleChangeInput = (value) => {
+        setInput(value);
     }
 
     const handleSubmitForm = (e) => {
@@ -37,8 +30,6 @@ export default function Search() {
         if (input.trim().length > 0) {
             dispatch(filterSlice.actions.searchFilterChange(input))
             navigate(`/search/${input}/tat-ca`, { replace: true });
-        } else {
-            window.alert("Nhập vào");
         }
     }
 
@@ -56,7 +47,8 @@ export default function Search() {
                         return (option ? option : "");
                     }}
                     value={input}
-                    onChange={handleChangeInput}
+                    // onChange={handleChangeInput}
+                    onChange={(event, value) => handleChangeInput(value)}
                     renderInput={(params) => (
                         <TextField
                             className="input-search"
@@ -90,7 +82,6 @@ export default function Search() {
                                             <SearchIcon />
                                         </Button>
                                     </InputAdornment>)
-
                             }
 
                             }
