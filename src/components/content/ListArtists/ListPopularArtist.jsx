@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { dataSelector } from "../../../redux/selectors";
+import { arraySinger } from "../../../redux/selectors";
 import CardPopularArtist from "./card_popular_artist/CardPopularArtist";
 
 import "./styles.scss";
 export default function ListPopularArtistItem() {
-  const array = useSelector(dataSelector);
+  const array = useSelector(arraySinger);
   return (
     <div className="listPopularArtistContainer">
       <h1>Nghệ sĩ nổi bật</h1>

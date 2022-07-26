@@ -10,7 +10,7 @@ export default function ListPopularAlbumItem() {
  
   return (
     <div className="listPopularSongContainer">
-      <h1>Bài hát nổi bật</h1>
+      <h1>Album nổi bật</h1>
       <div className="menu">
         <MenuAlbumPolular/>
       </div>

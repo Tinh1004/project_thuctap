@@ -1,9 +1,11 @@
 import React from 'react'
-import image11 from '../../../assets/img/image11.png'
 import { Link } from "react-router-dom";
 import './styles.scss'
+import { arraySinger } from '../../../redux/selectors'
 import CardArtist from './CardArtist/CardArtist';
+import { useSelector } from 'react-redux';
 export default function Artists() {
+  const array = useSelector (arraySinger)
   return (
     <div className='artistsContainer'>
         <div className="artist">
@@ -19,12 +21,11 @@ export default function Artists() {
           </div>
         </div>  
         <div className="cardArtists">
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
-          <CardArtist img={image11} alt='Singer' name='Space Speaker'/>
+          {
+            array.slice(0,6).map((item) => (
+              <CardArtist img = {item.links.images[0].url} author = {item.author}/>
+            ))
+          }
         </div>
     </div>
   )

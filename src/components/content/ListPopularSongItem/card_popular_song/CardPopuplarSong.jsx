@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './styles.scss'
 import createSlice from '../../../../redux/dataSlice/dataSlice'
 import { useDispatch, useSelector } from "react-redux";
-import { songSelector } from "../../../../redux/selectors";
 export default function CardPopuplarSong(props) {
   const dispatch = useDispatch()
 
@@ -29,7 +28,7 @@ export default function CardPopuplarSong(props) {
             </div>
             <div className="card_info">
               <div className="title_wrapper">
-                  <span className="title" >{props.name}</span>
+                  <span className="title"onClick={handleChangeAudio}>{props.name}</span>
               </div>
               <h3 className="subtitle">
                 <a href="#" className="is_subtitle">

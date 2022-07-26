@@ -1,8 +1,8 @@
 .artistItem{
-    min-width: 130px;
+    width: 130px;
     height: 130px;
     list-style-type: none;
-    margin-right:10px;
+    margin-right:20px;
     margin-left: 20px;
     transition:  .3s linear;
     // margin-bottom: 20px;
@@ -29,9 +29,10 @@
         }
     }
     .info{
-        padding: 5px 0px 10px 20px;
+        padding-top: 10px   ;
         line-height: 15px;
         font-size: 13px;
+        text-align: center;
         font-weight: 600;
         &:hover{
             color: rgb(117, 117, 236);
