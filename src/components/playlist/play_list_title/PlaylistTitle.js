@@ -3,8 +3,12 @@ import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRig
 import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from 'react'
+import { CloseContext } from '../../../contexts/CloseContext'
 
 function PlaylistTitle() {
+  const context = useContext(CloseContext);
+
   return (
     <Box
       sx={{
@@ -26,6 +30,7 @@ function PlaylistTitle() {
         Playlist
         <Tooltip title="Tạo playlist mới" arrow placement="top">
           <IconButton
+            onClick={() => context.toggleSetIsClose(true)}
             sx={{ backgroundColor: "#e8e8e8", borderRadius: 99, marginLeft: 2 }}
           >
             <AddOutlinedIcon sx={{ fontSize: 22 }} />

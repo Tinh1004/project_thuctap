@@ -1,12 +1,12 @@
-import {createContext, useState} from 'react';
+import { createContext, useState } from 'react';
 
 const CloseContext = createContext();
 
-function CloseProvider({ children }){
+function CloseProvider({ children }) {
     const [isClose, setIsClose] = useState(false);
 
-    const toggleSetIsClose = () =>{
-        setIsClose(prev => !prev);
+    const toggleSetIsClose = (value) => {
+        setIsClose(value);
     }
 
     const value = {
