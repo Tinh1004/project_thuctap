@@ -18,10 +18,14 @@ function MenuTitle({ arrayData }) {
     | "album"
     | "mv";
 
-  const isSelectedSong = selectedTab === "song";
-  const isSelectedPodcast = selectedTab === "podcast";
-  const isSelectedAlbum = selectedTab === "album";
-  const isSelectedMV = selectedTab === "mv";
+  let isSelectedSong = selectedTab === "song";
+  let isSelectedPodcast = selectedTab === "podcast";
+  let isSelectedAlbum = selectedTab === "album";
+  let isSelectedMV = selectedTab === "mv";
+
+  if(!isSelectedSong && !isSelectedPodcast && !isSelectedAlbum && !isSelectedMV){
+    isSelectedSong = true;
+  }
   console.log("here", isSelectedSong);
   return (
     <>
