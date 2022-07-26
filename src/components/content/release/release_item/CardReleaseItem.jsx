@@ -7,7 +7,7 @@ import {useDispatch} from 'react-redux';
 export default function ReleaseItem(props) {
   const dispatch = useDispatch();
   return (
-    <div className='releaseItemContainer' onClick={()=>{dispatch(dataSlice.actions.changeSong(1))}}>
+    <div className='releaseItemContainer' onClick={()=>{dispatch(dataSlice.actions.audioChangeSong(1))}}>
         <img className='image' src={props.img} alt={props.alt} />
         <i className="far fa-play-circle" />
         <h6 className='name'>{props.name}

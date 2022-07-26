@@ -1,8 +1,13 @@
 import React from "react";
 import CardPopuplarSong from "./card_popular_song/CardPopuplarSong";
+import { dataSelector } from "../../../redux/selectors";
+import { useSelector } from "react-redux";
 import MenuSongPolular from "./menu_song/MenuSongPolular";
 import "./styles.scss";
+
 export default function ListPopularSongItem() {
+  const array = useSelector(dataSelector);
+
   return (
     <div className="listPopularSongContainer">
       <h1>Bài hát nổi bật</h1>
@@ -26,18 +31,15 @@ export default function ListPopularSongItem() {
       </div>
 
       <div className="cardPopularSong">
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
-        <CardPopuplarSong />
+        {array.map((item) => (
+          <CardPopuplarSong
+            key={item.id}
+            id={item.id}
+            image={item.links.images[1].url}
+            name={item.name}
+            author={item.author}
+          />
+        ))}
       </div>
     </div>
   );

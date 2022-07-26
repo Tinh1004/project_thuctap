@@ -15,20 +15,12 @@ export default function MenuAlbumPolular() {
             </li>
             <li className="navbarItem active " onclick="return toggle('albums')">
               <div className="navLink">
-              <a href="#"><Link to = "/list-popular-album">Abum</Link></a>
+              <a href="#"><Link to = "/list-popular-album">Album</Link></a>
               </div>
             </li>
           </ul>
         </div>
       </nav>
-      <div className="songButton">
-        <a href="#" className="item active">
-          Phổ biến
-        </a>
-        <a href="#" className="item">
-          Nổi bật
-        </a>
-      </div>
     </div>
   );
 }
