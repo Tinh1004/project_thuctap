@@ -2,7 +2,7 @@
     position: relative;
     height: 100vh;
     left: 50px;
-    width: calc(100%);
+    width: calc(100% - 40px);
     height: calc(100% + 80px);
     /* background: var(--body-color); */
     transition: var(--tran-05);

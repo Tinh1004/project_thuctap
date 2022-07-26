@@ -8,7 +8,7 @@ import { data } from "./release_item/data";
 export default function NewRelease() {
   return (
     <div className="newReleaseContainer">
-      <h4>Mới phát hành</h4>
+      <h4>New Release</h4>
       <Container>
         <Row className="row">
           <Col className="col1">
