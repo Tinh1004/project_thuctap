@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import './styles.scss'
+import createSlice from '../../../../redux/dataSlice/dataSlice'
+import { useDispatch, useSelector } from "react-redux";
 export default function CardPopuplarSong(props) {
+  const dispatch = useDispatch()
+
+  const handleChangeAudio = () => {
+    dispatch(createSlice.actions.audioChangeSong(props.id))
+  }
   return (
     <div className="cardPopularSongContainer">
-      <div className="song_tag">
+      <div className="song_tag" >
         <div className="media">
           <div className="media_left">
             <div className="song_prefix">
@@ -12,20 +19,20 @@ export default function CardPopuplarSong(props) {
             <div className="song_thumb">
               <figure className="image">
                 <img className="img"
-                  src="https://i1.sndcdn.com/artworks-Rb4epyeZOrO4ENhc-pyhLww-t500x500.jpg"
+                  src={props.image}
                   alt="image playlist"
                 />
               </figure>
               {/* <i className="fa-solid fa-play" /> */}
-              <i className="far fa-play-circle" />
+              <i className="far fa-play-circle" onClick={handleChangeAudio} />
             </div>
             <div className="card_info">
               <div className="title_wrapper">
-                  <span className="title">Rapitaloud</span>
+                  <span className="title"onClick={handleChangeAudio}>{props.name}</span>
               </div>
               <h3 className="subtitle">
                 <a href="#" className="is_subtitle">
-                  Rapital
+                  {props.author}
                 </a>
               </h3>
             </div>
