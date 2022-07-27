@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef, useState, useCallback } from "react";
+import {useRef, useState, useCallback} from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -65,9 +65,9 @@ export default function Login() {
     }
     return isValid;
   };
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
 
     if (!username || !password) {
       setFlag(true);
