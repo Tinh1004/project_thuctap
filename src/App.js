@@ -9,10 +9,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 // import Datapage2 from "./components/category/page2/Datapage2";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDatas } from "./redux/dataSlice/dataSlice";
+import { fetchDatas, fetchPlayLists } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
 import FormPlaylist from "./pages/FormPlaylist";
-import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
+import { dataSelector, playListsSelector, arrayPlayLists } from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";
 import ChangePassword from "./pages/ChangePassword";
@@ -20,15 +20,17 @@ import ForgotPasswordPage from "./pages/ForgotPassword";
 
 function App() {
 
-  const data = useSelector(dataSelector);
-  const search = useSelector(searchTextSelector);
-  console.log(data)
-  console.log(search)
+  // const data = useSelector(dataSelector);
+  // const playlist = useSelector(arrayPlayLists);
 
+
+  // console.log(data)
+  // console.log("playlist: ", playlist)
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchDatas())
+    dispatch(fetchDatas());
+    dispatch(fetchPlayLists());
   }, [])
 
   return (

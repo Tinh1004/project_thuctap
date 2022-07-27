@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
 export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
@@ -16,13 +18,17 @@ export default function ItemPlaylist({ handleChangeWidth, item }) {
 
     return (
         <div className="playList-item" ref={itemRef}>
-            <div className="image-item" style={{ height: width ? `${width + 10}px` : `${300 - 60}px` }}>
-                <div className="khongtrong"></div>
-                <img src={item.image} />
-            </div>
+            <Link className="card_playlist" to={`/ca-nhan/detail/${item.id}`}>
+                <div className="image-item" style={{ height: width ? `${width + 10}px` : `${300 - 60}px` }}>
+                    <div className="khongtrong"></div>
+                    <img src={item.image || "https://i.scdn.co/image/ab67616d0000b27394ae8395433c0c7521ac25ba"} />
+                </div>
+            </Link>
             <div className="content-item">
-                <h5>{item.name}</h5>
-                <p>{item.singer}</p>
+                <Link className="card_playlist" to={`/ca-nhan/detail/${item.id}`}>
+                    <h5>{item.name}</h5>
+                </Link>
+                <p>{item.discription}</p>
             </div>
         </div>
     )

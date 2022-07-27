@@ -45,10 +45,10 @@ export default function List({
           <div>
             <Modal.Footer className="o">
               <Button auto flat color="error" onClick={closeHandler}>
-                <Link to="/">Close</Link>
+                Close
               </Button>
               <Button auto onClick={closeHandler}>
-                <Link to="/">Add</Link>
+                Add
               </Button>
             </Modal.Footer>
           </div>

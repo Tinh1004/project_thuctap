@@ -43,7 +43,6 @@ export default function Search() {
                     disableClearable
                     options={data.map((option) => option.name)}
                     getOptionLabel={(option) => {
-                        console.log("option: ", option);
                         return (option ? option : "");
                     }}
                     value={input}

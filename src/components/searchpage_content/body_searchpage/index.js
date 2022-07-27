@@ -3,12 +3,17 @@ import PlayList from "../body_searchpage/playList/index";
 import ListSinger from "./listSinger/ListSinger";
 import { listItems, listSinger } from "../../../commons/list_item";
 import { useDispatch, useSelector } from 'react-redux';
-import { arraySearchSong, searchTextSelector } from "../../../redux/selectors";
+import { arraySearchSong, searchTextSelector, arrayPlayLists, arraySearchPlayLists } from "../../../redux/selectors";
 
 export default function SearchSinger(props) {
     const search = useSelector(searchTextSelector);
     const array = useSelector(arraySearchSong);
+    const playList = useSelector(arrayPlayLists);
+    const searchPlayLists = useSelector(arraySearchPlayLists);
 
+    const arrayPlayList = [...playList].splice(0, 5);
+    console.log("playList:", arrayPlayList)
+    console.log("searchPlayLists:", searchPlayLists)
     return (
         <div className="search-body">
 
@@ -23,8 +28,8 @@ export default function SearchSinger(props) {
                 </div>
             )}
 
-            <PlayList data={listItems.playlist} />
-            <PlayList data={listItems.album} />
+            <PlayList data={arrayPlayList} title="Playlist" />
+            <PlayList data={arrayPlayList} title="Album" />
         </div>
     )
 }
