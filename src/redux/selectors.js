@@ -2,6 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 export const searchTextSelector = (state) => state.filter.search;
 export const dataSelector = (state) => state.data.array;
 export const playListsSelector = (state) => state.data.playList;
+export const myPlayListsSelector = (state) => state.user.myPlayLists;
 
 export const songSelector = (state) => state.data.song;
 // export const idSongSelector = (state) => state.data.id;
