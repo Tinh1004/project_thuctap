@@ -8,7 +8,7 @@ import Podcast from "../podcast/Podcast";
 import Album from "../album/Album";
 import MvComponent from "../mv/MvComponent";
 
-function MenuTitle({ arrayData }) {
+function MenuTitle({ arrayData, arrayPlaylist }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,7 +23,12 @@ function MenuTitle({ arrayData }) {
   let isSelectedAlbum = selectedTab === "album";
   let isSelectedMV = selectedTab === "mv";
 
-  if(!isSelectedSong && !isSelectedPodcast && !isSelectedAlbum && !isSelectedMV){
+  if (
+    !isSelectedSong &&
+    !isSelectedPodcast &&
+    !isSelectedAlbum &&
+    !isSelectedMV
+  ) {
     isSelectedSong = true;
   }
   console.log("here", isSelectedSong);
@@ -84,8 +89,8 @@ function MenuTitle({ arrayData }) {
 
       {isSelectedSong && <SongComponent arrayData={arrayData} />}
       {isSelectedPodcast && <Podcast arrayData={arrayData} />}
-      {isSelectedAlbum && <Album arrayData={arrayData} />}
-      {isSelectedMV && <MvComponent arrayData={arrayData} />}
+      {isSelectedAlbum && <Album arrayPlaylist={arrayPlaylist} />}
+      {isSelectedMV && <MvComponent arrayPlaylist={arrayPlaylist} />}
     </>
   );
 }

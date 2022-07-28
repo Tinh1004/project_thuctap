@@ -19,12 +19,17 @@ import EmptyComponent from "../../../commons/EmptyComponent";
 import CardSong from "../../menu/songs/card_song/CardSong";
 
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { arrayPlayLists } from "../../../redux/selectors";
 
-function DetailPlaylist({ arrayData }) {
+function DetailPlaylist({ arrayData, arrayPlaylist }) {
   const { id } = useParams();
 
-  const imageDetail = arrayData[id].links.images[1].url;
-  console.log("Image playlist detail", imageDetail);
+  const arrayPlayListSong = arrayPlaylist[id].array;
+  console.log("list song: ", arrayPlayListSong);
+  console.log("list song 2: ", arrayData);
+
+  const imageDetail = arrayPlaylist[id].image;
 
   return (
     <>
@@ -33,7 +38,7 @@ function DetailPlaylist({ arrayData }) {
           <Grid item xs={4}>
             <Box
               sx={{
-                height: "50%",
+                height: "40vh",
                 position: "relative",
                 display: "flex",
                 justifyContent: "center",
@@ -116,7 +121,7 @@ function DetailPlaylist({ arrayData }) {
                 Công khai
               </Typography>
 
-              <Tooltip title="Thêm vào thư viện" arrow placement="top">
+              <Tooltip title="Khác" arrow placement="top">
                 <IconButton
                   sx={{
                     width: "35px",
@@ -134,49 +139,58 @@ function DetailPlaylist({ arrayData }) {
           </Grid>
 
           <Grid item xs={8}>
-            <EmptyComponent
-              icon={<LibraryMusicOutlinedIcon sx={{ fontSize: "6rem" }} />}
-              text="Không có bài hát trong playlist của bạn"
-            />
+            {arrayPlayListSong.length === 0 ? (
+              <Box>
+                <EmptyComponent
+                  icon={<LibraryMusicOutlinedIcon sx={{ fontSize: "6rem" }} />}
+                  text="Không có bài hát trong playlist của bạn"
+                />
+                <Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{ textTransform: "capitalize", fontWeight: 600 }}
+                    >
+                      Bài hát gợi ý
+                    </Typography>
 
-            <Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{ textTransform: "capitalize", fontWeight: 600 }}
-                >
-                  Bài hát gợi ý
-                </Typography>
+                    <Button
+                      sx={{
+                        color: "#fff",
+                        backgroundColor: "#6b3483",
+                        borderRadius: 4,
+                        padding: "3px 15px",
+                        fontWeight: 300,
+                        "&:hover": {
+                          color: "#fff",
+                          backgroundColor: "#6b3483",
+                          opacity: 0.8,
+                        },
+                      }}
+                    >
+                      <AutorenewOutlinedIcon />
+                      Làm mới
+                    </Button>
+                  </Box>
 
-                <Button
-                  sx={{
-                    color: "#fff",
-                    backgroundColor: "#6b3483",
-                    borderRadius: 4,
-                    padding: "3px 15px",
-                    fontWeight: 300,
-                    "&:hover": {
-                      color: "#fff",
-                      backgroundColor: "#6b3483",
-                      opacity: 0.8,
-                    },
-                  }}
-                >
-                  <AutorenewOutlinedIcon />
-                  Làm mới
-                </Button>
+                  {arrayData.map((data, index) => (
+                    <CardSong data={data} key={index} />
+                  ))}
+                </Box>
               </Box>
-
-              {arrayData.map((data, index) => (
-                <CardSong data={data} key={index} />
-              ))}
-            </Box>
+            ) : (
+              <Box>
+                {arrayPlayListSong.map((data, index) => (
+                  <CardSong data={data} key={index} />
+                ))}
+              </Box>
+            )}
           </Grid>
         </Grid>
       </Box>

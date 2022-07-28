@@ -4,11 +4,11 @@ import React from "react";
 import PlayList from "../../components/playlist/index";
 import MenuProfile from "../../components/menu/index";
 
-function ProfileContent({ arrayData }) {
+function ProfileContent({ arrayData, arrayPlaylist }) {
   return (
     <section className="home home_content ">
-      <PlayList arrayData={arrayData} />
-      <MenuProfile arrayData={arrayData} />
+      <PlayList arrayPlaylist={arrayPlaylist} />
+      <MenuProfile arrayData={arrayData} arrayPlaylist={arrayPlaylist} />
     </section>
   );
 }
