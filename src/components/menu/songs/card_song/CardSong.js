@@ -14,8 +14,16 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import dataSlice from "../../../../redux/dataSlice/dataSlice";
 
 function CardSong({ data }) {
+  const dispatch = useDispatch();
+
+  const handleChangeAudio = () => {
+    dispatch(dataSlice.actions.audioChangeSong(data.id));
+  };
+
   const [duration, setDuration] = useState(0);
   console.log(duration);
 
@@ -86,6 +94,7 @@ function CardSong({ data }) {
               objectFit: "cover",
               marginLeft: 2,
               marginRight: 1.5,
+              cursor: "pointer",
             }}
           />
 
@@ -190,6 +199,7 @@ function CardSong({ data }) {
             />
 
             <CardMedia
+              onClick={handleChangeAudio}
               component="img"
               image={data.links.images[1].url}
               alt="song card image"
@@ -200,6 +210,7 @@ function CardSong({ data }) {
                 objectFit: "cover",
                 marginRight: 1.5,
                 marginLeft: 1,
+                cursor: "pointer",
               }}
             />
 
