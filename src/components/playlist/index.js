@@ -7,8 +7,8 @@ import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
-export default function PlayList({ arrayData }) {
-  console.log(arrayData);
+export default function PlayList({ arrayPlaylist }) {
+  console.log(arrayPlaylist);
   return (
     <Box
       sx={{
@@ -20,7 +20,7 @@ export default function PlayList({ arrayData }) {
       <PlaylistTitle />
 
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-        {arrayData.map((data, index) => (
+        {arrayPlaylist.map((data, index) => (
           <Grid item xs={4} sm={4} md={3} key={index}>
             <Link className="card_playlist" to={`/ca-nhan/detail/${data.id}`}>
               <CardItem
@@ -32,8 +32,8 @@ export default function PlayList({ arrayData }) {
                 }
                 threeIcon={<MoreHorizOutlinedIcon />}
                 secondTitle="Khác"
-                nameItem={data.name}
-                nameAuthor={data.author}
+                nameItem={data.discription}
+                nameAuthor={data.name}
               />
             </Link>
           </Grid>
