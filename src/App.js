@@ -38,7 +38,7 @@ function App() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify({ name: "Nam" }))
+    localStorage.setItem("user", JSON.stringify({ name: "Long" }))
     dispatch(fetchDatas());
     dispatch(fetchPlayLists());
     dispatch(fetchDataUser());
