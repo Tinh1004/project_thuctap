@@ -23,7 +23,7 @@ export default function AvatarUser() {
                 IMAGE_AVATAR={IMAGE_AVATAR}
                 handleClickSetClick={handleClickSetClick}
             /> */}
-            <Avatar alt="Name" src={userData.name ? IMAGE_AVATAR : ""} onClick={handleClickSetClick} >{userData.name ? "" : "?"}</Avatar>
+            <Avatar alt="Name" src={userData._id ? IMAGE_AVATAR : ""} onClick={handleClickSetClick} >{userData._id ? "" : "?"}</Avatar>
             <ListContent isClick={isClick} />
         </div>
     );

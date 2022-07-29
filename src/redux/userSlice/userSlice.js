@@ -21,7 +21,7 @@ export default createSlice({
                 if (data) {
                     let i = 0;
                     const myPLayList = data.filter((item, index) => {
-                        if (item.user.name == state.user.name) {
+                        if (item.user._id == state.user._id) {
                             i = index;
                             return item
                         }
@@ -55,6 +55,14 @@ export default createSlice({
         deletePlayList: (state, action) => {
 
         },
+        login: (state, action) => {
+            state.user = action.payload;
+            localStorage.setItem("user", JSON.stringify(state.user));
+        },
+        register: (state, action) => {
+            state.user = action.payload;
+            localStorage.setItem("user", JSON.stringify(state.user));
+        },
 
     },
     extraReducers: builder => {
@@ -71,7 +79,7 @@ export default createSlice({
                     console.log("dataPlayList: ", dataPlayList);
 
                     if (dataPlayList) {
-                        const filterUserData = dataPlayList.filter((item, index) => item.user.name == data.name);
+                        const filterUserData = dataPlayList.filter((item, index) => item.user._id == data._id);
                         console.log("filterUserData: ", filterUserData);
                         if (filterUserData.length > 0) {
                             state.myPlayLists = filterUserData[0].playlist;

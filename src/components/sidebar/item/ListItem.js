@@ -19,7 +19,7 @@ export default function ListItem({ data }) {
 
   const handler = () => {
     console.log("123456");
-    if (userData.name) {
+    if (userData._id) {
       context.toggleSetIsClose(true);
     } else {
       navigate('/login');

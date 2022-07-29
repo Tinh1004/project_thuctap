@@ -46,7 +46,6 @@ function App() {
     dispatch(fetchDatas());
     dispatch(fetchPlayLists());
     dispatch(fetchDataUser());
-
   }, []);
 
   return (

@@ -21,7 +21,7 @@ export default function ProfilePage(props) {
   const navigate = useNavigate();
   const userData = useSelector(userDataSelector);
   useLayoutEffect(() => {
-    if (!userData.name) {
+    if (!userData._id) {
       navigate('/login');
     }
   }, [])

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userDataSelector } from '../../../../redux/selectors';
 import userSlice from '../../../../redux/userSlice/userSlice';
 import { useNavigate } from "react-router-dom";
+import LoginIcon from '@mui/icons-material/Login';
+import InputIcon from '@mui/icons-material/Input';
 export default function ListContent({ isClick }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -10,14 +12,14 @@ export default function ListContent({ isClick }) {
     console.log("userData: ", userData);
     const handleLogout = () => {
         dispatch(userSlice.actions.resetLogout())
-        navigate('/');
+        navigate('/login');
     }
     return (
         <ul className={`options ${isClick ? " active" : ""}`}>
             <div className="avatar-name">
-                <p id="name">{userData.name ? userData.name : "..."}</p>
+                <p id="name">{userData._id ? userData.fullName : "..."}</p>
             </div>
-            {userData.name ?
+            {userData._id ?
                 <>
                     <li className="option">
                         <Link to="/ca-nhan">
@@ -40,13 +42,13 @@ export default function ListContent({ isClick }) {
                 <>
                     <li className="option">
                         <Link to="/login">
-                            <i className=''></i>
+                            <LoginIcon sx={{ paddingRight: 1, fontSize: '30px' }} />
                             <span className='option-text'>Đăng nhập</span>
                         </Link>
                     </li>
                     <li className="option">
                         <Link to={`/signup`}>
-                            <i className="bx bx-log-out"></i>
+                            <InputIcon sx={{ paddingRight: 1, fontSize: '30px' }} />
                             <span className="option-text">Đăng ký</span>
                         </Link>
                     </li>

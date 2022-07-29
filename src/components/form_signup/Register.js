@@ -17,7 +17,7 @@ import { BASE_URL } from "../utilities/contants";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authSlice } from "../../redux/slices/authSlice";
+import userSlice from "../../redux/userSlice/userSlice";
 
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
@@ -106,7 +106,7 @@ export default function Register() {
       })
         .then((res) => {
           console.log(res.data);
-          dispatch(authSlice.actions.register(res.data.user));
+          dispatch(userSlice.actions.register(res.data.user));
           navigate("/");
           toast.success("Register Success!", {
             position: toast.POSITION.TOP_RIGHT,
@@ -133,11 +133,10 @@ export default function Register() {
         <Box component="form" autoComplete={"off"} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
-            className={`form-control ${
-              validate.validate && validate.validate.fullname
+            className={`form-control ${validate.validate && validate.validate.fullname
                 ? "is-invalid "
                 : ""
-            }`}
+              }`}
             required
             fullWidth
             id="fullname"
@@ -147,11 +146,10 @@ export default function Register() {
             onChange={(e) => setFullname(e.target.value)}
           />
           <div
-            className={`invalid-feedback text-start ${
-              validate.validate && validate.validate.fullname
+            className={`invalid-feedback text-start ${validate.validate && validate.validate.fullname
                 ? "d-block"
                 : "d-none"
-            }`}
+              }`}
           >
             {validate.validate && validate.validate.fullname
               ? validate.validate.fullname[0]
@@ -160,9 +158,8 @@ export default function Register() {
 
           <TextField
             margin="normal"
-            className={`form-control ${
-              validate.validate && validate.validate.email ? "is-invalid " : ""
-            }`}
+            className={`form-control ${validate.validate && validate.validate.email ? "is-invalid " : ""
+              }`}
             required
             fullWidth
             id="email"
@@ -172,11 +169,10 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <div
-            className={`invalid-feedback text-start ${
-              validate.validate && validate.validate.email
+            className={`invalid-feedback text-start ${validate.validate && validate.validate.email
                 ? "d-block"
                 : "d-none"
-            }`}
+              }`}
           >
             {validate.validate && validate.validate.email
               ? validate.validate.email[0]
@@ -185,11 +181,10 @@ export default function Register() {
 
           <TextField
             margin="normal"
-            className={`form-control ${
-              validate.validate && validate.validate.username
+            className={`form-control ${validate.validate && validate.validate.username
                 ? "is-invalid "
                 : ""
-            }`}
+              }`}
             required
             fullWidth
             id="username"
@@ -199,11 +194,10 @@ export default function Register() {
             onChange={(e) => setUsername(e.target.value)}
           />
           <div
-            className={`invalid-feedback text-start ${
-              validate.validate && validate.validate.username
+            className={`invalid-feedback text-start ${validate.validate && validate.validate.username
                 ? "d-block"
                 : "d-none"
-            }`}
+              }`}
           >
             {validate.validate && validate.validate.username
               ? validate.validate.username[0]
@@ -212,11 +206,10 @@ export default function Register() {
 
           <TextField
             margin="normal"
-            className={`form-control ${
-              validate.validate && validate.validate.password
+            className={`form-control ${validate.validate && validate.validate.password
                 ? "is-invalid "
                 : ""
-            }`}
+              }`}
             required
             fullWidth
             name="password"
@@ -227,11 +220,10 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div
-            className={`invalid-feedback text-start ${
-              validate.validate && validate.validate.password
+            className={`invalid-feedback text-start ${validate.validate && validate.validate.password
                 ? "d-block"
                 : "d-none"
-            }`}
+              }`}
           >
             {validate.validate && validate.validate.password
               ? validate.validate.password[0]
@@ -240,9 +232,8 @@ export default function Register() {
 
           <FormControl
             fullWidth
-            className={`form-control ${
-              validate.validate && validate.validate.gender ? "is-invalid " : ""
-            }`}
+            className={`form-control ${validate.validate && validate.validate.gender ? "is-invalid " : ""
+              }`}
           >
             <InputLabel required id="demo-simple-select-label">
               Gender
@@ -260,11 +251,10 @@ export default function Register() {
             </Select>
           </FormControl>
           <div
-            className={`invalid-feedback text-start ${
-              validate.validate && validate.validate.gender
+            className={`invalid-feedback text-start ${validate.validate && validate.validate.gender
                 ? "d-block"
                 : "d-none"
-            }`}
+              }`}
           >
             {validate.validate && validate.validate.gender
               ? validate.validate.gender[0]
