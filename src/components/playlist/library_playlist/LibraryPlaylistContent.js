@@ -7,14 +7,19 @@ import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutline
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
-import CardItem from "../../../commons/CardItem";
+import { useContext } from "react";
 
-function LibraryPlaylistContent({ arrayData }) {
+import CardItem from "../../../commons/CardItem";
+import { CloseContext } from "../../../contexts/CloseContext";
+
+function LibraryPlaylistContent({ arrayPlaylist }) {
+  const context = useContext(CloseContext);
   return (
     <Box>
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={4} sm={4} md={3}>
           <Box
+            onClick={() => context.toggleSetIsClose(true)}
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -38,7 +43,7 @@ function LibraryPlaylistContent({ arrayData }) {
           </Box>
         </Grid>
 
-        {arrayData.map((data, index) => (
+        {arrayPlaylist.map((data, index) => (
           <Grid item xs={4} sm={4} md={3} key={index}>
             <Link className="card_playlist" to="/ca-nhan/detail">
               <CardItem
@@ -50,8 +55,8 @@ function LibraryPlaylistContent({ arrayData }) {
                 }
                 threeIcon={<MoreHorizOutlinedIcon />}
                 secondTitle="Khác"
-                nameItem={data.name}
-                nameAuthor={data.author}
+                nameItem={data.discription}
+                nameAuthor={data.name}
               />
             </Link>
           </Grid>

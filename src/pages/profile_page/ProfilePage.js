@@ -4,23 +4,42 @@ import ProfileContent from "./ProfileContent";
 import LibraryPlaylist from "../../components/playlist/library_playlist/LibraryPlaylist.tsx";
 import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
 import { useSelector } from "react-redux";
-import { dataSelector } from "../../redux/selectors";
+import {
+  arraySearchPlayLists,
+  dataSelector,
+  myPlayListsSelector,
+} from "../../redux/selectors";
 
 export default function ProfilePage(props) {
   const totalData = useSelector(dataSelector);
   const arrayData = [...totalData].splice(0, 7);
 
+  const arrayPlaylist = useSelector(arraySearchPlayLists);
+
   return (
     <section className="home">
       <Routes>
-        <Route path="/*" element={<ProfileContent arrayData={arrayData} />} />
+        <Route
+          path="/*"
+          element={
+            <ProfileContent
+              arrayData={arrayData}
+              arrayPlaylist={arrayPlaylist}
+            />
+          }
+        />
         <Route
           path="/library/playlist/*"
-          element={<LibraryPlaylist arrayData={arrayData} />}
+          element={<LibraryPlaylist arrayPlaylist={arrayPlaylist} />}
         />
         <Route
           path="/detail/:id"
-          element={<DetailPlaylist arrayData={arrayData} />}
+          element={
+            <DetailPlaylist
+              arrayData={arrayData}
+              arrayPlaylist={arrayPlaylist}
+            />
+          }
         />
       </Routes>
     </section>

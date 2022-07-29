@@ -2,7 +2,6 @@ import { Avatar, Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Card } from "react-bootstrap";
 import CustomTooltip from "./CustomTooltip";
-import { useState, useEffect } from "react";
 
 function CardItem({
   data,
@@ -16,29 +15,6 @@ function CardItem({
   display = "none",
   ...rest
 }) {
-  const [duration, setDuration] = useState(0);
-  console.log(duration);
-
-  const getVal = (audio) => {
-    var val = audio.duration;
-    setDuration(val);
-  };
-  const convertDuration = (url) => {
-    return `${Math.round(duration / 60)}:${
-      Math.floor(duration % 60) >= 10
-        ? Math.floor(duration % 60)
-        : `0${Math.floor(duration % 60)}`
-    }`;
-  };
-
-  useEffect(() => {
-    var audio = new Audio();
-    audio.src = data.url;
-    audio.addEventListener("durationchange", () => getVal(audio));
-    return () => {
-      audio.removeEventListener("durationchange", () => getVal(audio));
-    };
-  }, []);
   return (
     <Card
       style={{
@@ -91,7 +67,7 @@ function CardItem({
         <CardMedia
           component="img"
           height="100%"
-          image={data.links.images[0].url}
+          image={data.image}
           alt="playlist image"
           sx={{
             position: "relative",
@@ -113,7 +89,7 @@ function CardItem({
             fontSize: "0.8rem",
           }}
         >
-          {convertDuration(data.url)}
+          4:17
         </Typography>
       </Box>
 
@@ -121,16 +97,14 @@ function CardItem({
         <Avatar
           sx={{ display: { display }, marginRight: 2 }}
           alt="Image singer"
-          src={data.links.images[0].url}
+          src={data.image}
         />
         <Box>
-          <Grid zeroMinWidth>
-            <Typography noWrap sx={{ fontSize: "1rem", color: "black" }}>
-              {nameItem}
-            </Typography>
-          </Grid>
+          <Typography noWrap sx={{ fontSize: "1rem", color: "black" }}>
+            {nameItem}
+          </Typography>
 
-          <Typography sx={{ fontSize: "0.9rem", color: "#00000099" }}>
+          <Typography noWrap sx={{ fontSize: "0.9rem", color: "#00000099" }}>
             {nameAuthor}
           </Typography>
         </Box>

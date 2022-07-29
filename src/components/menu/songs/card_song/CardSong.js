@@ -6,6 +6,7 @@ import {
   Typography,
   Tooltip,
   Button,
+  Grid,
 } from "@mui/material";
 import React from "react";
 
@@ -102,6 +103,7 @@ function CardSong({ data }) {
             <Typography paddingTop={1} lineHeight={0.8}>
               {data.name}
             </Typography>
+
             <Link
               href="#"
               sx={{
