@@ -8,17 +8,17 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
-function Album({ arrayData }) {
+function Album({ arrayPlaylist }) {
   return (
     <Box>
-      {arrayData.length <= 0 ? (
+      {arrayPlaylist.length <= 0 ? (
         <EmptyComponent
           icon={<AlbumIcon sx={{ fontSize: "8rem" }} />}
           text="Chưa có album trong thư viện cá nhân"
         />
       ) : (
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-          {arrayData.map((data, index) => (
+          {arrayPlaylist.map((data, index) => (
             <Grid item xs={4} sm={4} md={3} key={index}>
               <Link className="card_playlist" to="/ca-nhan/detail">
                 <CardItem
