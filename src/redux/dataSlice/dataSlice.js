@@ -59,4 +59,3 @@ export const fetchDatas = createAsyncThunk('data/fetchDatas', async () => {
 })
 
 
-
