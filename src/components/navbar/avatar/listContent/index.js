@@ -15,7 +15,7 @@ export default function ListContent({ isClick }) {
     return (
         <ul className={`options ${isClick ? " active" : ""}`}>
             <div className="avatar-name">
-                <p id="name">{userData.name ? "Pham Ngoc Tinh" : "..."}</p>
+                <p id="name">{userData.name ? userData.name : "..."}</p>
             </div>
             {userData.name ?
                 <>
@@ -52,7 +52,6 @@ export default function ListContent({ isClick }) {
                     </li>
                 </>
             }
-
         </ul>
     );
 }

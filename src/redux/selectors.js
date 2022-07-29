@@ -87,6 +87,23 @@ export const arrayPlayLists = createSelector(
 );
 
 
+export const myArrayPlayLists = createSelector(
+    dataSelector,
+    playListsSelector,
+    (data, playList) => {
+        const array = playList.map((item) => {
+            const play = { ...item };
+            const arr = play.array.map((id) => {
+                const musics = data.filter((x) => x.id == id);
+                return musics[0];
+            })
+            play.array = arr;
+            return play;
+        })
+        return array;
+    }
+);
+
 export const arraySearchPlayLists = createSelector(
     arrayPlayLists,
     searchTextSelector,
