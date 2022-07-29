@@ -54,7 +54,8 @@ export default createSlice({
         },
         deletePlayList: (state, action) => {
 
-        }
+        },
+
     },
     extraReducers: builder => {
         builder
