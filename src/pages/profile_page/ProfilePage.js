@@ -8,13 +8,23 @@ import {
   arraySearchPlayLists,
   dataSelector,
   myPlayListsSelector,
+  userDataSelector
 } from "../../redux/selectors";
+import { useNavigate } from "react-router-dom"
+
+import { useLayoutEffect } from "react"
 
 export default function ProfilePage(props) {
   const totalData = useSelector(dataSelector);
   const arrayData = [...totalData].splice(0, 7);
-
   const arrayPlaylist = useSelector(arraySearchPlayLists);
+  const navigate = useNavigate();
+  const userData = useSelector(userDataSelector);
+  useLayoutEffect(() => {
+    if (!userData.name) {
+      navigate('/login');
+    }
+  }, [])
 
   return (
     <section className="home">
