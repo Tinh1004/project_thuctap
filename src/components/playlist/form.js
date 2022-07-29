@@ -1,12 +1,28 @@
 import { Route, Routes } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+import { useDispatch } from 'react-redux';
+import userSlice from "../../redux/userSlice/userSlice";
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function List({
   item,
   closeHandler,
   visible
 }) {
+  const [inputName, setInputName] = useState("");
+  const dispatch = useDispatch();
+  const handleAddPlaylist = () => {
+    const id = uuidv4();
+    dispatch(userSlice.actions.addPlayList({
+      name: inputName,
+      discription: "Diviners",
+      id: id,
+      image: "https://i.scdn.co/image/ab67616d0000b273da513d25e8b3cdd4f43f7512",
+      array: []
+    }))
+  }
   return (
     <div>
       <span className="text nav-text">
@@ -27,6 +43,9 @@ export default function List({
             <Input
               size="lg"
               placeholder="Nhập tên PlayList"
+              onChange={(e) => {
+                setInputName(e.target.value);
+              }}
             // contentLeft={<Mail fill="currentColor" />}
             />
             <Checkbox>
@@ -47,7 +66,10 @@ export default function List({
               <Button auto flat color="error" onClick={closeHandler}>
                 Close
               </Button>
-              <Button auto onClick={closeHandler}>
+              <Button auto onClick={() => {
+                handleAddPlaylist();
+                closeHandler();
+              }}>
                 Add
               </Button>
             </Modal.Footer>

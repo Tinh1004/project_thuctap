@@ -8,6 +8,10 @@ export const songSelector = (state) => state.data.song;
 // export const idSongSelector = (state) => state.data.id;
 
 
+// ============= User ===============
+export const userDataSelector = (state) => state.user.user;
+
+
 export const arraySearchSong = createSelector(
     dataSelector,
     searchTextSelector,

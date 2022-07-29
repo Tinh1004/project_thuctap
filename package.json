@@ -20,8 +20,8 @@
     "install": "^0.13.0",
     "node": "^18.5.0",
     "npm": "^8.13.2",
-    "postcss-normalize": "^10.0.1",
     "path-browserify": "^1.0.1",
+    "postcss-normalize": "^10.0.1",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-bootstrap": "^2.4.0",
@@ -40,6 +40,7 @@
     "styled-components": "^5.3.5",
     "util": "^0.12.4",
     "utilities": "^1.0.6",
+    "uuid": "^8.3.2",
     "validator": "^13.7.0",
     "vm-browserify": "^1.1.2",
     "web-vitals": "^2.1.4"
