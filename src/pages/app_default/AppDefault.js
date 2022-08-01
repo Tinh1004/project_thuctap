@@ -12,6 +12,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ListPopularSong from '../HomePage/ListPopularSong';
 import ListPopularArtists from '../HomePage/ListPopularArtist';
 import ListPopularAlbum from '../HomePage/ListPopularAlbum';
+import SongAtWork from '../HomePage/Album/ListSongAtWork';
+import SongAtParty from '../HomePage/Album/ListSongAtParty';
+import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
+import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
+import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
+
 
 
 export default function AppDefault({ children }) {
@@ -27,6 +33,11 @@ export default function AppDefault({ children }) {
                         <Route path="/list-popular-song" element={<ListPopularSong />} />
                         <Route path="/list-popular-artist" element={<ListPopularArtists />} />
                         <Route path="/list-popular-album" element={<ListPopularAlbum />} />
+                        <Route path="/list-song-at-work" element={<SongAtWork/>} />
+                        <Route path="/list-song-at-party" element={<SongAtParty/>} />
+                        <Route path="/list-song-NCSRelease" element={<SongNCSRelease/>} />
+                        <Route path="/list-song-party-summervibe" element={<SongSummerVibe/>} />
+                        <Route path="/list-song-USUKTopHit" element={<SongUSUKTopHit/>} />
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
                     <Route path="the-loai" element={<CategoryPage />} />
                     <Route path="page2" element={<Datapage2 />} />
