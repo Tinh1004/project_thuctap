@@ -33,7 +33,7 @@ export const albums = [
         name: "NCS Release",
         author: "K-391, Kadenza, Lost Sky, Ship Wrek & Zookeepers, Sub Urban, Syn Cole, Valence, Warriyo, Alan Walker",
         url: "https://cdn.discordapp.com/attachments/775740994595323954/775741894939901992/K-391_-_Earth_NCS_ReleaseMP3_160K.mp3",
-        id: 3,
+        id: 2,
         links: {
             images: [
                 {
@@ -48,7 +48,7 @@ export const albums = [
     {
         name: "Summer Vibe",
         author: "Selena Gomez, Sabrina Carpenter, Alan Walker, Marshmello, DJ Snake ft Justin Bieber",
-        id: 4,
+        id: 3,
         links: {
             images: [
                 {
@@ -63,7 +63,7 @@ export const albums = [
     {
         name: "US-UK Top Hit",
         author: "Selena Gomez, Maroon 5, Alan Walker,Camila Cabello, DaBaby, DJ Snake ft Justin Bieber",
-        id: 5,
+        id: 4,
         links: {
             images: [
                 {
