@@ -58,7 +58,24 @@ export default createSlice({
 
         },
         deletePlayList: (state, action) => {
-
+            const index = action.payload;
+            const newArray = [...state.myPlayLists];
+            newArray.splice(index, 1);
+            const data = JSON.parse(localStorage.getItem('data'));
+            if (data) {
+                state.myPlayLists = newArray;
+                let i = 0;
+                const myPLayList = data.filter((item, index) => {
+                    if (item.user._id == state.user._id) {
+                        i = index;
+                        return item
+                    }
+                });
+                const myData = myPLayList[0];
+                const newData = { ...myData, playlist: state.myPlayLists };
+                data[i] = newData;
+                localStorage.setItem("data", JSON.stringify(data));
+            }
         },
         login: (state, action) => {
             state.user = action.payload;

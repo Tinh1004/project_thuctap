@@ -22,7 +22,7 @@ import { arrayPlayLists } from "../../../redux/selectors";
 
 function DetailPlaylist({ arrayData, arrayPlaylist }) {
   const { id } = useParams();
-
+  // arrayPlayLists filter theo id;
   const arrayPlayListSong = arrayPlaylist[id].array;
   console.log("list song: ", arrayPlayListSong);
   console.log("list song 2: ", arrayData);

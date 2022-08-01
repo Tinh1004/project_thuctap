@@ -55,6 +55,7 @@ export default function Search() {
                     renderInput={(params) => (
                         <TextField
                             className="input-search"
+                            onChange={(e) => setInput(e.target.value)}
                             sx={{ padding: 0 }}
                             {...params}
                             label="Search..."

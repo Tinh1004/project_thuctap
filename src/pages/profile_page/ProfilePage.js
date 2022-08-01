@@ -17,7 +17,7 @@ import { useLayoutEffect } from "react"
 export default function ProfilePage(props) {
   const totalData = useSelector(dataSelector);
   const arrayData = [...totalData].splice(0, 7);
-  const arrayPlaylist = useSelector(arraySearchPlayLists);
+  const arrayPlaylist = useSelector(myPlayListsSelector);
   const navigate = useNavigate();
   const userData = useSelector(userDataSelector);
   useLayoutEffect(() => {
