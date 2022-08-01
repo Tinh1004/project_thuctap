@@ -11,11 +11,12 @@ import RegisterPage from "./pages/RegisterPage";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatas } from "./redux/dataSlice/dataSlice";
 import { useEffect } from "react";
-import { dataSelector, searchTextSelector, arraySearchSong } from "./redux/selectors";
+import { dataSelector, searchTextSelector} from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";
 import ChangePassword from "./pages/ChangePassword";
 import ForgotPasswordPage from "./pages/ForgotPassword";
+// import CategoryPage from "./pages/CategoryPage";
 
 function App() {
 
@@ -23,8 +24,6 @@ function App() {
   const search = useSelector(searchTextSelector);
   console.log(data)
   console.log(search)
-
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDatas())
