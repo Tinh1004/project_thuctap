@@ -6,8 +6,11 @@ import CardItem from "../../commons/CardItem";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import { useDispatch } from "react-redux";
+import userSlice from "../../redux/userSlice/userSlice";
 
 export default function PlayList({ myArrayPlaylist }) {
+  const dispatch = useDispatch();
   console.log(myArrayPlaylist);
   return (
     <Box
@@ -25,7 +28,14 @@ export default function PlayList({ myArrayPlaylist }) {
             <Link className="card_playlist" to={`/ca-nhan/detail/${data.id}`}>
               <CardItem
                 data={data}
-                firstIcon={<ClearOutlinedIcon />}
+                firstIcon={
+                  <ClearOutlinedIcon
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(userSlice.actions.deletePlayList(index));
+                    }}
+                  />
+                }
                 firstTitle="Xóa"
                 secondIcon={
                   <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />

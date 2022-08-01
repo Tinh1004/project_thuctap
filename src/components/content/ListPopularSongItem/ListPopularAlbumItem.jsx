@@ -1,7 +1,4 @@
 import React from "react";
-import createSlice from "../../../redux/dataSlice/dataSlice"
-import { useDispatch, useSelector } from "react-redux";
-import CardPopuplarSong from "./card_popular_song/CardPopuplarSong";
 import MenuAlbumPolular from "./menu_song/MenuAlbum";
 
 import "./styles.scss";

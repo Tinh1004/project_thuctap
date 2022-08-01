@@ -5,6 +5,7 @@ import LibraryPlaylist from "../../components/playlist/library_playlist/LibraryP
 import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
 import { useSelector } from "react-redux";
 import {
+  arrayPlayLists,
   dataSelector,
   myPlayListsSelector,
   userDataSelector,
@@ -17,10 +18,15 @@ export default function ProfilePage(props) {
   const totalData = useSelector(dataSelector);
   const arrayData = [...totalData].splice(0, 7);
   const myArrayPlaylist = useSelector(myPlayListsSelector);
+  const arrayPlayList = useSelector(arrayPlayLists);
+
   const navigate = useNavigate();
   const userData = useSelector(userDataSelector);
+
   useLayoutEffect(() => {
-    if (!userData._id) {
+    const user = localStorage.getItem("user");
+
+    if (!user) {
       navigate("/login");
     }
   }, []);
@@ -47,6 +53,7 @@ export default function ProfilePage(props) {
             <DetailPlaylist
               arrayData={arrayData}
               myArrayPlaylist={myArrayPlaylist}
+              arrayPlayList={arrayPlayList}
             />
           }
         />

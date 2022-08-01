@@ -11,27 +11,31 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search() {
     const [input, setInput] = useState("");
+    console.log(input);
+
     let navigate = useNavigate();
     const inputRef = useRef();
     const dispatch = useDispatch();
     let data = useSelector(dataSelector);
 
-
-    const handleClearInput = () => {
-        setInput("");
-    }
     const handleChangeInput = (value) => {
         setInput(value);
     }
-
-    const handleSubmitForm = (e) => {
-        e.preventDefault();
-        // window.alert("input: "+input);
+    const handleClickSearch = () => {
         if (input.trim().length > 0) {
             dispatch(filterSlice.actions.searchFilterChange(input))
             navigate(`/search/${input}/tat-ca`, { replace: true });
         }
     }
+
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+        // window.alert("input: "+input);
+        handleClickSearch();
+    }
+
+
+
 
     return (
         <form className="search" onSubmit={handleSubmitForm}>
@@ -51,6 +55,7 @@ export default function Search() {
                     renderInput={(params) => (
                         <TextField
                             className="input-search"
+                            onChange={(e) => setInput(e.target.value)}
                             sx={{ padding: 0 }}
                             {...params}
                             label="Search..."
@@ -69,6 +74,7 @@ export default function Search() {
                                             disabled={false}
                                             size="small"
                                             type="submit"
+                                            onClick={handleClickSearch}
                                             sx={{
                                                 // color: '#f91880',
                                                 borderRadius: 25,
