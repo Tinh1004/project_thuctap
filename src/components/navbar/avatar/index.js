@@ -7,13 +7,14 @@ import { useSelector } from 'react-redux';
 import { userDataSelector } from '../../../redux/selectors'
 
 
-const IMAGE_AVATAR = "https://lh3.googleusercontent.com/-qDBbDmVUjxw/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmmw_MgrRjrwrPsqDMLjlq_b0a6zA/photo.jpg?sz=46";
+const IMAGE_AVATAR = "https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36";
 
 
 export default function AvatarUser() {
     const [isClick, setIsClick] = useState(false);
     console.log(isClick);
     const userData = useSelector(userDataSelector);
+    console.log("userData: ", userData);
     const handleClickSetClick = () => {
         setIsClick(prev => !prev);
     }
@@ -23,7 +24,13 @@ export default function AvatarUser() {
                 IMAGE_AVATAR={IMAGE_AVATAR}
                 handleClickSetClick={handleClickSetClick}
             /> */}
-            <Avatar alt="Name" src={userData._id ? IMAGE_AVATAR : ""} onClick={handleClickSetClick} >{userData._id ? "" : "?"}</Avatar>
+            {/* <Avatar alt="Avatart" src={IMAGE_AVATAR} onClick={handleClickSetClick} /> */}
+
+            {userData._id
+                ? <Avatar alt="Avatart" src={IMAGE_AVATAR} onClick={handleClickSetClick} />
+                :
+                <Avatar alt="Avatart" onClick={handleClickSetClick} >?</Avatar>
+            }
             <ListContent isClick={isClick} />
         </div>
     );

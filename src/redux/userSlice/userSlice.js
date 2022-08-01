@@ -15,9 +15,12 @@ export default createSlice({
         addPlayList: (state, action) => {
             const checkItemPlayList = state.myPlayLists.filter((item) => item.id === action.payload.id);
             console.log(checkItemPlayList);
+            //kiểm tra playlist có trong myPlayLists hay không
             if (checkItemPlayList.length === 0) {
                 state.myPlayLists.push(action.payload);
                 const data = JSON.parse(localStorage.getItem('data'));
+
+                //kiem tra data có tồn tại hay không
                 if (data) {
                     let i = 0;
                     const myPLayList = data.filter((item, index) => {
@@ -49,6 +52,8 @@ export default createSlice({
                         ]
                     ))
                 }
+            } else {
+                console.log("Đã tồn tại...");
             }
 
         },

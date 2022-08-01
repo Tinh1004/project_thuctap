@@ -1,9 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import userSlice from '../../../redux/userSlice/userSlice';
 
 export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
+    const dispatch = useDispatch();
+    const handleClickAddPlayList = () => {
+        dispatch(userSlice.actions.addPlayList(item));
+    }
     useEffect(() => {
         const handleResize = () => {
             console.log(itemRef.current.offsetWidth);
