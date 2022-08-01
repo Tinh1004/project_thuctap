@@ -10,7 +10,7 @@ export default createSlice({
         resetLogout: (state, action) => {
             localStorage.removeItem("user");
             state.user = {};
-            state.myPlayLists = {};
+            state.myPlayLists = [];
         },
         addPlayList: (state, action) => {
             state.myPlayLists.push(action.payload);
