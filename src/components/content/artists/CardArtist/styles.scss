@@ -31,13 +31,18 @@
     .info{
         padding-top: 10px   ;
         line-height: 15px;
-        font-size: 13px;
+        font-size: 18px;
         text-align: center;
         font-weight: 600;
         &:hover{
             color: rgb(117, 117, 236);
-            text-decoration: underline;
             cursor: pointer;
         }
     }
+
+    .singerLike{
+        font-size: 13px;
+        text-align: center;
+    }
+ 
 }

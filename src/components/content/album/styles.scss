@@ -1,0 +1,83 @@
+.albumsContainer{
+    
+    .albums{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h4{
+            margin-left: 10px;
+            color: black;
+            font-size: 23px;
+            font-weight: 600;
+        }
+        label{
+            background: none;
+            border:none;
+            border-radius: 50%;
+          
+          .fas{
+            color: black;
+            // cursor: pointer;
+            transition: .3s linear;
+          }   
+          &:hover{
+            .btn{
+              color:rgb(221, 221, 221);
+              .fas{
+                color:rgb(221, 221, 221);
+              }
+            }
+            transition: 500ms; 
+          }
+        }
+    }
+    .cardAlbums{
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+        display: flex;
+        overflow: auto;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar{
+          width: 6px;
+          height: 10px;
+          display: none;
+          color: gray;
+          -webkit-box-shadow: inset 0 0 6px rgba(180, 180, 180, 0.2);
+        }
+        @media screen and (max-width: 1024px) and (min-width:740px) {
+          .albums{ 
+            h4{
+              font-size: 20px;
+            }
+          }
+         
+          &::-webkit-scrollbar{
+            display:initial;  
+          }
+          &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background-color: rgba(199, 199, 199,0.5);
+          }
+
+        }
+        @media screen and (max-width:740px) {
+          .albums{ 
+            h4{
+              font-size: 17px;
+            }
+          }
+         
+          &::-webkit-scrollbar{
+            display:initial;  
+          }
+          &::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            background-color: rgba(199, 199, 199,0.5);
+          }
+
+        }
+        
+        
+    }
+}
