@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Tab from "../../../commons/Tab";
 import LibraryPlaylistContent from "./LibraryPlaylistContent";
 
-function LibraryPlaylist({ arrayPlaylist }) {
+function LibraryPlaylist({ myArrayPlaylist }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -54,9 +54,11 @@ function LibraryPlaylist({ arrayPlaylist }) {
       <Box sx={{ borderBottom: "1px solid #c4c4c499" }} mb={4} />
 
       <Box px={8}>
-        {isSelected && <LibraryPlaylistContent arrayPlaylist={arrayPlaylist} />}
+        {isSelected && (
+          <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
+        )}
         {!isSelected && (
-          <LibraryPlaylistContent arrayPlaylist={arrayPlaylist} />
+          <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
         )}
       </Box>
     </Box>
