@@ -35,6 +35,7 @@ import './data.css'
 export const song1page =[
     {
         id:1,
+        title:'COFFEE',
         imgto:cfto,
         name:'COFFEE',
         imgnho1:cfnho1,
@@ -43,6 +44,7 @@ export const song1page =[
     },
     {
         id:2,
+        title:'GAME',
         imgto:Song02,
         name:'GAME',
         imgnho1:g1,
@@ -51,6 +53,7 @@ export const song1page =[
     },
     {
         id:3,
+        title:'WORKING',
         imgto:Song03,
         name:'WORKING',
         imgnho1:r1,
@@ -59,6 +62,7 @@ export const song1page =[
     },
     {
         id:4,
+        title:'RELAX',
         imgto:Song04,
         name:'RELAX',
         imgnho1:w1,
@@ -69,21 +73,25 @@ export const song1page =[
 export const song2page=[
     {
         id:1,
+        title:'VietNam',
         img2:VN,
         name:'Viet Nam'
     },
     {
         id:2,
+        title:'AuMy',
         img2:AM,
         name:'Âu Mỹ'
     },
     {
         id:3,
+        title:'HanQuoc',
         img2:HQ,
         name:'Hàn Quốc'
     },
     {
         id:4,
+        title:'TrungQuoc',
         img2:TQ,
         name:'Trung Quốc'
     }
@@ -91,6 +99,7 @@ export const song2page=[
 export const song3page=[
     {
         id:1,
+        title:'Mien-Trung-Ngan-Nam-Bien-Doi',
         img3:tt1,
         tenbh:'Miền Trung Ngàn Năm Biển Đợi',
         casi:'Che Linh, Son Tuyen...'
@@ -98,23 +107,27 @@ export const song3page=[
     {
         id:2,
         img3:tt2,
+        title:'Mien-Trung-Ngan-Nam-Bien-Doi',
         tenbh:'Miền Trung Ngàn Năm Biển Đợi',
         casi:'Che Linh, Son Tuyen...'
     },
     {
         id:3,
+        title:'Mien-Trung-Ngan-Nam-Bien-Doi',
         img3:tt3,
         tenbh:'Miền Trung Ngàn Năm Biển Đợi',
         casi:'Che Linh, Son Tuyen...'
     },
     {
         id:4,
+        title:'Mien-Trung-Ngan-Nam-Bien-Doi',
         img3:tt4,
         tenbh:'Miền Trung Ngàn Năm Biển Đợi',
         casi:'Che Linh, Son Tuyen...'
     },
     {
         id:5,
+        title:'Mien-Trung-Ngan-Nam-Bien-Doi',
         img3:tt5,
         tenbh:'Miền Trung Ngàn Năm Biển Đợi',
         casi:'Che Linh, Son Tuyen...'
@@ -123,30 +136,35 @@ export const song3page=[
 export const song4page=[
     {
         id:1,
+        title:'Only-Honest-On-The-Weekend',
         img3:e1,
         tenbh:'Only Honest On The Weekend',
         casi:'Becky Hill'
     },
     {
         id:2,
+        title:'K-EDM',
         img3:e2,
         tenbh:'K-EDM',
         casi:'KARD, ATEZZ...'
     },
     {
         id:3,
+        title:'Dance-Pop',
         img3:e3,
         tenbh:'Dance Pop',
         casi:'Selena Gommez, Rita Ora'
     },
     {
         id:4,
+        title:'Best-EDM',
         img3:e4,
         tenbh:'Best EDM',
         casi:'Avicii, Alan Walker...'
     },
     {
         id:5,
+        title:'Paradise-Again',
         img3:e5,
         tenbh:'Paradise Again',
         casi:'Swedish House Mafia'
