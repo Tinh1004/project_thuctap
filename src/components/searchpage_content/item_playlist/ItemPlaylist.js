@@ -1,20 +1,32 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import userSlice from '../../../redux/userSlice/userSlice';
-
+import { myPlayListsSelector } from '../../../redux/selectors';
+import { toast } from "react-toastify";
 export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
     const dispatch = useDispatch();
+    const myPlayLists = useSelector(myPlayListsSelector);
+
     const handleClickAddPlayList = () => {
-        dispatch(userSlice.actions.addPlayList(item));
+        const checkItemPlayList = myPlayLists.filter((e) => e.id === item.id);
+        if (checkItemPlayList.length === 0) {
+            dispatch(userSlice.actions.addPlayList(item));
+            toast.success("Thêm Playlist thành công!", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+        } else {
+            toast.error("Đã tồn tại...", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+        }
     }
 
 
     useEffect(() => {
         const handleResize = () => {
-            console.log(itemRef.current.offsetWidth);
             setWidth(itemRef.current.offsetWidth);
             handleChangeWidth(itemRef.current.offsetWidth);
         }

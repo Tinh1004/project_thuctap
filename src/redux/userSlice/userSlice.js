@@ -13,47 +13,41 @@ export default createSlice({
             state.myPlayLists = {}
         },
         addPlayList: (state, action) => {
-            const checkItemPlayList = state.myPlayLists.filter((item) => item.id === action.payload.id);
-            console.log(checkItemPlayList);
-            //kiểm tra playlist có trong myPlayLists hay không
-            if (checkItemPlayList.length === 0) {
-                state.myPlayLists.push(action.payload);
-                const data = JSON.parse(localStorage.getItem('data'));
 
-                //kiem tra data có tồn tại hay không
-                if (data) {
-                    let i = 0;
-                    const myPLayList = data.filter((item, index) => {
-                        if (item.user._id == state.user._id) {
-                            i = index;
-                            return item
-                        }
-                    });
+            state.myPlayLists.push(action.payload);
+            const data = JSON.parse(localStorage.getItem('data'));
 
-                    if (myPLayList.length === 0) {
-                        data.push({
+            //kiem tra data có tồn tại hay không
+            if (data) {
+                let i = 0;
+                const myPLayList = data.filter((item, index) => {
+                    if (item.user._id == state.user._id) {
+                        i = index;
+                        return item
+                    }
+                });
+
+                if (myPLayList.length === 0) {
+                    data.push({
+                        user: state.user,
+                        playlist: state.myPlayLists
+                    })
+                } else {
+                    const myData = myPLayList[0];
+                    const newData = { ...myData, playlist: state.myPlayLists };
+                    data[i] = newData;
+                }
+                localStorage.setItem("data", JSON.stringify(data))
+            }
+            else {
+                localStorage.setItem("data", JSON.stringify(
+                    [
+                        {
                             user: state.user,
                             playlist: state.myPlayLists
-                        })
-                    } else {
-                        const myData = myPLayList[0];
-                        const newData = { ...myData, playlist: state.myPlayLists };
-                        data[i] = newData;
-                    }
-                    localStorage.setItem("data", JSON.stringify(data))
-                }
-                else {
-                    localStorage.setItem("data", JSON.stringify(
-                        [
-                            {
-                                user: state.user,
-                                playlist: state.myPlayLists
-                            }
-                        ]
-                    ))
-                }
-            } else {
-                console.log("Đã tồn tại...");
+                        }
+                    ]
+                ))
             }
 
         },

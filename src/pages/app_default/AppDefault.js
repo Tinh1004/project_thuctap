@@ -30,6 +30,7 @@ export default function AppDefault({ children }) {
                     <Route path="/list-popular-song" element={<ListPopularSong />} />
                     <Route path="/list-popular-artist" element={<ListPopularArtists />} />
                     <Route path="/list-popular-album" element={<ListPopularAlbum />} />
+
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
                     <Route path="the-loai" element={<CategoryPage />} />
                     <Route path="the-loai/VietNam" element={<Datapage3 />} />
@@ -46,6 +47,8 @@ export default function AppDefault({ children }) {
                     <Route path="the-loai/Dance-Pop/" element={<Datapage3 />} />
                     <Route path="the-loai/Best-EDM/" element={<Datapage2 />} />
                     <Route path="the-loai/Paradise-Again/" element={<Datapage2 />} />
+
+
                     <Route path="search/:search/*" element={<SearchPage />} />
                     {/* <Route path="tao-playlist" element={<FormPlaylist />} /> */}
 
