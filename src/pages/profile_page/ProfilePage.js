@@ -5,26 +5,25 @@ import LibraryPlaylist from "../../components/playlist/library_playlist/LibraryP
 import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
 import { useSelector } from "react-redux";
 import {
-  arraySearchPlayLists,
   dataSelector,
   myPlayListsSelector,
-  userDataSelector
+  userDataSelector,
 } from "../../redux/selectors";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-import { useLayoutEffect } from "react"
+import { useLayoutEffect } from "react";
 
 export default function ProfilePage(props) {
   const totalData = useSelector(dataSelector);
   const arrayData = [...totalData].splice(0, 7);
-  const arrayPlaylist = useSelector(arraySearchPlayLists);
+  const myArrayPlaylist = useSelector(myPlayListsSelector);
   const navigate = useNavigate();
   const userData = useSelector(userDataSelector);
   useLayoutEffect(() => {
     if (!userData._id) {
-      navigate('/login');
+      navigate("/login");
     }
-  }, [])
+  }, []);
 
   return (
     <section className="home">
@@ -34,20 +33,20 @@ export default function ProfilePage(props) {
           element={
             <ProfileContent
               arrayData={arrayData}
-              arrayPlaylist={arrayPlaylist}
+              myArrayPlaylist={myArrayPlaylist}
             />
           }
         />
         <Route
           path="/library/playlist/*"
-          element={<LibraryPlaylist arrayPlaylist={arrayPlaylist} />}
+          element={<LibraryPlaylist myArrayPlaylist={myArrayPlaylist} />}
         />
         <Route
           path="/detail/:id"
           element={
             <DetailPlaylist
               arrayData={arrayData}
-              arrayPlaylist={arrayPlaylist}
+              myArrayPlaylist={myArrayPlaylist}
             />
           }
         />

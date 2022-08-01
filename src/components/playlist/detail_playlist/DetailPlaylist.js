@@ -22,14 +22,18 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { arrayPlayLists } from "../../../redux/selectors";
 
-function DetailPlaylist({ arrayData, arrayPlaylist }) {
+function DetailPlaylist({ arrayData, myArrayPlaylist }) {
   const { id } = useParams();
 
-  const arrayPlayListSong = arrayPlaylist[id].array;
-  console.log("list song: ", arrayPlayListSong);
-  console.log("list song 2: ", arrayData);
+  // const currentId = myArrayPlaylist.filter((data) => data.id === id);
 
-  const imageDetail = arrayPlaylist[id].image;
+  // console.log(currentId);
+
+  const arrayPlayListSong = myArrayPlaylist[0].array;
+  console.log("list song: ", arrayPlayListSong);
+  console.log("myArrayPlaylist: ", myArrayPlaylist);
+
+  const imageDetail = myArrayPlaylist[0].image;
 
   return (
     <>
