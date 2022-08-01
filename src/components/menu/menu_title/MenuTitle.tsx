@@ -8,7 +8,7 @@ import Podcast from "../podcast/Podcast";
 import Album from "../album/Album";
 import MvComponent from "../mv/MvComponent";
 
-function MenuTitle({ arrayData, arrayPlaylist }) {
+function MenuTitle({ arrayData, myArrayPlaylist }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -89,8 +89,8 @@ function MenuTitle({ arrayData, arrayPlaylist }) {
 
       {isSelectedSong && <SongComponent arrayData={arrayData} />}
       {isSelectedPodcast && <Podcast arrayData={arrayData} />}
-      {isSelectedAlbum && <Album arrayPlaylist={arrayPlaylist} />}
-      {isSelectedMV && <MvComponent arrayPlaylist={arrayPlaylist} />}
+      {isSelectedAlbum && <Album myArrayPlaylist={myArrayPlaylist} />}
+      {isSelectedMV && <MvComponent myArrayPlaylist={myArrayPlaylist} />}
     </>
   );
 }

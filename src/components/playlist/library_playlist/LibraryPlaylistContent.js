@@ -12,7 +12,7 @@ import { useContext } from "react";
 import CardItem from "../../../commons/CardItem";
 import { CloseContext } from "../../../contexts/CloseContext";
 
-function LibraryPlaylistContent({ arrayPlaylist }) {
+function LibraryPlaylistContent({ myArrayPlaylist }) {
   const context = useContext(CloseContext);
   return (
     <Box>
@@ -43,7 +43,7 @@ function LibraryPlaylistContent({ arrayPlaylist }) {
           </Box>
         </Grid>
 
-        {arrayPlaylist.map((data, index) => (
+        {myArrayPlaylist.map((data, index) => (
           <Grid item xs={4} sm={4} md={3} key={index}>
             <Link className="card_playlist" to="/ca-nhan/detail">
               <CardItem
