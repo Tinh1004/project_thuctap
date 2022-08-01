@@ -4,6 +4,7 @@ import userSlice from "./userSlice/userSlice";
 import { authSlice } from "./slices/authSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
+
 const store = configureStore({
   reducer: {
     filter: filterSlice.reducer,

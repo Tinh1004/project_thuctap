@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 export default function Song2(props) {
   return (
     <>
-    <Link to="/the-loai/page2">
-      <div className='khoinhac1'>
+    <Link to={props.title}>
+      <div title={props.title} className='khoinhac1'>
             <div className='nhac1'>
-                <img className='hinhto1' src={props.img2}/>
+                <img  className='hinhto1' src={props.img2}/>
                 <div className='ndtrenhinh1'>
                     <span>{props.name}</span>
                 </div>
