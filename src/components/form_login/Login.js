@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef, useState, useCallback } from "react";
+import { useState} from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -13,11 +13,6 @@ import { Divider } from "@mui/material";
 import { Alert } from "@mui/material";
 import userSlice from "../../redux/userSlice/userSlice";
 import { useDispatch } from "react-redux";
-import { LoginSocialFacebook, LoginSocialGoogle } from "reactjs-social-login";
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-} from "react-social-login-buttons";
 import Form from "../utilities/Form";
 import axios from "axios";
 import { BASE_URL } from "../utilities/contants";
@@ -25,24 +20,15 @@ import { useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import FacebookLogin from "./FacebookLogin";
+import GoogleLogin from "./GoogleLogin";
 
 const theme = createTheme();
 
 export default function Login() {
-  const [provider, setProvider] = useState("");
-  const [profile, setProfile] = useState("");
-  const googleRef = useRef();
-  const facebookRef = useRef();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const onLoginStart = useCallback(() => {
-    console.log("login start");
-  }, []);
-
-  const onLogoutFailure = useCallback(() => {
-    console.log("logout fail");
-  }, []);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -126,53 +112,13 @@ export default function Login() {
           <Typography component="h1" variant="h4" align="center">
             Login
           </Typography>
-          <div className={`App ${provider && profile ? "hide" : ""}`}>
-            <LoginSocialFacebook
-              align="center"
-              display="flex"
-              ref={facebookRef}
-              appId={"556246546227879"}
-              onLoginStart={onLoginStart}
-              onResolve={({ provider, data }) => {
-                setProvider(provider);
-                setProfile(data);
-                console.log(data, "data");
-                console.log(provider, "provider");
-              }}
-              onReject={(err) => {
-                console.log(err);
-              }}
-            >
-              <FacebookLoginButton
-                align="center"
-                display="flex"
-                style={{ margin: 5 }}
-              />
-            </LoginSocialFacebook>
-
-            <LoginSocialGoogle
-              align="center"
-              display="flex"
-              ref={googleRef}
-              client_id="1009598528563-a0roh8h4vpdi366hdh9uoqv4qucmct41.apps.googleusercontent.com"
-              onLogoutFailure={onLogoutFailure}
-              onLoginStart={onLoginStart}
-              onResolve={({ provider, data }) => {
-                setProvider(provider);
-                setProfile(data);
-                console.log(data, "data");
-                console.log(provider, "provider");
-              }}
-              onReject={(err) => {
-                console.log("hbhbdhd", err);
-              }}
-            >
-              <GoogleLoginButton align="center" display="flex" />
-            </LoginSocialGoogle>
+          <FacebookLogin/>
+          <GoogleLogin/>
+            
             <Divider orientation="horizontal" sx={{ mt: 2 }}>
               OR
             </Divider>
-          </div>
+          
           <Box component="form" autoComplete={"off"} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
