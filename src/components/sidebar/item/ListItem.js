@@ -18,7 +18,6 @@ export default function ListItem({ data }) {
   const userData = useSelector(userDataSelector);
 
   const handler = () => {
-    console.log("123456");
     if (userData._id) {
       context.toggleSetIsClose(true);
     } else {

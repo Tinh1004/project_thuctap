@@ -24,25 +24,12 @@ import ChangePassword from "./pages/ChangePassword";
 import ForgotPasswordPage from "./pages/ForgotPassword";
 import { ToastContainer, Bounce } from "react-toastify";
 
-import axios from 'axios';
-
 function App() {
-  // const data = useSelector(dataSelector);
   const playlist = useSelector(arrayPlayLists);
-  // const myPlayList = useSelector(myPlayListsSelector);
-
   console.log(playlist);
-  // console.log("playlist: ", playlist)
-
-  // const getApi = async () => {
-  //   const url = "https://api-project-thuctap.herokuapp.com/api/v1/auth";
-  //   return axios.get(url)
-  //     .then((response) => console.log(response.data));
-  // }
-
   const dispatch = useDispatch();
+
   useEffect(() => {
-    // localStorage.setItem("user", JSON.stringify({ name: "Long" }))
     dispatch(fetchDatas());
     dispatch(fetchPlayLists());
     dispatch(fetchDataUser());

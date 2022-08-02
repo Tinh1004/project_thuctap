@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { arraySearchSong } from "../../../../redux/selectors";
 import ItemResutlSong from './ItemResutlSong';
 import dataSlice from '../../../../redux/dataSlice/dataSlice';
-
+import "./styles.scss";
+    
 export default function ResultSearch(props) {
     const arraySong = useSelector(arraySearchSong);
     const array = [...arraySong].splice(0, 4);

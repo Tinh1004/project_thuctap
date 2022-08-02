@@ -3,6 +3,7 @@ import './styles.css';
 import Search from './search/index';
 import BackToIcon from './back_to/index';
 import AvatarUser from './avatar/index';
+
 export default function NavBar(props) {
   const [scroll, setScroll] = useState(false)
   const navRef = useRef();

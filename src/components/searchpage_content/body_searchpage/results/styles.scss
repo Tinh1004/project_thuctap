@@ -1,0 +1,17 @@
+.time-item{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .add-item{
+        position: relative;
+        visibility: hidden;
+
+    }
+}
+.results-item:hover{
+    .add-item{
+        visibility: visible;
+    }
+}
