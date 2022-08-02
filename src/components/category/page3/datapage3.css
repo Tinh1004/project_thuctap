@@ -1,37 +1,36 @@
 .box2{
-    width: 1235px;
+    width: 100%;
     height: 930px;
     justify-content: center;
     align-items: center;
     padding-left: 30px;
     padding-top: 30px;
-    /* overflow-y:auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none; */
+
 }
 .box2 .hinhto{
-    width: 1235px;
+    width: 98%;
     height: 360px;
     position: relative;
 }
 .hinhto .gradien{
     position: absolute;
     display: inline-block;
-    width: 1235px;
+    width: 100%;
     height: 360px;
     background-image: linear-gradient(#00000000,#ffffff63 );
 }
 .box2 img#banner{
     position: absolute;
-    width: 1235px;
+    width: 100%;
     height: 360px;
 }
 .box2 .listtl{
-    width: 1235px;
-    height: auto;
+    width: 100%;
+    height: 280px;
     margin-top: -30px;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
     position: relative;
+    overflow: hidden;
 }

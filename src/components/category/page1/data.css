@@ -3,14 +3,22 @@
     padding-left: 40px;
 }
 .box .banner{
-    width: 1235px;
+    width: 98%;
     height: 360px;
     display: block;
     border-radius: 5px;
 }
 .box .tl1{
     width: 100%;
-    height: 200px;
+    height: auto;
+    overflow: auto;
+}
+.tl1::-webkit-scrollbar{
+    height: 10px;
+}
+.tl1::-webkit-scrollbar-thumb{
+    /* background-image: chocolate; */
+    background-color: chocolate;
 }
 .chude{
     margin-top: 55px;
@@ -19,26 +27,46 @@
 }
 .tl1 .ds1{
     width: 1235px;
-    height: 180px;
+    height: auto;
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
 }
+
 .box .tl2{
-    width: 1235px;
-    height: 250px;
+    width: 100%;
+    height: auto;  
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.tl2::-webkit-scrollbar{
+    height: 10px;
+    margin-top: 10px;
+}
+.tl2::-webkit-scrollbar-thumb{
+    /* background-image: chocolate; */
+    background-color: chocolate;
 }
 .tl2 .ds2{
-    width: 100%;
+    width: 1235px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
 }
 .box .tl3{
-    width: 1235px;
-    height: 345px;
+    width: 100%;
+    height: auto;
     padding-top: 10px;
+    overflow: auto;
+}
+.tl3::-webkit-scrollbar{
+    height: 10px;
+}
+.tl3::-webkit-scrollbar-thumb{
+    /* background-image: chocolate; */
+    background-color: chocolate;
 }
 .tl3 .ds3{
     width: 1235px;
