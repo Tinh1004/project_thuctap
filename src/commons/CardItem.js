@@ -4,6 +4,7 @@ import { Card } from "react-bootstrap";
 import CustomTooltip from "./CustomTooltip";
 
 function CardItem({
+  data,
   firstIcon,
   secondIcon,
   threeIcon,
@@ -11,7 +12,6 @@ function CardItem({
   secondTitle,
   nameItem,
   nameAuthor,
-  duration,
   display = "none",
   ...rest
 }) {
@@ -67,7 +67,7 @@ function CardItem({
         <CardMedia
           component="img"
           height="100%"
-          image="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+          image={data.image}
           alt="playlist image"
           sx={{
             position: "relative",
@@ -89,7 +89,7 @@ function CardItem({
             fontSize: "0.8rem",
           }}
         >
-          {duration}
+          4:17
         </Typography>
       </Box>
 
@@ -97,16 +97,14 @@ function CardItem({
         <Avatar
           sx={{ display: { display }, marginRight: 2 }}
           alt="Image singer"
-          src="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+          src={data.image}
         />
         <Box>
-          <Grid zeroMinWidth>
-            <Typography noWrap sx={{ fontSize: "1rem", color: "black" }}>
-              {nameItem}
-            </Typography>
-          </Grid>
+          <Typography noWrap sx={{ fontSize: "1rem", color: "black" }}>
+            {nameItem}
+          </Typography>
 
-          <Typography sx={{ fontSize: "0.9rem", color: "#00000099" }}>
+          <Typography noWrap sx={{ fontSize: "0.9rem", color: "#00000099" }}>
             {nameAuthor}
           </Typography>
         </Box>

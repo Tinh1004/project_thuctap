@@ -7,14 +7,19 @@ import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutline
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
-import CardItem from "../../../commons/CardItem";
+import { useContext } from "react";
 
-function LibraryPlaylistContent() {
+import CardItem from "../../../commons/CardItem";
+import { CloseContext } from "../../../contexts/CloseContext";
+
+function LibraryPlaylistContent({ myArrayPlaylist }) {
+  const context = useContext(CloseContext);
   return (
     <Box>
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={4} sm={4} md={3}>
           <Box
+            onClick={() => context.toggleSetIsClose(true)}
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -38,21 +43,24 @@ function LibraryPlaylistContent() {
           </Box>
         </Grid>
 
-        <Grid item xs={4} sm={4} md={3}>
-          <Link className="card_playlist" to="/ca-nhan/detail">
-            <CardItem
-              firstIcon={<ClearOutlinedIcon />}
-              firstTitle="Xóa"
-              secondIcon={
-                <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />
-              }
-              threeIcon={<MoreHorizOutlinedIcon />}
-              secondTitle="Khác"
-              nameItem="Mặt trời của em"
-              nameAuthor="Phương Ly"
-            />
-          </Link>
-        </Grid>
+        {myArrayPlaylist.map((data, index) => (
+          <Grid item xs={4} sm={4} md={3} key={index}>
+            <Link className="card_playlist" to="/ca-nhan/detail">
+              <CardItem
+                data={data}
+                firstIcon={<ClearOutlinedIcon />}
+                firstTitle="Xóa"
+                secondIcon={
+                  <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />
+                }
+                threeIcon={<MoreHorizOutlinedIcon />}
+                secondTitle="Khác"
+                nameItem={data.discription}
+                nameAuthor={data.name}
+              />
+            </Link>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );

@@ -6,6 +6,7 @@ import {
   Typography,
   Tooltip,
   Button,
+  Grid,
 } from "@mui/material";
 import React from "react";
 
@@ -13,8 +14,41 @@ import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import dataSlice from "../../../../redux/dataSlice/dataSlice";
 
-function CardSong() {
+function CardSong({ data }) {
+  const dispatch = useDispatch();
+
+  const handleChangeAudio = () => {
+    dispatch(dataSlice.actions.audioChangeSong(data.id));
+  };
+
+  const [duration, setDuration] = useState(0);
+  console.log(duration);
+
+  const getVal = (audio) => {
+    var val = audio.duration;
+    setDuration(val);
+  };
+  const convertDuration = (url) => {
+    return `${Math.round(duration / 60)}:${
+      Math.floor(duration % 60) >= 10
+        ? Math.floor(duration % 60)
+        : `0${Math.floor(duration % 60)}`
+    }`;
+  };
+
+  useEffect(() => {
+    var audio = new Audio();
+    audio.src = data.url;
+    audio.addEventListener("durationchange", () => getVal(audio));
+    return () => {
+      audio.removeEventListener("durationchange", () => getVal(audio));
+    };
+  }, []);
+
   return (
     <>
       <Box
@@ -52,7 +86,7 @@ function CardSong() {
 
           <CardMedia
             component="img"
-            image="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+            image={data.links.images[1].url}
             alt="song card image"
             sx={{
               width: "40px",
@@ -61,13 +95,15 @@ function CardSong() {
               objectFit: "cover",
               marginLeft: 2,
               marginRight: 1.5,
+              cursor: "pointer",
             }}
           />
 
           <Box>
             <Typography paddingTop={1} lineHeight={0.8}>
-              Mặt trời của em
+              {data.name}
             </Typography>
+
             <Link
               href="#"
               sx={{
@@ -80,7 +116,7 @@ function CardSong() {
                 },
               }}
             >
-              Phương Ly
+              {data.author}
             </Link>
           </Box>
         </Box>
@@ -100,7 +136,7 @@ function CardSong() {
             },
           }}
         >
-          Mặt trời của em
+          {data.name}
         </Link>
 
         <Box
@@ -135,7 +171,7 @@ function CardSong() {
             </Tooltip> */}
 
             <Typography ml={3} sx={{ fontSize: "0.9rem" }}>
-              4:17
+              {convertDuration(data.url)}
             </Typography>
           </Box>
         </Box>
@@ -165,8 +201,9 @@ function CardSong() {
             />
 
             <CardMedia
+              onClick={handleChangeAudio}
               component="img"
-              image="https://sohanews.sohacdn.com/160588918557773824/2020/8/18/ly2-15977220078411964556507.jpg"
+              image={data.links.images[1].url}
               alt="song card image"
               sx={{
                 width: "40px",
@@ -175,12 +212,13 @@ function CardSong() {
                 objectFit: "cover",
                 marginRight: 1.5,
                 marginLeft: 1,
+                cursor: "pointer",
               }}
             />
 
             <Box>
               <Typography paddingTop={1} lineHeight={0.8}>
-                Mặt trời của em
+                {data.name}
               </Typography>
               <Link
                 href="#"
@@ -194,7 +232,7 @@ function CardSong() {
                   },
                 }}
               >
-                Phương Ly
+                {data.author}
               </Link>
             </Box>
           </Box>
@@ -213,7 +251,7 @@ function CardSong() {
               },
             }}
           >
-            Mặt trời của em
+            {data.name}
           </Link>
 
           <Box

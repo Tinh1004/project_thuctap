@@ -7,6 +7,7 @@ export default createSlice({
         status: 'idle',
         array: [],
         song: {},
+        playList: []
     },
     reducers: {
         audioPlayerNextSong: (state, action) => {
@@ -27,9 +28,9 @@ export default createSlice({
                 state.song = currentSong[0]
             }
         },
-        audioChangeSong: (state,action) => {
+        audioChangeSong: (state, action) => {
             const currentSong = state.array.filter(song => song.id === action.payload);
-            state.song = currentSong[0] 
+            state.song = currentSong[0]
         }
 
     },
@@ -48,6 +49,10 @@ export default createSlice({
                     state.song = data[0];
                 }
             })
+            .addCase(fetchPlayLists.fulfilled, (state, action) => {
+                const data = JSON.parse(action.payload)
+                state.playList = data;
+            })
     }
 
 })
@@ -58,5 +63,11 @@ export const fetchDatas = createAsyncThunk('data/fetchDatas', async () => {
     return stringData;
 })
 
+
+export const fetchPlayLists = createAsyncThunk('data/fetchPlayLists', async () => {
+    let dataFile = require('../data/playLists.json');
+    let stringData = JSON.stringify(dataFile);
+    return stringData;
+})
 
 

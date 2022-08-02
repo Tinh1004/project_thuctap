@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-function Tab({ text = "", onClick, ...rest }) {
+function Tab({ active, text = "", onClick, ...rest }) {
   return (
     <Button
       onClick={onClick}
+      disabled={active}
       sx={{
         color: "#000",
         transition: "all 100ms ease-in-out",

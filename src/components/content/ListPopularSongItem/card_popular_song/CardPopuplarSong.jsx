@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './styles.scss'
 import createSlice from '../../../../redux/dataSlice/dataSlice'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 export default function CardPopuplarSong(props) {
   const dispatch = useDispatch()
 

@@ -1,14 +1,13 @@
 import React from 'react';
 import './styles.scss';
-import { useDispatch } from 'react-redux';
-import createSlice from '../../../../redux/dataSlice/dataSlice'
-
+import dataSlice from '../../../../redux/dataSlice/dataSlice';
+import {useDispatch} from 'react-redux';
 
 export default function ReleaseItem(props) {
   const dispatch = useDispatch()
 
   const handleChangeAudio = () => {
-    dispatch(createSlice.actions.audioChangeSong(props.id))
+    dispatch(dataSlice.actions.audioChangeSong(props.id))
   }
   return (
     <div className='releaseItemContainer' onClick={handleChangeAudio}>

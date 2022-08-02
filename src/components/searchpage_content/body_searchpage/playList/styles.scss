@@ -1,7 +1,9 @@
 .playList{
     width: 100%;
     height: auto;
-    margin: 20px 0 50px 0;
+    margin: 30px 0 50px 0;
+    box-sizing: border-box;
+    display: block;
     .top{
         width: 100%;
         height: 60px;
@@ -129,7 +131,7 @@
 
 @media only screen and (max-width: 894px){
     .playList{
-        
+        margin: 10px 0 20px 0;
         .bottom{
             .list-playList-items{
                 width: 100%;
