@@ -32,7 +32,13 @@ export default function PlayList({ myArrayPlaylist }) {
                   <ClearOutlinedIcon
                     onClick={(e) => {
                       e.preventDefault();
-                      dispatch(userSlice.actions.deletePlayList(index));
+                      if (
+                        window.confirm(
+                          "Bạn có chắc chắn xóa Playlist này không?"
+                        )
+                      ) {
+                        dispatch(userSlice.actions.deletePlayList(index));
+                      }
                     }}
                   />
                 }
