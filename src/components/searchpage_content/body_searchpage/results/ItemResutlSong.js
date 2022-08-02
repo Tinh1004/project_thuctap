@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import dataSlice from "../../../../redux/dataSlice/dataSlice";
-
+import AddDropdown from "../../add/AddDropdown"
 export default function ItemResutlSong({ item }) {
     const [duration, setDuration] = useState(0);
     console.log(duration);
@@ -32,18 +32,21 @@ export default function ItemResutlSong({ item }) {
 
 
     return (
-        <div className="results-item" onClick={() => { handleChangeSong(item.id) }}>
+        <div className="results-item" >
             <div className="item-content">
-                <div className="image-item">
+                <div className="image-item" onClick={() => { handleChangeSong(item.id) }}>
                     <div className="khongtrong"></div>
                     <img src={item.images[1].url} />
                 </div>
                 <div className="name-item">
-                    <p>{item.title}</p>
+                    <p onClick={() => { handleChangeSong(item.id) }}>{item.title}</p>
                     <span>{item.singer}</span>
                 </div>
             </div>
             <div className="time-item">
+                <div className="add-item">
+                    <AddDropdown/>
+                </div>
                 <span>{convertDuration(item.url)}</span>
             </div>
         </div>

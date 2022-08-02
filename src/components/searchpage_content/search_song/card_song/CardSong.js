@@ -2,6 +2,7 @@ import "./CardSong.scss";
 import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import dataSlice from "../../../../redux/dataSlice/dataSlice";
+import AddDropdown from "../../add/AddDropdown"
 function CardSong({ item }) {
   const [duration, setDuration] = useState(0);
   console.log(duration);
@@ -73,9 +74,12 @@ function CardSong({ item }) {
           <div class="media_right">
             <div class="hover_items"></div>
             <div class="action_items">
-              <div class="level">
-                <div class="level_item duration">{convertDuration(item.url)}</div>
-              </div>
+            <div className="time-item">
+                <div className="add-item">
+                    <AddDropdown/>
+                </div>
+                <span>{convertDuration(item.url)}</span>
+            </div>
             </div>
           </div>
         </div>

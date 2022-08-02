@@ -19,6 +19,7 @@ export default function List({ item, closeHandler, visible }) {
         image:
           "https://i.scdn.co/image/ab67616d0000b273da513d25e8b3cdd4f43f7512",
         array: [],
+        user: true
       })
     );
   };
