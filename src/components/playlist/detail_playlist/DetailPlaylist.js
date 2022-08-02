@@ -21,7 +21,7 @@ import QueueMusicOutlinedIcon from "@mui/icons-material/QueueMusicOutlined";
 
 function DetailPlaylist({ arrayData, arrayPlayList }) {
   const { id } = useParams();
-  const playlistInfo = arrayPlayList.find((item) => item.id === id);
+  const playlistInfo = arrayPlayList.find((item) => item.id == id);
   console.log(playlistInfo);
 
   return (

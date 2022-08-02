@@ -100,7 +100,12 @@ function CardSong({ data }) {
           />
 
           <Box>
-            <Typography paddingTop={1} lineHeight={0.8}>
+            <Typography
+              noWrap
+              paddingTop={1}
+              lineHeight={0.8}
+              sx={{ width: "200px" }}
+            >
               {data.name}
             </Typography>
 
@@ -128,7 +133,6 @@ function CardSong({ data }) {
             width: "30%",
             lineHeight: "1.33",
             textDecoration: "none",
-            fontSize: "0.8rem",
             color: "#32323d80",
             "&:hover": {
               textDecoration: "underline",
@@ -136,7 +140,9 @@ function CardSong({ data }) {
             },
           }}
         >
-          {data.name}
+          <Typography noWrap sx={{ fontSize: "0.8rem" }}>
+            {data.name}
+          </Typography>
         </Link>
 
         <Box
@@ -217,7 +223,12 @@ function CardSong({ data }) {
             />
 
             <Box>
-              <Typography paddingTop={1} lineHeight={0.8}>
+              <Typography
+                noWrap
+                paddingTop={1}
+                lineHeight={0.8}
+                sx={{ width: "200px" }}
+              >
                 {data.name}
               </Typography>
               <Link
@@ -243,7 +254,6 @@ function CardSong({ data }) {
               width: "30%",
               lineHeight: "1.33",
               textDecoration: "none",
-              fontSize: "0.8rem",
               color: "#32323d80",
               "&:hover": {
                 textDecoration: "underline",
@@ -251,7 +261,9 @@ function CardSong({ data }) {
               },
             }}
           >
-            {data.name}
+            <Typography noWrap sx={{ fontSize: "0.8rem" }}>
+              {data.name}
+            </Typography>
           </Link>
 
           <Box
