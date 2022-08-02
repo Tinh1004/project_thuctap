@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './styles.scss'
 import createSlice from '../../../../redux/dataSlice/dataSlice'
 import { useDispatch } from "react-redux";
 export default function CardPopuplarSong(props) {
+  const [duration, setDuration] = useState(0)
   const dispatch = useDispatch()
 
   const handleChangeAudio = () => {
     dispatch(createSlice.actions.audioChangeSong(props.id))
   }
+  const getVal = (audio) => {
+    var val = audio.duration;
+    setDuration(val);
+  };
+  const convertDuration = () => {
+    return `${Math.round(duration / 60)}:${
+      Math.floor(duration % 60) >= 10
+        ? Math.floor(duration % 60)
+        : `0${Math.floor(duration % 60)}`
+    }`;
+  };
+
+  useEffect(() => {
+    var audio = new Audio();
+    audio.src = props.url;
+    audio.addEventListener("durationchange", () => getVal(audio));
+    return () => {
+      audio.removeEventListener("durationchange", () => getVal(audio));
+    };
+  }, []);
   return (
     <div className="cardPopularSongContainer">
       <div className="song_tag" >
@@ -51,7 +72,7 @@ export default function CardPopuplarSong(props) {
                     <i className="fa-solid fa-heart icon1"></i>
                   </button>
                 </div>
-                <div className="level_item duration">4:17</div>
+                <div className="level_item duration">{convertDuration(props.url)}</div>
               </div>
             </div>
           </div>

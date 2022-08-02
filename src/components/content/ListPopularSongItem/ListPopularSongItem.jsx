@@ -10,7 +10,7 @@ export default function ListPopularSongItem() {
 
   return (
     <div className="listPopularSongContainer">
-      <h1>Bài hát nổi bật</h1>
+      <h1>Popular Song</h1>
       <div className="menu">
         <MenuSongPolular />
       </div>
@@ -18,13 +18,13 @@ export default function ListPopularSongItem() {
         <div className="song_tag">
           <div className="media">
             <div className="media_left">
-              <p>Bài hát</p>
+              <p>Name</p>
             </div>
             <div className="media_content">
               <p>Album</p>
             </div>
             <div className="media_right">
-              <p>Thời gian</p>
+              <p>Time</p>
             </div>
           </div>
         </div>
@@ -38,6 +38,7 @@ export default function ListPopularSongItem() {
             image={item.links.images[1].url}
             name={item.name}
             author={item.author}
+            url= {item.url}
           />
         ))}
       </div>
