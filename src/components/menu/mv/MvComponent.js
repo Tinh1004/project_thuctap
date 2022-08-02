@@ -8,10 +8,10 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import CardItem from "../../../commons/CardItem";
 
-function MvComponent({ arrayPlaylist }) {
+function MvComponent({ myArrayPlaylist }) {
   return (
     <Box>
-      {arrayPlaylist.length <= 0 ? (
+      {myArrayPlaylist.length <= 0 ? (
         <EmptyComponent
           icon={<LiveTvOutlinedIcon sx={{ fontSize: "8rem" }} />}
           text="Chưa có MV nào trong thư viện"
@@ -20,7 +20,7 @@ function MvComponent({ arrayPlaylist }) {
         />
       ) : (
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-          {arrayPlaylist.map((data, index) => (
+          {myArrayPlaylist.map((data, index) => (
             <Grid item xs={4} sm={4} md={4} key={index}>
               <CardItem
                 data={data}

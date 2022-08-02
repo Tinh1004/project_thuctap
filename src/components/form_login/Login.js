@@ -87,7 +87,13 @@ export default function Login() {
       })
         .then((res) => {
           console.log(res.data);
-          dispatch(userSlice.actions.login(res.data.user));
+          dispatch(
+            userSlice.actions.login({
+              fullName: res.data.user.fullName,
+              _id: res.data.user._id,
+              image: "",
+            })
+          );
           toast.success("Login Success!", {
             position: toast.POSITION.TOP_RIGHT,
           });
@@ -122,10 +128,11 @@ export default function Login() {
           <Box component="form" autoComplete={"off"} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
-              className={`form-control ${validate.validate && validate.validate.username
-                ? "is-invalid "
-                : ""
-                }`}
+              className={`form-control ${
+                validate.validate && validate.validate.username
+                  ? "is-invalid "
+                  : ""
+              }`}
               required
               fullWidth
               id="username"
@@ -135,10 +142,11 @@ export default function Login() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <div
-              className={`invalid-feedback text-start ${validate.validate && validate.validate.username
-                ? "d-block"
-                : "d-none"
-                }`}
+              className={`invalid-feedback text-start ${
+                validate.validate && validate.validate.username
+                  ? "d-block"
+                  : "d-none"
+              }`}
             >
               {validate.validate && validate.validate.username
                 ? validate.validate.username[0]
@@ -146,10 +154,11 @@ export default function Login() {
             </div>
             <TextField
               margin="normal"
-              className={`form-control ${validate.validate && validate.validate.password
-                ? "is-invalid "
-                : ""
-                }`}
+              className={`form-control ${
+                validate.validate && validate.validate.password
+                  ? "is-invalid "
+                  : ""
+              }`}
               required
               fullWidth
               name="password"
@@ -160,10 +169,11 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div
-              className={`invalid-feedback text-start ${validate.validate && validate.validate.password
-                ? "d-block"
-                : "d-none"
-                }`}
+              className={`invalid-feedback text-start ${
+                validate.validate && validate.validate.password
+                  ? "d-block"
+                  : "d-none"
+              }`}
             >
               {validate.validate && validate.validate.password
                 ? validate.validate.password[0]

@@ -8,12 +8,15 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import userSlice from "../../../redux/userSlice/userSlice";
 
 import CardItem from "../../../commons/CardItem";
 import { CloseContext } from "../../../contexts/CloseContext";
 
-function LibraryPlaylistContent({ arrayPlaylist }) {
+function LibraryPlaylistContent({ myArrayPlaylist }) {
   const context = useContext(CloseContext);
+  const dispatch = useDispatch();
   return (
     <Box>
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -43,20 +46,27 @@ function LibraryPlaylistContent({ arrayPlaylist }) {
           </Box>
         </Grid>
 
-        {arrayPlaylist.map((data, index) => (
+        {myArrayPlaylist.map((data, index) => (
           <Grid item xs={4} sm={4} md={3} key={index}>
-            <Link className="card_playlist" to="/ca-nhan/detail">
+            <Link className="card_playlist" to={`/ca-nhan/detail/${data.id}`}>
               <CardItem
                 data={data}
-                firstIcon={<ClearOutlinedIcon />}
+                firstIcon={
+                  <ClearOutlinedIcon
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(userSlice.actions.deletePlayList(index));
+                    }}
+                  />
+                }
                 firstTitle="Xóa"
                 secondIcon={
                   <PlayCircleOutlineOutlinedIcon sx={{ fontSize: 50 }} />
                 }
                 threeIcon={<MoreHorizOutlinedIcon />}
                 secondTitle="Khác"
-                nameItem={data.discription}
-                nameAuthor={data.name}
+                nameItem={data.name}
+                nameAuthor={data.discription}
               />
             </Link>
           </Grid>

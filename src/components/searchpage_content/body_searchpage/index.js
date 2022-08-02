@@ -12,8 +12,10 @@ export default function SearchSinger(props) {
     const searchPlayLists = useSelector(arraySearchPlayLists);
 
     const arrayPlayList = [...playList].splice(0, 5);
-    console.log("playList:", arrayPlayList)
-    console.log("searchPlayLists:", searchPlayLists)
+    const arraySearchPlayListSplice = [...searchPlayLists].splice(0, 5);
+
+    console.log("playList:", arrayPlayList);
+    console.log("searchPlayLists:", searchPlayLists);
     return (
         <div className="search-body">
 
@@ -27,8 +29,7 @@ export default function SearchSinger(props) {
                     <p>Không có kết quả nào dành cho "{search}"</p>
                 </div>
             )}
-
-            <PlayList data={arrayPlayList} title="Playlist" />
+            {arraySearchPlayListSplice.length != 0 && <PlayList data={arraySearchPlayListSplice} title="Playlist" />}
             <PlayList data={arrayPlayList} title="Album" />
         </div>
     )

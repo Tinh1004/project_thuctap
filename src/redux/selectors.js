@@ -2,14 +2,15 @@ import { createSelector } from "@reduxjs/toolkit";
 export const searchTextSelector = (state) => state.filter.search;
 export const dataSelector = (state) => state.data.array;
 export const playListsSelector = (state) => state.data.playList;
-export const myPlayListsSelector = (state) => state.user.myPlayLists;
 
 export const songSelector = (state) => state.data.song;
+
 // export const idSongSelector = (state) => state.data.id;
 
 
 // ============= User ===============
 export const userDataSelector = (state) => state.user.user;
+export const myPlayListsSelector = (state) => state.user.myPlayLists;
 
 
 export const arraySearchSong = createSelector(
@@ -79,8 +80,16 @@ export const arraySinger = createSelector(dataSelector, (data) => {
 export const arrayPlayLists = createSelector(
     dataSelector,
     playListsSelector,
-    (data, playList) => {
-        const array = playList.map((item) => {
+    myPlayListsSelector,
+    (data, playList, myPlayList) => {
+        const totalArray = [...playList];
+        myPlayList.forEach((element, index) => {
+            const checkFilter = totalArray.filter((item, index) => element.id === item.id);
+            if (checkFilter.length == 0) {
+                totalArray.push(element);
+            }
+        });
+        const array = totalArray.map((item) => {
             const play = { ...item };
             const arr = play.array.map((id) => {
                 const musics = data.filter((x) => x.id == id);
@@ -96,7 +105,7 @@ export const arrayPlayLists = createSelector(
 
 export const myArrayPlayLists = createSelector(
     dataSelector,
-    playListsSelector,
+    myPlayListsSelector,
     (data, playList) => {
         const array = playList.map((item) => {
             const play = { ...item };

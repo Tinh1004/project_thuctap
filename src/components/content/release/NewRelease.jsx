@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 import './styles.scss'
 import { useSelector } from 'react-redux'
 import ReleaseItem from "./release_item/CardReleaseItem";
-import { data } from "./release_item/data";
-import dataSlice from "../../../redux/dataSlice/dataSlice";
+
+
 import { dataSelector } from "../../../redux/selectors";
 
 export default function NewRelease() {
@@ -14,7 +14,7 @@ export default function NewRelease() {
 
   return (
     <div className="newReleaseContainer">
-      <h4>New Release</h4>
+      <h4>New Releases  </h4>
       <Container>
         <Row className="row">
           <Col className="col1">

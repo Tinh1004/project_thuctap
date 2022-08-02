@@ -9,6 +9,7 @@ export default function CardArtist(props) {
     <h5 className='info'>
       {props.author}
     </h5>
+    <p className="singerLike">89k quan tâm</p>
   </li>
   )
 }

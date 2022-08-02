@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default function Songfirt(props) {
   return (
     <>
-        <Link to="/the-loai/page2">
-            <div className='khoinhac'>
+        <Link to={props.title}>
+            <div title={props.title} className='khoinhac'>
                 <div className='nhac1'>
                     <img className='hinhto' src={props.imgto}></img>
                     <div className='ndtrenhinh'>
