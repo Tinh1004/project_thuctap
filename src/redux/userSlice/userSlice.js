@@ -86,23 +86,53 @@ export default createSlice({
       );
 
       if (playlist) {
-        if(!playlist.array.includes(idSong)){
-            playlist.array.push(idSong);
+        if (!playlist.array.includes(idSong)) {
+          playlist.array.push(idSong);
 
-            const data = JSON.parse(localStorage.getItem("data"));
-            if (data) {
-                let i = 0;
-                const myPLayList = data.filter((item, index) => {
-                  if (item.user._id == state.user._id) {
-                    i = index;
-                    return item;
-                  }
-                });
-                const myData = myPLayList[0];
-                const newData = { ...myData, playlist: state.myPlayLists };
-                data[i] = newData;
-                localStorage.setItem("data", JSON.stringify(data));
+          const data = JSON.parse(localStorage.getItem("data"));
+          if (data) {
+            let i = 0;
+            const myPLayList = data.filter((item, index) => {
+              if (item.user._id == state.user._id) {
+                i = index;
+                return item;
               }
+            });
+            const myData = myPLayList[0];
+            const newData = { ...myData, playlist: state.myPlayLists };
+            data[i] = newData;
+            localStorage.setItem("data", JSON.stringify(data));
+          }
+        }
+      }
+    },
+    deleteSongInMyPlaylist: (state, action) => {
+      const idPlaylist = action.payload.idPlaylist;
+      const idSong = action.payload.idSong;
+
+      const playlist = state.myPlayLists.find(
+        (item, index) => item.id == idPlaylist
+      );
+        console.log(playlist === undefined)
+      if (playlist) {
+        const newArray = [...playlist.array].filter(
+          (item, index) => item != idSong
+        );
+        playlist.array = newArray;
+        
+        const data = JSON.parse(localStorage.getItem("data"));
+        if (data) {
+          let i = 0;
+          const myPLayList = data.filter((item, index) => {
+            if (item.user._id == state.user._id) {
+              i = index;
+              return item;
+            }
+          });
+          const myData = myPLayList[0];
+          const newData = { ...myData, playlist: state.myPlayLists };
+          data[i] = newData;
+          localStorage.setItem("data", JSON.stringify(data));
         }
       }
     },
