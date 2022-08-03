@@ -12,32 +12,32 @@ export default function FacebookLogin() {
   const facebookRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [picture, setPicture]= useState("");
 
   const onLoginStart = useCallback(() => {
     console.log("login start");
   }, []);
 
   const onResolveLogin = useCallback(({ provider, data }) => {
-    navigate("/");
     setProvider(provider);
     setProfile(data);
     console.log(data, "data");
     console.log(provider, "provider");
     dispatch(
       userSlice.actions.login({
-        fullName:"",
-        _id: "",
-        image:"",
+        fullName: data.name,
+        _id: data.userID,
+        image: data.picture.data.url,
       })
     );
-    localStorage.setItem("user", JSON.stringify())
+    navigate("/");
   }, []);
 
   const onLogoutFailure = useCallback(() => {
     console.log("logout fail");
   }, []);
-
+  const onReject = useCallback((err) => {
+    console.log(err);
+  }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
       <LoginSocialFacebook
@@ -48,9 +48,7 @@ export default function FacebookLogin() {
         onLoginStart={onLoginStart}
         onLogoutFailure={onLogoutFailure}
         onResolve={onResolveLogin}
-        onReject={(err) => {
-          console.log(err);
-        }}
+        onReject={onReject}
       >
         <FacebookLoginButton
           align="center"

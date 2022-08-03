@@ -24,18 +24,21 @@ export default function GoogleLogin() {
     console.log(data, "data");
     console.log(provider, "provider");
     dispatch(
-        userSlice.actions.login({
-          fullName: "",
-          _id: "",
-          image: "",
-        })
-      );
+      userSlice.actions.login({
+        fullName: data.name,
+        _id: data.id,
+        image: data.picture,
+      })
+    );
+    navigate("/");
   }, []);
 
   const onLogoutFailure = useCallback(() => {
     console.log("logout fail");
   }, []);
-
+  const onReject = useCallback((err) => {
+    console.log(err);
+  }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
       <LoginSocialGoogle
@@ -46,9 +49,7 @@ export default function GoogleLogin() {
         onLogoutFailure={onLogoutFailure}
         onLoginStart={onLoginStart}
         onResolve={onResolveLogin}
-        onReject={(err) => {
-          console.log("hbhbdhd", err);
-        }}
+        onReject={onReject}
       >
         <GoogleLoginButton align="center" display="flex" />
       </LoginSocialGoogle>
