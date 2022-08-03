@@ -76,7 +76,7 @@ function CardSong({ item }) {
             <div class="action_items">
             <div className="time-item">
                 <div className="add-item">
-                    <AddDropdown/>
+                    <AddDropdown idSong={item.id}/>
                 </div>
                 <span>{convertDuration(item.url)}</span>
             </div>
