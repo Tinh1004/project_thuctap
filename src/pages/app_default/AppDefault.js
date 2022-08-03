@@ -21,21 +21,71 @@ import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
 import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
 import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
 
+// Nguyen array router dom
 const arrayOfHomePages = [
     {
-        link: '',
-        component: <></>
-    }
-]
-
-const arrayOfCategoryPages = [
+        title: "Page 2",
+        component: <Datapage2/>,
+        array: [
+            {
+                link: "HanQuoc"
+            }
+        ]
+    },
     {
-        link: '',
-        component: <></>
-    }
+        title: "Page 3",
+        component: <Datapage3/>,
+        array: [
+            {
+                link: "VietNam"
+            }
+        ]
+    },
 ]
 
 export default function AppDefault({ children }) {
+    const routerHompage = [
+        {
+            id :0,
+            path: "/list-popular-song",
+            element: <ListPopularSong />
+        },
+        {
+            id:1,
+            path:"/list-popular-artist",
+            element: <ListPopularArtists />
+        },
+        {
+            id:2,
+            path: "/list-popular-album",
+            element: <ListPopularAlbum />
+        },
+        {
+            id:3,
+            path:"/list-song-at-work" ,
+            element: <SongAtWork/>
+        },
+        {
+            id:4,
+            path: "/list-song-at-party",
+            element: <SongAtParty/>
+        },
+        {
+            id:5,
+            path: "/list-song-NCSRelease" ,
+            element: <SongNCSRelease/>
+        }, 
+        {
+            id:6,
+            path: "/list-song-party-summervibe",
+            element: <SongSummerVibe/>
+        },
+        {
+            id:7,
+            path:"/list-song-USUKTopHit",
+            element:<SongUSUKTopHit/>
+        },
+    ]
     return (
         <>
             <div className="bg"></div>
@@ -45,17 +95,9 @@ export default function AppDefault({ children }) {
                 <Routes>
                     <Route path="*" element={<Navigate to="/404" />} />
                     <Route index element={<HomePage />} />
-
-                    {/* Phuc */}
-                    <Route path="/list-popular-song" element={<ListPopularSong />} />
-                    <Route path="/list-popular-artist" element={<ListPopularArtists />} />
-                    <Route path="/list-popular-album" element={<ListPopularAlbum />} />
-                    <Route path="/list-song-at-work" element={<SongAtWork />} />
-                    <Route path="/list-song-at-party" element={<SongAtParty />} />
-                    <Route path="/list-song-NCSRelease" element={<SongNCSRelease />} />
-                    <Route path="/list-song-party-summervibe" element={<SongSummerVibe />} />
-                    <Route path="/list-song-USUKTopHit" element={<SongUSUKTopHit />} />
-
+                        {routerHompage.map((item) => (
+                            <Route key={item.id} path = {item.path} element = {item.element}/>
+                        ))}
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
 
 

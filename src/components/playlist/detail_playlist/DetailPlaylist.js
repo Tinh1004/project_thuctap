@@ -183,7 +183,7 @@ function DetailPlaylist({ arrayData, arrayPlayList }) {
               ) : (
                 <Box>
                   {playlistInfo.array.map((data, index) => (
-                    <CardSong data={data} key={index} />
+                    <CardSong idPlaylist={id} data={data} key={index} />
                   ))}
                 </Box>
               )}

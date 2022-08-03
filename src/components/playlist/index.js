@@ -11,7 +11,7 @@ import userSlice from "../../redux/userSlice/userSlice";
 
 export default function PlayList({ myArrayPlaylist }) {
   const dispatch = useDispatch();
-  console.log(myArrayPlaylist);
+  // console.log(myArrayPlaylist);
   return (
     <Box
       sx={{

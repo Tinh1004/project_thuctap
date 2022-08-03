@@ -12,9 +12,9 @@ const IMAGE_AVATAR = "https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a
 
 export default function AvatarUser() {
     const [isClick, setIsClick] = useState(false);
-    console.log(isClick);
+    // console.log(isClick);
     const userData = useSelector(userDataSelector);
-    console.log("userData: ", userData);
+    // console.log("userData: ", userData);
     const handleClickSetClick = () => {
         setIsClick(prev => !prev);
     }
