@@ -9,7 +9,7 @@ export default function ListContent({ isClick }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userData = useSelector(userDataSelector);
-    console.log("userData: ", userData);
+    // console.log("userData: ", userData);
     const handleLogout = () => {
         dispatch(userSlice.actions.resetLogout())
         navigate('/login');

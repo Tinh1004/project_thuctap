@@ -4,7 +4,8 @@
   scroll-behavior: smooth;
   margin-bottom: 60px;
   &::-webkit-scrollbar{
-    display: none;
+    // display: none;
+    width: 5px;
   }
    
   &::before {

@@ -20,21 +20,21 @@ export default function NewRelease() {
           <Col className="col1">
             {
               array.slice(20,23).map((item) => (
-                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author}/>
+                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author} url = {item.url}/>
               ))
             }
             </Col>
           <Col className="col2">
             {
               array.slice(4,7).map((item) => (
-                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author}/>
+                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author} url = {item.url}/>
               ))
             }
             </Col>
           <Col className="col3">
             {
               array.slice(8,11).map((item) => (
-                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author}/>
+                <ReleaseItem key={item.id} id = {item.id} img = {item.links.images[1].url} alt = "loading" name = {item.name} author = {item.author} url = {item.url}/>
               ))
             }
             </Col>
