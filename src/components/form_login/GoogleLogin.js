@@ -18,7 +18,6 @@ export default function GoogleLogin() {
   }, []);
 
   const onResolveLogin = useCallback(({ provider, data }) => {
-    navigate("/");
     setProvider(provider);
     setProfile(data);
     console.log(data, "data");
