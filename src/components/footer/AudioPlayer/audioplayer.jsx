@@ -13,12 +13,13 @@ export default function Playing() {
   
   const handleClickNext = () => {
     dispatch(createSlice.actions.audioPlayerNextSong(song.id + 1))
-    // console.log(songId);
+    console.log(song.id);
   };
 
   const handleClickPre = () => {
     dispatch(createSlice.actions.audioPlayerPreSong(song.id - 1))
     // setSongId(songId - 1)
+    console.log(song.id);
   };
 
   return (
@@ -31,6 +32,7 @@ export default function Playing() {
         showJumpControls={false}
         onClickNext={handleClickNext}
         onClickPrevious={handleClickPre}
+        onEnded = {handleClickNext}
       />
     </div>
   );

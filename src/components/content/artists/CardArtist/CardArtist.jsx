@@ -7,8 +7,9 @@ export default function CardArtist(props) {
       <img className="img" src={props.img} alt={props.alt} />
     </div>
     <h5 className='info'>
-      {props.name}
+      {props.author}
     </h5>
+    <p className="singerLike">89k quan tâm</p>
   </li>
   )
 }

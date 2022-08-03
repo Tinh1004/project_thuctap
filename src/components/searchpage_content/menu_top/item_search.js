@@ -1,8 +1,15 @@
-import { Link} from 'react-router-dom';
-export default function ItemContentSearch(props) {
-    return ( 
-        <Link to={`/search/${props.search}/${props.item.content}`}>
-            <li className="item-search-content"><span>{props.item.title}</span></li>
-        </Link>
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Tab from '@mui/material/Tab';
+
+export default function ItemContentSearch({ search, item }) {
+    const navigate = useNavigate();
+
+    const handleClickMovePage = (search, item) => {
+        console.log("Move");
+        navigate(`/search/${search}/${item.content}`);
+    }
+    return (
+        <Tab label={item.title} onClick={() => handleClickMovePage(search, item)}></Tab>
     )
 }

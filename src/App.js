@@ -8,39 +8,47 @@ import LoginPage from "./pages/LoginPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 // import Datapage2 from "./components/category/page2/Datapage2";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDatas } from "./redux/dataSlice/dataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDatas, fetchPlayLists } from "./redux/dataSlice/dataSlice";
+import userSlice, { fetchDataUser } from "./redux/userSlice/userSlice";
 import { useEffect } from "react";
-import { dataSelector, searchTextSelector} from "./redux/selectors";
+import FormPlaylist from "./pages/FormPlaylist";
+import {
+  dataSelector,
+  playListsSelector,
+  arrayPlayLists,
+} from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";
 import ChangePassword from "./pages/ChangePassword";
 import ForgotPasswordPage from "./pages/ForgotPassword";
-// import CategoryPage from "./pages/CategoryPage";
+import { ToastContainer, Bounce } from "react-toastify";
 
 function App() {
-
-  const data = useSelector(dataSelector);
-  const search = useSelector(searchTextSelector);
-  console.log(data)
-  console.log(search)
+  const playlist = useSelector(arrayPlayLists);
+  console.log(playlist);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchDatas())
-  }, [])
+    dispatch(fetchDatas());
+    dispatch(fetchPlayLists());
+    dispatch(fetchDataUser());
+  }, []);
 
   return (
-    <Routes>
-      <Route path="/*" element={<AppDefault />} />
+    <>
+      <ToastContainer transition={Bounce} />
+      <Routes>
+        <Route path="/*" element={<AppDefault />} />
 
-      <Route path="*" element={<Navigate to="/404" />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<RegisterPage />} />
-      <Route path="/404" element={<NotFoundPage />} />
-      <Route path="/forgot" element={<ForgotPasswordPage />} />
-      <Route path="/change" element={<ChangePassword />} />
-
-    </Routes>
+        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="/forgot" element={<ForgotPasswordPage />} />
+        <Route path="/change" element={<ChangePassword />} />
+      </Routes>
+    </>
   );
 }
 

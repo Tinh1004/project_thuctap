@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function CardSinger({ item }) {
     return (
         <div className="card_singer">

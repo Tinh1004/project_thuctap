@@ -1,10 +1,11 @@
 .cardSong{
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     list-style-type: none;
     margin-right:10px;
-    margin-left: 30px;
+    margin-left: 3%;
     transition:  .3s linear;
+    border-radius: 10px ;
     
     // margin-bottom: 20px;
     &:hover{
@@ -12,17 +13,17 @@
     }
     .img_play{
         position: relative;
-        width: 160px;
-        height: 160px;
+        width: 180px;
+        height: 180px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+
         .img{
             width: 100%;
             height: 100%;
-            border-radius: 5px ;
-
+            border-radius: 10px ;
             // opacity: ;
         }
         .far{
@@ -37,12 +38,12 @@
             }
         } 
         &:hover{
+            border-radius: 10px;
             .img{
                 transform:scale(1.1) ;
                 background: rgb(0, 0, 0);
                 transition: 600ms;
                 opacity: 0.7;
-
             }
             .far{
                 opacity: 1; 
@@ -50,17 +51,22 @@
         }
     }
     .info{
-        padding: 5px 0px 0px 5px;
+        padding: 10px 0px 0px 0px;
         line-height: 15px;
         font-size: 15px;
-        .subtitle{
-            font-size: 13px;
-            color: rgb(163, 163, 163);
-            &:hover{
-                color: rgb(104, 104, 231);
-                text-decoration: underline;
-                cursor: pointer;
-            }
+        cursor: pointer;
+        &:hover{
+            color: rgb(91, 17, 134);
+        }
+    }
+    .subtitle{
+        padding:auto;
+        font-size: 13px;
+        color: rgb(163, 163, 163);
+        &:hover{
+            color: rgb(104, 104, 231);
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 }
