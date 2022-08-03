@@ -15,6 +15,10 @@ function LibraryPlaylist({ myArrayPlaylist }) {
 
   const isSelected = selectedTab === "playlist";
 
+  console.log("myArrayPlaylist", myArrayPlaylist);
+  const user = localStorage.getItem("user");
+  console.log(user);
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box
@@ -57,7 +61,7 @@ function LibraryPlaylist({ myArrayPlaylist }) {
         {isSelected && (
           <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
         )}
-        {!isSelected && (
+        {!isSelected && true && (
           <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
         )}
       </Box>
