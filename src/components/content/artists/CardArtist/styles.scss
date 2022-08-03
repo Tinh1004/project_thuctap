@@ -1,9 +1,9 @@
 .artistItem{
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     list-style-type: none;
     margin-right:20px;
-    margin-left: 20px;
+    margin-left: 1%;
     transition:  .3s linear;
     // margin-bottom: 20px;
     // &:hover{
@@ -12,8 +12,8 @@
         .img_artist{
         border-radius: 50%;
         position: relative;
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
         display: flex;
         align-items: center;
         justify-content: center;

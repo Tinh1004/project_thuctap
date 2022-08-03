@@ -9,7 +9,7 @@ export default function Artists() {
   return (
     <div className='artistsContainer'>
         <div className="artist">
-          <h4>Popular Artists</h4>
+          <h4>Nghệ Sĩ Nổi Bật</h4>
           <div className="btn_s"> 
             <label className="btn">
               <Link to = '/list-popular-artist'>

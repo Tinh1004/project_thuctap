@@ -1,12 +1,5 @@
 .box{
-    width: 1230px;
-    height: 930px;
-    /* justify-content: center;
-    align-items: center; */
-    /* padding-left: 300px;
-    overflow-y:auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none; */
+    height: auto;
     padding-left: 40px;
 }
 .box .banner{
@@ -16,7 +9,7 @@
     border-radius: 5px;
 }
 .box .tl1{
-    width: 1235px;
+    width: 100%;
     height: 200px;
 }
 .chude{

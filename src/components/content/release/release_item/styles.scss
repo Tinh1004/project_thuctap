@@ -33,13 +33,18 @@
       color: rgb(120, 120, 238);
     }
   }
-  @media screen and (max-width:1150px) and (min-width:1024px){
+  @media screen and (max-width:1287px) and (min-width:1157px){
+    .fas{
+      display: none;
+    }
+  }
+  @media screen and (max-width:1157px) and (min-width:1024px){
     .fas{
       // display: none;
       margin-left: 480px;
     }
   }
-    @media screen and (max-width:1024px) and (min-width: 840px){
+    @media screen and (max-width:1124px) and (min-width: 840px){
       .fas{
         // display: none;
         margin-left: 400px;

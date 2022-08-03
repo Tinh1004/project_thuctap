@@ -11,36 +11,31 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search() {
     const [input, setInput] = useState("");
+    console.log(input);
+
     let navigate = useNavigate();
     const inputRef = useRef();
     const dispatch = useDispatch();
     let data = useSelector(dataSelector);
 
-
-    const handleClearInput = () => {
-        setInput("");
+    const handleChangeInput = (value) => {
+        setInput(value);
     }
-    const handleChangeInput = (e) => {
-        console.log(e.target.value)
-        if (e.target.value === 0) {
-            setInput(data[e.target.value].name);
-        }
-        else {
-            setInput(e.target.value);
-
+    const handleClickSearch = () => {
+        if (input.trim().length > 0) {
+            dispatch(filterSlice.actions.searchFilterChange(input))
+            navigate(`/search/${input}/tat-ca`, { replace: true });
         }
     }
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
         // window.alert("input: "+input);
-        if (input.trim().length > 0) {
-            dispatch(filterSlice.actions.searchFilterChange(input))
-            navigate(`/search/${input}/tat-ca`, { replace: true });
-        } else {
-            window.alert("Nhập vào");
-        }
+        handleClickSearch();
     }
+
+
+
 
     return (
         <form className="search" onSubmit={handleSubmitForm}>
@@ -52,14 +47,15 @@ export default function Search() {
                     disableClearable
                     options={data.map((option) => option.name)}
                     getOptionLabel={(option) => {
-                        console.log("option: ", option);
                         return (option ? option : "");
                     }}
                     value={input}
-                    onChange={handleChangeInput}
+                    // onChange={handleChangeInput}
+                    onChange={(event, value) => handleChangeInput(value)}
                     renderInput={(params) => (
                         <TextField
                             className="input-search"
+                            onChange={(e) => setInput(e.target.value)}
                             sx={{ padding: 0 }}
                             {...params}
                             label="Search..."
@@ -78,6 +74,7 @@ export default function Search() {
                                             disabled={false}
                                             size="small"
                                             type="submit"
+                                            onClick={handleClickSearch}
                                             sx={{
                                                 // color: '#f91880',
                                                 borderRadius: 25,
@@ -90,7 +87,6 @@ export default function Search() {
                                             <SearchIcon />
                                         </Button>
                                     </InputAdornment>)
-
                             }
 
                             }

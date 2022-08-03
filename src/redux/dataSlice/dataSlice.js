@@ -7,10 +7,11 @@ export default createSlice({
         status: 'idle',
         array: [],
         song: {},
+        playList: []
     },
     reducers: {
         audioPlayerNextSong: (state, action) => {
-            if (action.payload >= state.array.length){
+            if (action.payload >= state.array.length) {
                 state.song = state.array[0]
             }
             else {
@@ -18,8 +19,8 @@ export default createSlice({
                 state.song = currentSong[0]
             }
         },
-        audioPlayerPreSong: (state,action) => {
-            if (action.payload < 0){
+        audioPlayerPreSong: (state, action) => {
+            if (action.payload < 0) {
                 state.song = state.array[state.array.length - 1]
             }
             else {
@@ -27,9 +28,9 @@ export default createSlice({
                 state.song = currentSong[0]
             }
         },
-        audioChangeSong: (state,action) => {
+        audioChangeSong: (state, action) => {
             const currentSong = state.array.filter(song => song.id === action.payload);
-            state.song = currentSong[0] 
+            state.song = currentSong[0]
         }
 
     },
@@ -48,12 +49,23 @@ export default createSlice({
                     state.song = data[0];
                 }
             })
+            .addCase(fetchPlayLists.fulfilled, (state, action) => {
+                const data = JSON.parse(action.payload)
+                state.playList = data;
+            })
     }
 
 })
 
 export const fetchDatas = createAsyncThunk('data/fetchDatas', async () => {
     let dataFile = require('../data/songs.json');
+    let stringData = JSON.stringify(dataFile);
+    return stringData;
+})
+
+
+export const fetchPlayLists = createAsyncThunk('data/fetchPlayLists', async () => {
+    let dataFile = require('../data/playLists.json');
     let stringData = JSON.stringify(dataFile);
     return stringData;
 })

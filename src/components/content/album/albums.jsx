@@ -6,7 +6,7 @@ export default function Albums() {
   return (
     <div className="albumsContainer">
       <div className="albums">
-        <h4>Popular Albums</h4>
+        <h4>Albums Phổ Biến</h4>
       </div>
       <div className="cardAlbums">
         {albums.map((item) => (

@@ -10,12 +10,12 @@ export default function MenuAlbumPolular() {
           <ul className="navbarMenu">
             <li className="navbarItem " onclick="return toggle('songs')">
               <div className="navLink">
-                <a href="#"><Link to = "/list-popular-song">Song</Link></a>
+                <a href="#"><Link to = "/list-popular-song">Bài Hát</Link></a>
               </div>
             </li>
             <li className="navbarItem active " onclick="return toggle('albums')">
               <div className="navLink">
-              <a href="#"><Link to = "/list-popular-album">Album</Link></a>
+              <a href="#"><Link to = "/list-popular-album">Albums</Link></a>
               </div>
             </li>
           </ul>

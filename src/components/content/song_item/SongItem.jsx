@@ -11,7 +11,7 @@ export default function SongItem() {
   return (
     <div className="songItemContainer">
       <div className="songItem">
-        <h4>Popular Songs</h4>
+        <h4>Bài Hát Phổ Biến</h4>
         <div className="btn_s">
           <label className="btn">
             <Link to="/list-popular-song">

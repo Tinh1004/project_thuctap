@@ -5,10 +5,9 @@ export default function Image({
 }) {
     return (
         <div className="avatar" onClick={handleClickSetClick}>
-                <div className="navbar-avatar">
-                    <img alt="avarta" src={IMAGE_AVATAR} />
-                </div>
-                
+            <div className="navbar-avatar">
+                <img alt="avarta" src={IMAGE_AVATAR} />
             </div>
+        </div>
     );
 }

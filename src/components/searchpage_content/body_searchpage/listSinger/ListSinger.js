@@ -8,7 +8,8 @@ export default function ListSinger({ data }) {
     const arraySinger = useSelector(arraySearchSinger);
     const search = useSelector(searchTextSelector);
 
-    const array = [...arraySinger].splice(0, 5)
+    const array = [...arraySinger].splice(0, 5);
+    console.log(array)
 
     return (
         <div className="playList">

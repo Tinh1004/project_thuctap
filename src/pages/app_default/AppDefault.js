@@ -5,20 +5,21 @@ import Footer from '../../components/footer/index';
 import HomePage from "../HomePage/HomePage";
 import ProfilePage from "../profile_page/ProfilePage";
 import SearchPage from "../search_page/SearchPage";
-import Datapage2 from "../../components/category/page2/Datapage2";
 import CategoryPage from "../CategoryPage";
+import FormPlaylist from "../form/FormPlaylist";
+
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import ListPopularSong from '../HomePage/ListPopularSong';
 import ListPopularArtists from '../HomePage/ListPopularArtist';
 import ListPopularAlbum from '../HomePage/ListPopularAlbum';
+import Datapage2 from '../../components/category/page2/Datapage2';
+import Datapage3 from '../../components/category/page3/Datapage3';
 import SongAtWork from '../HomePage/Album/ListSongAtWork';
 import SongAtParty from '../HomePage/Album/ListSongAtParty';
 import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
 import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
 import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
-
-
 
 export default function AppDefault({ children }) {
     const routerHompage = [
@@ -76,18 +77,38 @@ export default function AppDefault({ children }) {
                             <Route key={item.id} path = {item.path} element = {item.element}/>
                         ))}
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
+
+
+                    {/* Nguyen */}
                     <Route path="the-loai" element={<CategoryPage />} />
-                    <Route path="page2" element={<Datapage2 />} />
+                    <Route path="the-loai/VietNam" element={<Datapage3 />} />
+                    <Route path="the-loai/AuMy" element={<Datapage3 />} />
+                    <Route path="the-loai/HanQuoc" element={<Datapage2 />} />
+                    <Route path="the-loai/TrungQuoc" element={<Datapage2 />} />
+                    <Route path="the-loai/COFFEE" element={<Datapage2 />} />
+                    <Route path="the-loai/GAME" element={<Datapage2 />} />
+                    <Route path="the-loai/WORKING" element={<Datapage3 />} />
+                    <Route path="the-loai/RELAX" element={<Datapage3 />} />
+                    <Route path="the-loai/Mien-Trung-Ngan-Nam-Bien-Doi" element={<Datapage2 />} />
+                    <Route path="the-loai/Only-Honest-On-The-Weekend/" element={<Datapage3 />} />
+                    <Route path="the-loai/K-EDM/" element={<Datapage3 />} />
+                    <Route path="the-loai/Dance-Pop/" element={<Datapage3 />} />
+                    <Route path="the-loai/Best-EDM/" element={<Datapage2 />} />
+                    <Route path="the-loai/Paradise-Again/" element={<Datapage2 />} />
+
+
                     <Route path="search/:search/*" element={<SearchPage />} />
+                    {/* <Route path="tao-playlist" element={<FormPlaylist />} /> */}
+
 
                     {/* 
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<RegisterPage />} />
                     <Route path="/404" element={<NotFoundPage />} />
                     <Route path="/forgot" element={<ForgotPassword />} /> */}
-                </Routes>
+                </Routes >
                 {/* {children} */}
-            </div>
+            </div >
             <Footer />
         </>
     )

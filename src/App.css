@@ -261,6 +261,9 @@ body.dark {
   background: var(--primary-color-light);
   border-radius: 6px;
 }
+ul.menu-links{
+  background: rgba(255,255,255,0.25);
+}
 
 .sidebar li a {
   height: 100%;

@@ -1,10 +1,11 @@
 import React from 'react'
-import ListSongAtWork from '../../../components/content/album/ListSongofAlbum/ListSongAtWork'
+import ListSongSummerVibe from '../../../components/content/album/ListSongofAlbum/ListSongPartySummerVibe'
+
 
 export default function SongSummerVibe() {
   return (
     <section className="home">
-      <ListSongAtWork/>
+      <ListSongSummerVibe/>
     </section>
   )
 }

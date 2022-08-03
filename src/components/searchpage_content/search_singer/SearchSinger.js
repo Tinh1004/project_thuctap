@@ -7,7 +7,6 @@ export default function SearchSinger(props) {
     const search = useSelector(searchTextSelector);
     return (
         <>
-
             <div className="search-body">
                 {array.length !== 0 ?
                     <div class="list_songs">

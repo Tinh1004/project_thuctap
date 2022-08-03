@@ -8,7 +8,7 @@ import CardAlbum from "../album/CardAlbum/CardAlbum";
 export default function ListPopularAlbumItem() {
   return (
     <div className="listPopularSongContainer">
-      <h1>Popular Albums</h1>
+      <h1>Albums Phổ Biến</h1>
       <div className="menu">
         <MenuAlbumPolular/>
       </div>
