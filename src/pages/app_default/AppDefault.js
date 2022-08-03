@@ -20,12 +20,22 @@ import SongAtParty from '../HomePage/Album/ListSongAtParty';
 import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
 import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
 import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
+import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
+
+import { useSelector } from "react-redux";
+
+import {
+    arrayPlayLists,
+    dataSelector,
+    myPlayListsSelector,
+  } from "../../redux/selectors";
+  import { useNavigate } from "react-router-dom";
 
 // Nguyen array router dom
 const arrayOfHomePages = [
     {
         title: "Page 2",
-        component: <Datapage2/>,
+        component: <Datapage2 />,
         array: [
             {
                 link: "HanQuoc"
@@ -34,7 +44,7 @@ const arrayOfHomePages = [
     },
     {
         title: "Page 3",
-        component: <Datapage3/>,
+        component: <Datapage3 />,
         array: [
             {
                 link: "VietNam"
@@ -46,46 +56,52 @@ const arrayOfHomePages = [
 export default function AppDefault({ children }) {
     const routerHompage = [
         {
-            id :0,
+            id: 0,
             path: "/list-popular-song",
             element: <ListPopularSong />
         },
         {
-            id:1,
-            path:"/list-popular-artist",
+            id: 1,
+            path: "/list-popular-artist",
             element: <ListPopularArtists />
         },
         {
-            id:2,
+            id: 2,
             path: "/list-popular-album",
             element: <ListPopularAlbum />
         },
         {
-            id:3,
-            path:"/list-song-at-work" ,
-            element: <SongAtWork/>
+            id: 3,
+            path: "/list-song-at-work",
+            element: <SongAtWork />
         },
         {
-            id:4,
+            id: 4,
             path: "/list-song-at-party",
-            element: <SongAtParty/>
+            element: <SongAtParty />
         },
         {
-            id:5,
-            path: "/list-song-NCSRelease" ,
-            element: <SongNCSRelease/>
-        }, 
+            id: 5,
+            path: "/list-song-NCSRelease",
+            element: <SongNCSRelease />
+        },
         {
-            id:6,
+            id: 6,
             path: "/list-song-party-summervibe",
-            element: <SongSummerVibe/>
+            element: <SongSummerVibe />
         },
         {
-            id:7,
-            path:"/list-song-USUKTopHit",
-            element:<SongUSUKTopHit/>
+            id: 7,
+            path: "/list-song-USUKTopHit",
+            element: <SongUSUKTopHit />
         },
     ]
+
+    const totalData = useSelector(dataSelector);
+    const arrayData = [...totalData].splice(0, 7);
+    const myArrayPlaylist = useSelector(myPlayListsSelector);
+    const arrayPlayList = useSelector(arrayPlayLists);
+
     return (
         <>
             <div className="bg"></div>
@@ -95,10 +111,23 @@ export default function AppDefault({ children }) {
                 <Routes>
                     <Route path="*" element={<Navigate to="/404" />} />
                     <Route index element={<HomePage />} />
-                        {routerHompage.map((item) => (
-                            <Route key={item.id} path = {item.path} element = {item.element}/>
-                        ))}
+                    {routerHompage.map((item) => (
+                        <Route key={item.id} path={item.path} element={item.element} />
+                    ))}
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
+
+                    <Route
+                        path="detail/:id"
+                        element={
+                            <section className="home">
+                                <DetailPlaylist
+                                    arrayData={arrayData}
+                                    myArrayPlaylist={myArrayPlaylist}
+                                    arrayPlayList={arrayPlayList}
+                                />
+                            </section>
+                        }
+                    />
 
 
                     {/* Nguyen */}

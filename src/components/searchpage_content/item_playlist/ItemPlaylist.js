@@ -65,7 +65,7 @@ export default function ItemPlaylist({ handleChangeWidth, item }) {
                 <img src={item.image || "https://i.scdn.co/image/ab67616d0000b27394ae8395433c0c7521ac25ba"} />
             </div>
             <div className="content-item">
-                <Link className="card_playlist" to={`/ca-nhan/detail/${item.id}`}>
+                <Link className="card_playlist" to={`/detail/${item.id}`}>
                     <h5>{item.name}</h5>
                 </Link>
                 <p>{item.discription}</p>

@@ -27,7 +27,7 @@ function CardSong({idPlaylist, data }) {
   };
 
   const handleClickDeleteSongInPlaylist = (idPlaylist, idSong) => {
-    if(window.confirm("D*T m muốn xóa bài lày...")){
+    if(window.confirm("Xóa khỏi playlist: ")){
       dispatch(userSlice.actions.deleteSongInMyPlaylist({idPlaylist: idPlaylist, idSong: idSong}));
     }
   };
