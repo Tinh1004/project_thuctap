@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import userSlice from '../../../redux/userSlice/userSlice';
 import { myPlayListsSelector } from '../../../redux/selectors';
 import { toast } from "react-toastify";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Box, Tooltip } from "@mui/material";
+
 export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
@@ -38,10 +41,27 @@ export default function ItemPlaylist({ handleChangeWidth, item }) {
 
     return (
         <div className="playList-item" ref={itemRef}>
-            <div className="image-item" style={{ height: width ? `${width + 10}px` : `${300 - 60}px` }}
-                onClick={handleClickAddPlayList}
-            >
-                <div className="khongtrong"></div>
+            <div className="image-item" style={{ height: width ? `${width + 10}px` : `${300 - 60}px` }}>
+                <div className="khongtrong">
+                    <Box
+                        sx={{
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "rgba(0, 0, 0, 0.4)",
+                            color: "#fff",
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            alignItems: "center",
+                            zIndex: 1,
+                        }}
+                    >
+                        <Tooltip title={`Thêm vào playlist`} arrow placement="top" sx={{ fontSize: 40 }}>
+                            <FavoriteBorderIcon
+                                onClick={handleClickAddPlayList}
+                            />
+                        </Tooltip>
+                    </Box>
+                </div>
                 <img src={item.image || "https://i.scdn.co/image/ab67616d0000b27394ae8395433c0c7521ac25ba"} />
             </div>
             <div className="content-item">

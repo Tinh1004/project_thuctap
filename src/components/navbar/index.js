@@ -10,13 +10,13 @@ export default function NavBar(props) {
   useEffect(() => {
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY >= 10;
-      console.log('remove');
+      // console.log('remove');
       setScroll(scrollCheck);
     })
 
     return () => {
       document.removeEventListener("scroll", () => {
-        console.log('remove');
+        // console.log('remove');
       })
     }
   }, [])

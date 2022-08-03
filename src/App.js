@@ -26,7 +26,7 @@ import { ToastContainer, Bounce } from "react-toastify";
 
 function App() {
   const playlist = useSelector(arrayPlayLists);
-  console.log(playlist);
+  // console.log(playlist);
   const dispatch = useDispatch();
 
   useEffect(() => {

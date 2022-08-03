@@ -21,18 +21,26 @@ import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
 import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
 import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
 
+// Nguyen array router dom
 const arrayOfHomePages = [
     {
-        link: '',
-        component: <></>
-    }
-]
-
-const arrayOfCategoryPages = [
+        title: "Page 2",
+        component: <Datapage2/>,
+        array: [
+            {
+                link: "HanQuoc"
+            }
+        ]
+    },
     {
-        link: '',
-        component: <></>
-    }
+        title: "Page 3",
+        component: <Datapage3/>,
+        array: [
+            {
+                link: "VietNam"
+            }
+        ]
+    },
 ]
 
 export default function AppDefault({ children }) {

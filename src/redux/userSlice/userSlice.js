@@ -1,4 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+const getPlaylists = (user) => {
+  const dataPlayList = JSON.parse(localStorage.getItem("data"));
+  if (dataPlayList) {
+      const filterUserData = dataPlayList.filter(
+          (item, index) => item.user._id == user._id
+      );
+      // console.log("filterUserData: ", filterUserData);
+      if (filterUserData.length > 0) {
+          return filterUserData[0].playlist;
+      }
+  }
+  return [];
+}
+
+
 export default createSlice({
   name: "user",
   initialState: {
@@ -72,7 +88,10 @@ export default createSlice({
     login: (state, action) => {
       state.user = action.payload;
       localStorage.setItem("user", JSON.stringify(state.user));
-    },
+
+      const dataPlayList = getPlaylists(action.payload);
+      state.myPlayLists = dataPlayList;
+  },
     register: (state, action) => {
       state.user = action.payload;
       localStorage.setItem("user", JSON.stringify(state.user));
@@ -111,7 +130,7 @@ export default createSlice({
       const idSong = action.payload.idSong;
 
       const playlist = state.myPlayLists.find(
-        (item, index) => item.id == idPlaylist
+        (item, index) => (item.id == idPlaylist  && item.user)
       );
         console.log(playlist === undefined)
       if (playlist) {
@@ -144,17 +163,17 @@ export default createSlice({
       })
       .addCase(fetchDataUser.fulfilled, (state, action) => {
         const data = JSON.parse(action.payload);
-        console.log("user: ", data);
+        // console.log("user: ", data);
         if (data) {
           state.user = data;
           const dataPlayList = JSON.parse(localStorage.getItem("data"));
-          console.log("dataPlayList: ", dataPlayList);
+          // console.log("dataPlayList: ", dataPlayList);
 
           if (dataPlayList) {
             const filterUserData = dataPlayList.filter(
               (item, index) => item.user._id == data._id
             );
-            console.log("filterUserData: ", filterUserData);
+            // console.log("filterUserData: ", filterUserData);
             if (filterUserData.length > 0) {
               state.myPlayLists = filterUserData[0].playlist;
             }
