@@ -11,12 +11,13 @@ import RegisterPage from "./pages/RegisterPage";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDatas, fetchPlayLists } from "./redux/dataSlice/dataSlice";
 import userSlice, { fetchDataUser } from "./redux/userSlice/userSlice";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import FormPlaylist from "./pages/FormPlaylist";
 import {
   dataSelector,
   playListsSelector,
   arrayPlayLists,
+  userDataSelector,
 } from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";
@@ -26,6 +27,8 @@ import { ToastContainer, Bounce } from "react-toastify";
 
 function App() {
   const playlist = useSelector(arrayPlayLists);
+  const user = useSelector(userDataSelector);
+
   // console.log(playlist);
   const dispatch = useDispatch();
 
@@ -40,13 +43,14 @@ function App() {
       <ToastContainer transition={Bounce} />
       <Routes>
         <Route path="/*" element={<AppDefault />} />
-
         <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="/404" element={<NotFoundPage />} />
+
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/404" element={<NotFoundPage />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/change" element={<ChangePassword />} />
+
       </Routes>
     </>
   );

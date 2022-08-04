@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import userSlice from '../../../redux/userSlice/userSlice';
 import { myPlayListsSelector } from '../../../redux/selectors';
@@ -11,20 +11,27 @@ export default function ItemPlaylist({ handleChangeWidth, item }) {
     const [width, setWidth] = useState(0);
     const itemRef = useRef();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const myPlayLists = useSelector(myPlayListsSelector);
 
     const handleClickAddPlayList = () => {
-        const checkItemPlayList = myPlayLists.filter((e) => e.id === item.id);
-        if (checkItemPlayList.length === 0) {
-            dispatch(userSlice.actions.addPlayList(item));
-            toast.success("Thêm Playlist thành công!", {
-                position: toast.POSITION.TOP_RIGHT,
-            });
+        const user = localStorage.getItem("user");
+        if (user) {
+            const checkItemPlayList = myPlayLists.filter((e) => e.id === item.id);
+            if (checkItemPlayList.length === 0) {
+                dispatch(userSlice.actions.addPlayList(item));
+                toast.success("Thêm Playlist thành công!", {
+                    position: toast.POSITION.TOP_RIGHT,
+                });
+            } else {
+                toast.error("Đã tồn tại...", {
+                    position: toast.POSITION.TOP_RIGHT,
+                });
+            }
         } else {
-            toast.error("Đã tồn tại...", {
-                position: toast.POSITION.TOP_RIGHT,
-            });
+            navigate("/login");
         }
+
     }
 
 
