@@ -6,8 +6,6 @@ import HomePage from "../HomePage/HomePage";
 import ProfilePage from "../profile_page/ProfilePage";
 import SearchPage from "../search_page/SearchPage";
 import CategoryPage from "../CategoryPage";
-import FormPlaylist from "../form/FormPlaylist";
-
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import ListPopularSong from '../HomePage/ListPopularSong';
