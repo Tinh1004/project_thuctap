@@ -9,7 +9,7 @@ import {
   Grid,
 } from "@mui/material";
 import React from "react";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -19,7 +19,7 @@ import { useDispatch } from "react-redux";
 import dataSlice from "../../../../redux/dataSlice/dataSlice";
 import userSlice from "../../../../redux/userSlice/userSlice";
 
-function CardSong({idPlaylist, data }) {
+function CardSong({ idPlaylist, data }) {
   const dispatch = useDispatch();
 
   const handleChangeAudio = () => {
@@ -27,8 +27,13 @@ function CardSong({idPlaylist, data }) {
   };
 
   const handleClickDeleteSongInPlaylist = (idPlaylist, idSong) => {
-    if(window.confirm("D*T m muốn xóa bài lày...")){
-      dispatch(userSlice.actions.deleteSongInMyPlaylist({idPlaylist: idPlaylist, idSong: idSong}));
+    if (window.confirm("D*T m muốn xóa bài lày...")) {
+      dispatch(
+        userSlice.actions.deleteSongInMyPlaylist({
+          idPlaylist: idPlaylist,
+          idSong: idSong,
+        })
+      );
     }
   };
 
@@ -311,8 +316,9 @@ function CardSong({idPlaylist, data }) {
                       backgroundColor: "transparent",
                     },
                   }}
-
-                  onClick={()=>handleClickDeleteSongInPlaylist(idPlaylist, data.id)}
+                  onClick={() =>
+                    handleClickDeleteSongInPlaylist(idPlaylist, data.id)
+                  }
                 >
                   <HighlightOffIcon />
                 </Button>
