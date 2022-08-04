@@ -1,6 +1,6 @@
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
-
+import { toast } from "react-toastify";
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -29,6 +29,9 @@ export default function FacebookLogin() {
         image: data.picture.data.url,
       })
     );
+    toast.success("Login Success!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
     navigate("/");
   }, []);
 
@@ -37,6 +40,9 @@ export default function FacebookLogin() {
   }, []);
   const onReject = useCallback((err) => {
     console.log(err);
+    toast.error("Login Failure!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>

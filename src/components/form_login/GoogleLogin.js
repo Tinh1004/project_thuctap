@@ -1,6 +1,6 @@
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
-
+import { toast } from "react-toastify";
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -29,7 +29,11 @@ export default function GoogleLogin() {
         image: data.picture,
       })
     );
+    toast.success("Login Success!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
     navigate("/");
+    
   }, []);
 
   const onLogoutFailure = useCallback(() => {
@@ -37,6 +41,9 @@ export default function GoogleLogin() {
   }, []);
   const onReject = useCallback((err) => {
     console.log(err);
+    toast.error("Login Failure!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
