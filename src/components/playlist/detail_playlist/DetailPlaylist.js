@@ -28,8 +28,8 @@ function DetailPlaylist({ arrayData, arrayPlayList }) {
     <>
       {playlistInfo ? (
         <Box sx={{ flexGrow: 1, padding: "50px 40px 0 60px" }}>
-          <Grid container spacing={2}>
-            <Grid item xs={4}>
+          <Grid container spacing={2} columns={{ xs: 8, sm: 8, md: 12 }}>
+            <Grid item xs={4} sm={4} md={4}>
               <Box
                 sx={{
                   height: "40vh",
@@ -132,7 +132,7 @@ function DetailPlaylist({ arrayData, arrayPlayList }) {
               </Box>
             </Grid>
 
-            <Grid item xs={8}>
+            <Grid item xs={8} sm={8} md={8}>
               {playlistInfo.array.length === 0 ? (
                 <Box>
                   <EmptyComponent
