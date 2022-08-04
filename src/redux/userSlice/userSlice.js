@@ -3,13 +3,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const getPlaylists = (user) => {
   const dataPlayList = JSON.parse(localStorage.getItem("data"));
   if (dataPlayList) {
-      const filterUserData = dataPlayList.filter(
-          (item, index) => item.user._id == user._id
-      );
-      // console.log("filterUserData: ", filterUserData);
-      if (filterUserData.length > 0) {
-          return filterUserData[0].playlist;
-      }
+    const filterUserData = dataPlayList.filter(
+      (item, index) => item.user._id == user._id
+    );
+    // console.log("filterUserData: ", filterUserData);
+    if (filterUserData.length > 0) {
+      return filterUserData[0].playlist;
+    }
   }
   return [];
 }
@@ -91,7 +91,7 @@ export default createSlice({
 
       const dataPlayList = getPlaylists(action.payload);
       state.myPlayLists = dataPlayList;
-  },
+    },
     register: (state, action) => {
       state.user = action.payload;
       localStorage.setItem("user", JSON.stringify(state.user));
@@ -130,15 +130,15 @@ export default createSlice({
       const idSong = action.payload.idSong;
 
       const playlist = state.myPlayLists.find(
-        (item, index) => (item.id == idPlaylist  && item.user)
+        (item, index) => (item.id == idPlaylist && item.user)
       );
-        console.log(playlist === undefined)
+      console.log(playlist === undefined)
       if (playlist) {
         const newArray = [...playlist.array].filter(
           (item, index) => item != idSong
         );
         playlist.array = newArray;
-        
+
         const data = JSON.parse(localStorage.getItem("data"));
         if (data) {
           let i = 0;
