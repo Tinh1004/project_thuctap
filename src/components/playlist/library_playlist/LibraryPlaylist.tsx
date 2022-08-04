@@ -1,8 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Tab from "../../../commons/Tab";
+import {
+  myPlayListsSelector,
+  userDataSelector,
+} from "../../../redux/selectors";
 import LibraryPlaylistContent from "./LibraryPlaylistContent";
 
 function LibraryPlaylist({ myArrayPlaylist }) {
@@ -15,9 +20,8 @@ function LibraryPlaylist({ myArrayPlaylist }) {
 
   const isSelected = selectedTab === "playlist";
 
-  console.log("myArrayPlaylist", myArrayPlaylist);
-  const user = localStorage.getItem("user");
-  console.log(user);
+  const playListOwner = myArrayPlaylist.filter((item) => item.user === true);
+  console.log("playListOwner: ", playListOwner);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -62,7 +66,7 @@ function LibraryPlaylist({ myArrayPlaylist }) {
           <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
         )}
         {!isSelected && true && (
-          <LibraryPlaylistContent myArrayPlaylist={myArrayPlaylist} />
+          <LibraryPlaylistContent myArrayPlaylist={playListOwner} />
         )}
       </Box>
     </Box>
