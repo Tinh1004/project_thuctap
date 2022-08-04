@@ -26,7 +26,6 @@ export default function CardAlbum(props) {
     }
   };
   return (
-    <div className="cardAlbumContainer">
       <li className="cardAlbum">
         <div className="img_play">
           <img className="img" src={props.img} alt={props.alt} />
@@ -37,6 +36,5 @@ export default function CardAlbum(props) {
         </h5>
         <div className="subtitle">{props.author}</div>
       </li>
-    </div>
   );
 }
