@@ -35,7 +35,7 @@ export default function CardPopuplarSong(props) {
         <div className="media">
           <div className="media_left">
             <div className="song_prefix">
-              <i className="fa-solid fa-music icon"></i>
+              <i className="fa-solid fa-music icon"onClick={handleChangeAudio}></i>
             </div>
             <div className="song_thumb">
               <figure className="image">
@@ -60,7 +60,7 @@ export default function CardPopuplarSong(props) {
           </div>
           <div className="media_content">
             <div className="album_info">
-                  <span> Rapitaloud EP</span>
+                  <span>{props.name}</span>
             </div>
           </div>
           <div className="media_right">
@@ -68,9 +68,6 @@ export default function CardPopuplarSong(props) {
             <div className="action_items">
               <div className="level">
                 <div className="level_item">
-                  <button className="btn_favorite" tabIndex="0">
-                    <i className="fa-solid fa-heart icon1"></i>
-                  </button>
                 </div>
                 <div className="level_item duration">{convertDuration(props.url)}</div>
               </div>
@@ -81,3 +78,4 @@ export default function CardPopuplarSong(props) {
     </div>
   );
 }
+  

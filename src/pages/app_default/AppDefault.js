@@ -28,8 +28,8 @@ import {
     arrayPlayLists,
     dataSelector,
     myPlayListsSelector,
-  } from "../../redux/selectors";
-  import { useNavigate } from "react-router-dom";
+} from "../../redux/selectors";
+import { useNavigate } from "react-router-dom";
 
 // Nguyen array router dom
 const arrayOfHomePages = [

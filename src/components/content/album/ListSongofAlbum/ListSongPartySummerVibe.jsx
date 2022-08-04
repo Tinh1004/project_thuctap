@@ -5,12 +5,12 @@ import { dataSelector } from "../../../../redux/selectors";
 
 import { useSelector } from "react-redux";
 import "./styles.scss";
-export default function ListSongPartySummerVibe() {
+export default function ListSongSummerVibe() {
   const array = useSelector(dataSelector);
 
   return (
     <div className="listPopularSongContainer">
-      <h1>Party Summer Vibe</h1>
+      <h1>Summer Vibe</h1>
       <br />
       <div className="list_songs">
         <div className="song_tag">

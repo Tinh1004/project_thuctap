@@ -14,7 +14,7 @@ export default function NewRelease() {
 
   return (
     <div className="newReleaseContainer">
-      <h4>New Releases  </h4>
+      <h4>Bài Hát Mới Phát Hành </h4>
       <Container>
         <Row className="row">
           <Col className="col1">
