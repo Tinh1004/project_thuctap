@@ -5,6 +5,7 @@ export default function Ctpage2(props) {
   return (
     
     <>
+    <Link to="/list-song-NCSReleases">
         <div className='tl' href='#'>
              <div className='img'>
                 <img className='imgpage2' src={props.imgp2}></img>
@@ -14,6 +15,7 @@ export default function Ctpage2(props) {
                 <i>{props.casi}</i>
              </div>
         </div>
+    </Link>
     </>
 
   )
