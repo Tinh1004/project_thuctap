@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Box, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Grid } from "@mui/material";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { toast } from "react-toastify";

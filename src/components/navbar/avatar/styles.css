@@ -49,3 +49,7 @@ a{
     border-bottom: 1px solid var(--sidebar-color);
 }
 
+
+.nav-right{
+    cursor: pointer;
+}
