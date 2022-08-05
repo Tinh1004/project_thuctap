@@ -83,7 +83,7 @@ export default function AppDefault({ children }) {
         {
             id:1,
             path:"/the-loai/VietNam",
-            element:<Datapage3/>
+            element:<Datapage2/>
         },
         {
             id:2,
@@ -103,7 +103,7 @@ export default function AppDefault({ children }) {
         {
             id:5,
             path:"/the-loai/COFFEE",
-            element:<Datapage3/>
+            element:<Datapage2/>
         },
         {
             id:6,
@@ -118,7 +118,7 @@ export default function AppDefault({ children }) {
         {
             id:8,
             path:"/the-loai/RELAX",
-            element:<Datapage2/>
+            element:<Datapage3/>
         },
         {
             id:9,
