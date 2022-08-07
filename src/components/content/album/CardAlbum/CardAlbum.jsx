@@ -20,7 +20,6 @@ export default function CardAlbum(props) {
       case 4:
         navigate("/list-song-USUKTopHit");
         break;
-
       default:
         break;
     }

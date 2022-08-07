@@ -75,7 +75,7 @@ export const song2page=[
         id:1,
         title:'VietNam',
         img2:VN,
-        name:'Viet Nam'
+        name:'Việt Nam'
     },
     {
         id:2,

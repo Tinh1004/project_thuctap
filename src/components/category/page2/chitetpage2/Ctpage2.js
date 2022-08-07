@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './page2.css'
 export default function Ctpage2(props) {
   return (
-    <div>
+    <Link to='/list-song-at-work'>
+    <>
         <div className='tl' href='#'>
              <div className='img'>
                 <img className='imgpage2' src={props.imgp2}></img>
@@ -12,6 +14,7 @@ export default function Ctpage2(props) {
                 <i>{props.casi}</i>
              </div>
         </div>
-    </div>
+    </>
+    </Link>
   )
 }
