@@ -4,6 +4,7 @@ import { dataSelector } from "../../../redux/selectors";
 import { useSelector } from "react-redux";
 import MenuSongPolular from "./menu_song/MenuSongPolular";
 import "./styles.scss";
+import AddDropdown from "../../searchpage_content/add/AddDropdown";
 
 export default function ListPopularSongItem() {
   const array = useSelector(dataSelector);
@@ -21,7 +22,7 @@ export default function ListPopularSongItem() {
               <p>Tên bài hát</p>
             </div>
             <div className="media_content">
-              <p>  Album</p>
+              <p> Album</p>
             </div>
             <div className="media_right">
               <p>Thời lượng</p>
@@ -38,7 +39,7 @@ export default function ListPopularSongItem() {
             image={item.links.images[1].url}
             name={item.name}
             author={item.author}
-            url= {item.url}
+            url={item.url}
           />
         ))}
       </div>
