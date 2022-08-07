@@ -1,6 +1,6 @@
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
-
+import { toast } from "react-toastify";
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -12,32 +12,38 @@ export default function FacebookLogin() {
   const facebookRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [picture, setPicture]= useState("");
 
   const onLoginStart = useCallback(() => {
     console.log("login start");
   }, []);
 
   const onResolveLogin = useCallback(({ provider, data }) => {
-    navigate("/");
     setProvider(provider);
     setProfile(data);
     console.log(data, "data");
     console.log(provider, "provider");
     dispatch(
       userSlice.actions.login({
-        fullName:"",
-        _id: "",
-        image:"",
+        fullName: data.name,
+        _id: data.userID,
+        image: data.picture.data.url,
       })
     );
-    localStorage.setItem("user", JSON.stringify())
+    toast.success("Login Success!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    navigate("/");
   }, []);
 
   const onLogoutFailure = useCallback(() => {
     console.log("logout fail");
   }, []);
-
+  const onReject = useCallback((err) => {
+    console.log(err);
+    toast.error("Login Failure!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
       <LoginSocialFacebook
@@ -48,9 +54,7 @@ export default function FacebookLogin() {
         onLoginStart={onLoginStart}
         onLogoutFailure={onLogoutFailure}
         onResolve={onResolveLogin}
-        onReject={(err) => {
-          console.log(err);
-        }}
+        onReject={onReject}
       >
         <FacebookLoginButton
           align="center"
