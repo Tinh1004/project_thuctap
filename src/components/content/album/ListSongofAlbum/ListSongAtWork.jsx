@@ -27,7 +27,6 @@ export default function ListSongAtWork() {
           </div>
         </div>
       </div>
-
       <div className="cardPopularSong">
         {array.slice(11,20).map((item) => (
           <CardPopuplarSong

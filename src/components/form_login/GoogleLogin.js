@@ -1,6 +1,6 @@
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
-
+import { toast } from "react-toastify";
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -18,24 +18,33 @@ export default function GoogleLogin() {
   }, []);
 
   const onResolveLogin = useCallback(({ provider, data }) => {
-    navigate("/");
     setProvider(provider);
     setProfile(data);
     console.log(data, "data");
     console.log(provider, "provider");
     dispatch(
-        userSlice.actions.login({
-          fullName: "",
-          _id: "",
-          image: "",
-        })
-      );
+      userSlice.actions.login({
+        fullName: data.name,
+        _id: data.id,
+        image: data.picture,
+      })
+    );
+    toast.success("Login Success!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    navigate("/");
+    
   }, []);
 
   const onLogoutFailure = useCallback(() => {
     console.log("logout fail");
   }, []);
-
+  const onReject = useCallback((err) => {
+    console.log(err);
+    toast.error("Login Failure!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
       <LoginSocialGoogle
@@ -46,9 +55,7 @@ export default function GoogleLogin() {
         onLogoutFailure={onLogoutFailure}
         onLoginStart={onLoginStart}
         onResolve={onResolveLogin}
-        onReject={(err) => {
-          console.log("hbhbdhd", err);
-        }}
+        onReject={onReject}
       >
         <GoogleLoginButton align="center" display="flex" />
       </LoginSocialGoogle>

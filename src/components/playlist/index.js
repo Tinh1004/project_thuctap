@@ -23,7 +23,7 @@ export default function PlayList({ myArrayPlaylist }) {
       <PlaylistTitle />
 
       <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-        {myArrayPlaylist.slice(0, 4).map((data, index) => (
+        {myArrayPlaylist.map((data, index) => (
           <Grid item xs={4} sm={4} md={3} key={index}>
             <Link className="card_playlist" to={`/ca-nhan/detail/${data.id}`}>
               <CardItem

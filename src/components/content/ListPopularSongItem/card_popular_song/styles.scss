@@ -168,18 +168,8 @@
           flex-shrink: 0;
           justify-content: center;
 
-          button {
-            background-color: transparent;
-            border: none;
-
-            .icon1  {
-              color: #7200a1;
-              &:hover {
-                color: rgb(247, 147, 147);
-                transform: scale(1.1);
-                transition: 600ms;
-              }
-            }
+          .add-item {
+            color: rgb(218, 218, 218);
             @media screen and (max-width: 685px) {
               display: none;
             }
