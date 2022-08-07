@@ -19,10 +19,6 @@ export default function SearchContent(props) {
     return (
         <Routes>
             {linkSearch.map((item, index) => <Route path={item.content} element={item.component} />)}
-            {/* <Route path={`/tat-ca`} element={<SearchBody />} />
-            <Route path={`/ca-si`} element={<SearchSinger />} />
-            <Route path={`/bai-hat`} element={<SearchSong />} />
-            <Route path={`/playlist`} element={<SearchPlaylist />} /> */}
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     )
