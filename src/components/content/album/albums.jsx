@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { playListsSelector } from "../../../redux/selectors";
 import CardAlbum from "./CardAlbum/CardAlbum";
 import "./styles.scss";
-// import CardAlbum from "./CardAlbum/CardAlbum";
-// import { albums } from "./data/albums";
+
 export default function Albums() {
   const albums = useSelector(playListsSelector)
   return (
