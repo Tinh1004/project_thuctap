@@ -82,5 +82,19 @@
         "id": 11,
         "image": "https://i.scdn.co/image/ab67616d0000b273da513d25e8b3cdd4f43f7512",
         "array": [20,22,4,25,6,27,8,29]
+    },
+    {
+        "name": "Trúc nhân",
+        "discription": "Diviners",
+        "id": 12,
+        "image": "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/avatars/d/2/8/5/d2859c68a5392d10455fa39b9c88c28a.jpg",
+        "array": [84,85,86,87,88]
+    },
+    {
+        "name": "Việt Nam",
+        "discription": "Diviners",
+        "id": 13,
+        "image": "https://i.scdn.co/image/ab67616d0000b273da513d25e8b3cdd4f43f7512",
+        "array": [84,90,85,91,86,87,88,92,93,97,94,96,95]
     }
 ]
