@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import Form from "../utilities/Form";
 import { toast } from "react-toastify";
 
@@ -43,40 +43,40 @@ export default function ForgotPassword() {
     return isValid;
   };
 
-  const forgotPassword = (e) => {
-    e.preventDefault();
+  // const forgotPassword = (e) => {
+  //   e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_7lcasma",
-        "template_xn0waws",
-        form.current,
-        "GGI0Gqg8TYUmW-6VU"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.log("message sent");
-          toast.success("Send Success!", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        },
+  //   emailjs
+  //     .sendForm(
+  //       "service_7lcasma",
+  //       "template_xn0waws",
+  //       form.current,
+  //       "GGI0Gqg8TYUmW-6VU"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //         console.log("message sent");
+  //         toast.success("Send Success!", {
+  //           position: toast.POSITION.TOP_RIGHT,
+  //         });
+  //       },
         
-        (error) => {
-          console.log(error.text);
-          toast.error("Send Failure!", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-      );
-    const validate = validateforgotPassword();
+  //       (error) => {
+  //         console.log(error.text);
+  //         toast.error("Send Failure!", {
+  //           position: toast.POSITION.TOP_RIGHT,
+  //         });
+  //       }
+  //     );
+  //   const validate = validateforgotPassword();
 
-    if (validate) {
-      console.log("Reset password link is sent to " + email);
-      setValidate({});
-      setEmail("");
-    }
-  };
+  //   if (validate) {
+  //     console.log("Reset password link is sent to " + email);
+  //     setValidate({});
+  //     setEmail("");
+  //   }
+  // };
   return (
     <ThemeProvider theme={theme}>
       
@@ -88,7 +88,7 @@ export default function ForgotPassword() {
         <Box
           component="form"
           method="POST"
-          onSubmit={forgotPassword}
+          // onSubmit={forgotPassword}
           ref ={form}
           autoComplete={"off"}
           noValidate
