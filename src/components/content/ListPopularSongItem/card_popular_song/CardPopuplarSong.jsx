@@ -72,7 +72,7 @@ export default function CardPopuplarSong(props) {
               <div className="level">
                 <div className="level_item">
                   <div className="add-item">
-                    <AddDropdown />
+                    <AddDropdown idSong={props.id} />
                   </div>
                 </div>
                 <div className="level_item duration">
