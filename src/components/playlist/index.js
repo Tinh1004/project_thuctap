@@ -11,7 +11,7 @@ import userSlice from "../../redux/userSlice/userSlice";
 
 export default function PlayList({ myArrayPlaylist }) {
   const dispatch = useDispatch();
-  console.log(myArrayPlaylist);
+  // console.log(myArrayPlaylist);
   return (
     <Box
       sx={{
@@ -32,7 +32,13 @@ export default function PlayList({ myArrayPlaylist }) {
                   <ClearOutlinedIcon
                     onClick={(e) => {
                       e.preventDefault();
-                      dispatch(userSlice.actions.deletePlayList(index));
+                      if (
+                        window.confirm(
+                          "Bạn có chắc chắn xóa Playlist này không?"
+                        )
+                      ) {
+                        dispatch(userSlice.actions.deletePlayList(index));
+                      }
                     }}
                   />
                 }

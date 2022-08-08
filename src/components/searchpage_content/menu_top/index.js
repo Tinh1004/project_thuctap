@@ -1,7 +1,5 @@
 import './styles.scss';
 import { linkSearch } from '../../../commons/link_search';
-import ItemContentSearch from './item_search';
-import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useState } from 'react'

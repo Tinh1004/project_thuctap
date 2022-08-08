@@ -4,9 +4,17 @@ import './song3.css'
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
+
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify';
+
+
 export default function Song3(props) {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const handleChange = (event) => {
+        event.target.checked?toast.success('Đã thêm album vào yêu Playlist'):toast.error("Đã xóa album ra khỏi Playlist");
+      };
   return (
     <>
         {/* <Link to="/the-loai/page3"> */}
@@ -15,14 +23,15 @@ export default function Song3(props) {
                     <div className='image1'>
                         <img className='hinhto2' src={props.img3}></img>
                         <div className='icon'>
-                            <Checkbox sx={{color:'#fff'}} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+                            <Checkbox onChange={handleChange} sx={{color:'#fff'}} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+                            {/* <ToastContainer /> */}
                             {/* <i className="icon1 fa fa-heart-o" /> */}
-                            <NavLink to={props.title}><i className="icon2 fa fa-play-circle"/></NavLink>
+                            <Link to='/list-song-NCSRelease'><i className="icon2 fa fa-play-circle"/></Link>
                             <i className="icon3 fa fa-ellipsis-h" />
                         </div>
                     </div>
                     <div className='tenbh'>
-                        <p>{props.tenbh}</p>
+                    <Link to='/list-song-NCSRelease'><p>{props.tenbh}</p></Link>
                         <span>{props.casi}</span>
                     </div>
                 </div>

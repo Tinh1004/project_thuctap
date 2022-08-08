@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 export default function CardAlbum(item) {
   return (
-    <div className="cardAlbumContainer">
       <li className="cardAlbum">
         <Link to={`/detail/${item.id}`}>
           <div className="img_play">
@@ -17,6 +16,5 @@ export default function CardAlbum(item) {
         </Link>
         <div className="subtitle">{item.author}</div>
       </li>
-    </div>
   );
 }

@@ -1,15 +1,15 @@
-import { LoginSocialFacebook } from "reactjs-social-login";
-import { FacebookLoginButton } from "react-social-login-buttons";
+import { LoginSocialGoogle } from "reactjs-social-login";
+import { GoogleLoginButton } from "react-social-login-buttons";
 import { toast } from "react-toastify";
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import userSlice from "../../redux/userSlice/userSlice";
 
-export default function FacebookLogin() {
+export default function GoogleLogin() {
   const [provider, setProvider] = useState("");
   const [profile, setProfile] = useState("");
-  const facebookRef = useRef();
+  const googleRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,14 +25,15 @@ export default function FacebookLogin() {
     dispatch(
       userSlice.actions.login({
         fullName: data.name,
-        _id: data.userID,
-        image: data.picture.data.url,
+        _id: data.id,
+        image: data.picture,
       })
     );
     toast.success("Login Success!", {
       position: toast.POSITION.TOP_RIGHT,
     });
     navigate("/");
+    
   }, []);
 
   const onLogoutFailure = useCallback(() => {
@@ -46,22 +47,18 @@ export default function FacebookLogin() {
   }, []);
   return (
     <div className={`App ${provider && profile ? "hide" : ""}`}>
-      <LoginSocialFacebook
+      <LoginSocialGoogle
         align="center"
         display="flex"
-        ref={facebookRef}
-        appId={"556246546227879"}
-        onLoginStart={onLoginStart}
+        ref={googleRef}
+        client_id="1009598528563-a0roh8h4vpdi366hdh9uoqv4qucmct41.apps.googleusercontent.com"
         onLogoutFailure={onLogoutFailure}
+        onLoginStart={onLoginStart}
         onResolve={onResolveLogin}
         onReject={onReject}
       >
-        <FacebookLoginButton
-          align="center"
-          display="flex"
-          style={{ margin: 5 }}
-        />
-      </LoginSocialFacebook>
+        <GoogleLoginButton align="center" display="flex" />
+      </LoginSocialGoogle>
     </div>
   );
 }

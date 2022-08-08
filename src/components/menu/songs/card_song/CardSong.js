@@ -9,7 +9,7 @@ import {
   Grid,
 } from "@mui/material";
 import React from "react";
-
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -17,12 +17,19 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import dataSlice from "../../../../redux/dataSlice/dataSlice";
+import userSlice from "../../../../redux/userSlice/userSlice";
 
-function CardSong({ data }) {
+function CardSong({ idPlaylist, data }) {
   const dispatch = useDispatch();
 
   const handleChangeAudio = () => {
     dispatch(dataSlice.actions.audioChangeSong(data.id));
+  };
+
+  const handleClickDeleteSongInPlaylist = (idPlaylist, idSong) => {
+    if (window.confirm("Xóa khỏi playlist: ")) {
+      dispatch(userSlice.actions.deleteSongInMyPlaylist({ idPlaylist: idPlaylist, idSong: idSong }));
+    }
   };
 
   const [duration, setDuration] = useState(0);
@@ -33,11 +40,10 @@ function CardSong({ data }) {
     setDuration(val);
   };
   const convertDuration = (url) => {
-    return `${Math.round(duration / 60)}:${
-      Math.floor(duration % 60) >= 10
+    return `${Math.round(duration / 60)}:${Math.floor(duration % 60) >= 10
         ? Math.floor(duration % 60)
         : `0${Math.floor(duration % 60)}`
-    }`;
+      }`;
   };
 
   useEffect(() => {
@@ -295,7 +301,7 @@ function CardSong({ data }) {
                 />
               </Tooltip>
 
-              <Tooltip title="Khác" arrow placement="top" sx={{ fontSize: 30 }}>
+              <Tooltip title="Xóa" arrow placement="top" sx={{ fontSize: 30 }}>
                 <Button
                   sx={{
                     color: "#32323d80",
@@ -304,8 +310,11 @@ function CardSong({ data }) {
                       backgroundColor: "transparent",
                     },
                   }}
+                  onClick={() =>
+                    handleClickDeleteSongInPlaylist(idPlaylist, data.id)
+                  }
                 >
-                  <MoreHorizOutlinedIcon />
+                  <HighlightOffIcon />
                 </Button>
               </Tooltip>
             </Box>

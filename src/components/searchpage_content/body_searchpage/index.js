@@ -1,8 +1,7 @@
 import ResultSearch from "../body_searchpage/results/index";
 import PlayList from "../body_searchpage/playList/index";
 import ListSinger from "./listSinger/ListSinger";
-import { listItems, listSinger } from "../../../commons/list_item";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { arraySearchSong, searchTextSelector, arrayPlayLists, arraySearchPlayLists } from "../../../redux/selectors";
 
 export default function SearchSinger(props) {

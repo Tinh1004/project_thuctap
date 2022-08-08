@@ -11,16 +11,25 @@ import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import { useContext } from 'react'
 import { CloseContext } from '../../../contexts/CloseContext';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { userDataSelector } from '../../../redux/selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { userDataSelector, myPlayListsSelector } from '../../../redux/selectors';
+import userSlice from "../../../redux/userSlice/userSlice";
 
-export default function AddDropdown() {
+export default function AddDropdown({ idSong }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const context = useContext(CloseContext);
   const userData = useSelector(userDataSelector);
+  const myPlayList = useSelector(myPlayListsSelector);
 
+
+  const arrayDropdownPlaylist = myPlayList.filter((item, index) => {
+    if (item.user) return item;
+  })
+  // console.log("arrayDropdownPlaylist: ",arrayDropdownPlaylist)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -36,6 +45,12 @@ export default function AddDropdown() {
     }
     // setVisible(true);
   };
+  const handleAddSong = (idPlayList, idSong) => {
+    dispatch(userSlice.actions.addSongInPlaylist({
+      idPlaylist: idPlayList,
+      idSong: idSong
+    }))
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -74,8 +89,12 @@ export default function AddDropdown() {
           Tạo PlayList
         </MenuItem>
         <Divider />
-
-        <MenuItem><QueueMusicIcon sx={{paddingRight: 0.5}}/> Alan Walker</MenuItem>
+        {arrayDropdownPlaylist &&
+          arrayDropdownPlaylist.map((item, index) =>
+            <MenuItem key={index} onClick={() => handleAddSong(item.id, idSong)}>
+              <QueueMusicIcon sx={{ paddingRight: 0.5 }} /> {item.name}
+            </MenuItem>
+          )}
       </Menu>
     </React.Fragment>
   );

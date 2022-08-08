@@ -6,8 +6,6 @@ import HomePage from "../HomePage/HomePage";
 import ProfilePage from "../profile_page/ProfilePage";
 import SearchPage from "../search_page/SearchPage";
 import CategoryPage from "../CategoryPage";
-import FormPlaylist from "../form/FormPlaylist";
-
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import ListPopularSong from '../HomePage/ListPopularSong';
@@ -20,49 +18,160 @@ import SongAtParty from '../HomePage/Album/ListSongAtParty';
 import SongNCSRelease from '../HomePage/Album/ListSongNCSRelease';
 import SongSummerVibe from '../HomePage/Album/ListSongSummerVibe';
 import SongUSUKTopHit from '../HomePage/Album/ListSongUSUKTopHit';
+import DetailPlaylist from "../../components/playlist/detail_playlist/DetailPlaylist";
+import { element } from 'prop-types';
+
+import { useSelector } from "react-redux";
+
+import {
+    arrayPlayLists,
+    dataSelector,
+    myPlayListsSelector,
+} from "../../redux/selectors";
+import { useNavigate } from "react-router-dom";
+
+// // Nguyen array router dom
+// const arrayOfHomePages = [
+//     {
+//         title: "Page 2",
+//         component: <Datapage2 />,
+//         array: [
+//             {
+//                 link: "HanQuoc"
+//             }
+//         ]
+//     },
+//     {
+//         title: "Page 3",
+//         component: <Datapage3 />,
+//         array: [
+//             {
+//                 link: "VietNam"
+//             }
+//         ]
+//     },
+// ]
 
 export default function AppDefault({ children }) {
     const routerHompage = [
         {
-            id :0,
+            id: 0,
             path: "/list-popular-song",
             element: <ListPopularSong />
         },
         {
-            id:1,
-            path:"/list-popular-artist",
+            id: 1,
+            path: "/list-popular-artist",
             element: <ListPopularArtists />
         },
         {
-            id:2,
+            id: 2,
             path: "/list-popular-album",
             element: <ListPopularAlbum />
         },
         {
-            id:3,
-            path:"/list-song-at-work" ,
-            element: <SongAtWork/>
+            id: 3,
+            path: "/list-song-at-work",
+            element: <SongAtWork />
         },
         {
-            id:4,
+            id: 4,
             path: "/list-song-at-party",
-            element: <SongAtParty/>
+            element: <SongAtParty />
         },
         {
-            id:5,
-            path: "/list-song-NCSRelease" ,
-            element: <SongNCSRelease/>
-        }, 
+            id: 5,
+            path: "/list-song-NCSRelease",
+            element: <SongNCSRelease />
+        },
         {
-            id:6,
+            id: 6,
             path: "/list-song-party-summervibe",
-            element: <SongSummerVibe/>
+            element: <SongSummerVibe />
         },
         {
-            id:7,
-            path:"/list-song-USUKTopHit",
-            element:<SongUSUKTopHit/>
+            id: 7,
+            path: "/list-song-USUKTopHit",
+            element: <SongUSUKTopHit />
         },
+    ]
+
+    const totalData = useSelector(dataSelector);
+    const arrayData = [...totalData].splice(0, 7);
+    const myArrayPlaylist = useSelector(myPlayListsSelector);
+    const arrayPlayList = useSelector(arrayPlayLists);
+
+    const routerCategorypage = [
+        {
+            id: 1,
+            path: "/the-loai/VietNam",
+            element: <Datapage2 />
+        },
+        {
+            id: 2,
+            path: "the-loai/AuMy",
+            element: <Datapage2 />
+        },
+        {
+            id: 3,
+            path: "/the-loai/HanQuoc",
+            element: <Datapage3 />
+        },
+        {
+            id: 4,
+            path: "/the-loai/TrungQuoc",
+            element: <Datapage2 />
+        },
+        {
+            id: 5,
+            path: "/the-loai/COFFEE",
+            element: <Datapage2 />
+        },
+        {
+            id: 6,
+            path: "/the-loai/GAME",
+            element: <Datapage2 />
+        },
+        {
+            id: 7,
+            path: "/the-loai/WORKING",
+            element: <Datapage3 />
+        },
+        {
+            id: 8,
+            path: "/the-loai/RELAX",
+            element: <Datapage3 />
+        },
+        {
+            id: 9,
+            path: "/the-loai/Mien-Trung-Ngan-Nam-Bien-Doi",
+            element: <Datapage2 />
+        },
+        {
+            id: 10,
+            path: "/the-loai/Only-Honest-On-The-Weekend",
+            element: <Datapage3 />
+        },
+        {
+            id: 11,
+            path: "/the-loai/K-EDM",
+            element: <Datapage3 />
+        },
+        {
+            id: 12,
+            path: "/the-loai/Dance-Pop",
+            element: <Datapage3 />
+        },
+        {
+            id: 13,
+            path: "/the-loai/Best-EDM",
+            element: <Datapage2 />
+        },
+        {
+            id: 14,
+            path: "/the-loai/Paradise-Again",
+            element: <Datapage2 />
+        }
     ]
     return (
         <>
@@ -73,15 +182,31 @@ export default function AppDefault({ children }) {
                 <Routes>
                     <Route path="*" element={<Navigate to="/404" />} />
                     <Route index element={<HomePage />} />
-                        {routerHompage.map((item) => (
-                            <Route key={item.id} path = {item.path} element = {item.element}/>
-                        ))}
+                    {routerHompage.map((item) => (
+                        <Route key={item.id} path={item.path} element={item.element} />
+                    ))}
                     <Route path="ca-nhan/*" element={<ProfilePage />} />
+
+                    <Route
+                        path="detail/:id"
+                        element={
+                            <section className="home">
+                                <DetailPlaylist
+                                    arrayData={arrayData}
+                                    myArrayPlaylist={myArrayPlaylist}
+                                    arrayPlayList={arrayPlayList}
+                                />
+                            </section>
+                        }
+                    />
 
 
                     {/* Nguyen */}
                     <Route path="the-loai" element={<CategoryPage />} />
-                    <Route path="the-loai/VietNam" element={<Datapage3 />} />
+                    {routerCategorypage.map((item) => (
+                        <Route key={item.id} path={item.path} element={item.element}></Route>
+                    ))}
+                    {/* <Route path="the-loai/VietNam" element={<Datapage3 />} />
                     <Route path="the-loai/AuMy" element={<Datapage3 />} />
                     <Route path="the-loai/HanQuoc" element={<Datapage2 />} />
                     <Route path="the-loai/TrungQuoc" element={<Datapage2 />} />
@@ -90,11 +215,11 @@ export default function AppDefault({ children }) {
                     <Route path="the-loai/WORKING" element={<Datapage3 />} />
                     <Route path="the-loai/RELAX" element={<Datapage3 />} />
                     <Route path="the-loai/Mien-Trung-Ngan-Nam-Bien-Doi" element={<Datapage2 />} />
-                    <Route path="the-loai/Only-Honest-On-The-Weekend/" element={<Datapage3 />} />
+                    <Route path="the-loai/Only-Honest-On-The-Weekend" element={<Datapage3 />} />
                     <Route path="the-loai/K-EDM/" element={<Datapage3 />} />
-                    <Route path="the-loai/Dance-Pop/" element={<Datapage3 />} />
-                    <Route path="the-loai/Best-EDM/" element={<Datapage2 />} />
-                    <Route path="the-loai/Paradise-Again/" element={<Datapage2 />} />
+                    <Route path="the-loai/Dance-Pop" element={<Datapage3 />} />
+                    <Route path="the-loai/Best-EDM" element={<Datapage2 />} />
+                    <Route path="the-loai/Paradise-Again" element={<Datapage2 />} /> */}
 
 
                     <Route path="search/:search/*" element={<SearchPage />} />
