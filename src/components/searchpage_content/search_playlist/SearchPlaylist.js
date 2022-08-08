@@ -14,7 +14,6 @@ function SearchPlaylist(props) {
   const dispatch = useDispatch();
   const searchPlayLists = useSelector(arraySearchPlayLists);
   const myPlayLists = useSelector(myPlayListsSelector);
-
   const navigate = useNavigate();
 
   const handleClickAddPlayList = (item) => {
@@ -34,7 +33,6 @@ function SearchPlaylist(props) {
     } else {
       navigate("/login");
     }
-
   }
 
   return (

@@ -7,8 +7,11 @@ import { song1page } from './datacategory';
 import { song2page } from './datacategory';
 import { song3page } from './datacategory';
 import { song4page } from './datacategory';
+import { useSelector } from 'react-redux';
+import {playListsSelector} from '../../../redux/selectors'
 
 export default function Data() {
+    const playlist = useSelector(playListsSelector)
     return (
         <div className='box'>
 
@@ -31,7 +34,7 @@ export default function Data() {
 
                 </div>
             </div>
-            <div className='tl3'>
+            {/* <div className='tl3'>
                 <p className='chude'> Nhạc Bolero</p>
                 <div className="ds3">
                     {song3page.map((item) => (
@@ -39,15 +42,14 @@ export default function Data() {
                     ))}
 
                 </div>
-            </div>
+            </div> */}
 
             <div className='tl3'>
-                <p className='chude'> Nhạc Bolero</p>
+                <p className='chude'> Playlist</p>
                 <div className="ds3">
-                    {song4page.map((item) => (
-                        <Song3 key={item.id} title={item.title} img3={item.img3} tenbh={item.tenbh} casi={item.casi}></Song3>
+                    {playlist.map((item, index) => (
+                        <Song3 key={index} item={item} title={item.title} img3={item.img3} tenbh={item.tenbh} casi={item.casi}></Song3>
                     ))}
-
                 </div>
 
             </div>
