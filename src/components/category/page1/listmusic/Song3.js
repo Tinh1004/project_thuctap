@@ -48,7 +48,7 @@ export default function Song3(props) {
                         <img className='hinhto2' src={props.item.image}></img>
                         <div className='icon'>
                             <Checkbox onClick={() => handleClickAddPlayList(props.item)} sx={{color:'#fff'}} icon={<FavoriteBorder />} checkedIcon={<Favorite />}></Checkbox>
-                            <i c  className="icon2 fa fa-play-circle"/>
+                            <i onClick={() => { navigate(`/detail/${props.item.id}`)}} className="icon2 fa fa-play-circle"/>
                             <i className="icon3 fa fa-ellipsis-h" />
                         </div>
                     </div>
