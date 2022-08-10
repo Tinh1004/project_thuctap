@@ -21,7 +21,7 @@ import {
 } from "./redux/selectors";
 import AppDefault from "./pages/app_default/AppDefault";
 // import Datapage2 from "./components/category/page2/Datapage2";
-import ChangePassword from "./pages/ChangePassword";
+import ChangePasswordPage from "./pages/ChangePassword";
 import ForgotPasswordPage from "./pages/ForgotPassword";
 import { ToastContainer, Bounce } from "react-toastify";
 
@@ -47,7 +47,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
-        <Route path="/change" element={<ChangePassword />} />
+
+        <Route path="/change" element={<ChangePasswordPage />} />
       </Routes>
     </>
   );
