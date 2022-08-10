@@ -6,7 +6,6 @@ export default function ItemContentSearch({ search, item }) {
     const navigate = useNavigate();
 
     const handleClickMovePage = (search, item) => {
-        console.log("Move");
         navigate(`/search/${search}/${item.content}`);
     }
     return (

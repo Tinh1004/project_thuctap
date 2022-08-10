@@ -4,17 +4,17 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import { useContext } from 'react'
+import { TagsContext } from '../../../contexts/TagsContext';
 export default function MenuSearch({ search }) {
-    const [value, setValue] = useState(0);
+    const context = useContext(TagsContext)
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        context.toggleSetValueTag(newValue);
     };
 
     const navigate = useNavigate();
 
     const handleClickMovePage = (search, item) => {
-        console.log("Move");
         navigate(`/search/${search}/${item.content}`);
     }
 
@@ -23,7 +23,7 @@ export default function MenuSearch({ search }) {
             <Tabs
                 textColor="secondary"
                 indicatorColor="secondary"
-                value={value}
+                value={context.valueTag}
                 onChange={handleChange}
                 aria-label="Tinh">
                 {linkSearch.map((item, index) => (

@@ -2,9 +2,11 @@ import "./styles.scss";
 import CardSinger from './CardSinger/CardSinger';
 import { useDispatch, useSelector } from 'react-redux';
 import { arraySearchSinger, searchTextSelector } from "../../../redux/selectors";
+
 export default function SearchSinger(props) {
     const array = useSelector(arraySearchSinger);
     const search = useSelector(searchTextSelector);
+
     return (
         <>
             <div className="search-body">

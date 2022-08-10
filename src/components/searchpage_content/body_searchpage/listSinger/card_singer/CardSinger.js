@@ -5,7 +5,6 @@ export default function CardSinger({ handleChangeWidth, item }) {
     useLayoutEffect(() => {
         setWidth(itemRef.current.offsetWidth);
         const handleResize = () => {
-            console.log(itemRef.current.offsetWidth);
             setWidth(itemRef.current.offsetWidth);
             handleChangeWidth(itemRef.current.offsetWidth);
         }

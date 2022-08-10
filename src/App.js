@@ -29,7 +29,6 @@ function App() {
   const playlist = useSelector(arrayPlayLists);
   const user = useSelector(userDataSelector);
 
-  // console.log(playlist);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,12 +44,10 @@ function App() {
         <Route path="/*" element={<AppDefault />} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<NotFoundPage />} />
-
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/change" element={<ChangePassword />} />
-
       </Routes>
     </>
   );

@@ -5,7 +5,6 @@ import dataSlice from "../../../../redux/dataSlice/dataSlice";
 import AddDropdown from "../../add/AddDropdown"
 function CardSong({ item }) {
   const [duration, setDuration] = useState(0);
-  console.log(duration);
 
   const dispatch = useDispatch();
 
@@ -74,12 +73,12 @@ function CardSong({ item }) {
           <div class="media_right">
             <div class="hover_items"></div>
             <div class="action_items">
-            <div className="time-item">
+              <div className="time-item">
                 <div className="add-item">
-                    <AddDropdown idSong={item.id}/>
+                  <AddDropdown idSong={item.id} />
                 </div>
                 <span>{convertDuration(item.url)}</span>
-            </div>
+              </div>
             </div>
           </div>
         </div>

@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import userSlice from '../../../redux/userSlice/userSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { arraySearchPlayLists, myPlayListsSelector } from "../../../redux/selectors";
-
 import CardItem from "../../../commons/CardItem";
 
 function SearchPlaylist(props) {
@@ -15,6 +14,7 @@ function SearchPlaylist(props) {
   const searchPlayLists = useSelector(arraySearchPlayLists);
   const myPlayLists = useSelector(myPlayListsSelector);
   const navigate = useNavigate();
+
 
   const handleClickAddPlayList = (item) => {
     const user = localStorage.getItem("user");

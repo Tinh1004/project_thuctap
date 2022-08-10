@@ -27,7 +27,7 @@ export const linkSearch = [
     {
         content: "album",
         title: "Album",
-        component: <SearchBody />
+        component: <SearchPlaylist />
     },
     {
         content: "ho-so",

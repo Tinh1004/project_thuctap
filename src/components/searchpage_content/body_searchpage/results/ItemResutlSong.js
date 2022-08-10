@@ -4,7 +4,6 @@ import dataSlice from "../../../../redux/dataSlice/dataSlice";
 import AddDropdown from "../../add/AddDropdown"
 export default function ItemResutlSong({ item }) {
     const [duration, setDuration] = useState(0);
-    console.log(duration);
 
     const dispatch = useDispatch();
 
@@ -45,7 +44,7 @@ export default function ItemResutlSong({ item }) {
             </div>
             <div className="time-item">
                 <div className="add-item">
-                    <AddDropdown idSong={item.id}/>
+                    <AddDropdown idSong={item.id} />
                 </div>
                 <span>{convertDuration(item.url)}</span>
             </div>
