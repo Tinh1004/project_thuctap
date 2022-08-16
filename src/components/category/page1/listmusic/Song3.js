@@ -18,28 +18,24 @@ export default function Song3(props) {
     const myPlayLists = useSelector(myPlayListsSelector);
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    const handleChange = (event) => {
-        event.target.checked?toast.success('Đã thêm album vào yêu Playlist'):toast.error("Đã xóa album ra khỏi Playlist");
-      };
-
-      const handleClickAddPlayList = (item) => {
-        const user = localStorage.getItem("user");
-        if (user) {
-          const checkItemPlayList = myPlayLists.filter((e) => e.id === item.id);
-          if (checkItemPlayList.length === 0) {
-            dispatch(userSlice.actions.addPlayList(item));
-            toast.success("Thêm Playlist thành công!", {
-              position: toast.POSITION.TOP_RIGHT,
-            });
-          } else {
-            toast.error("Playlist đã tồn tại", {
-              position: toast.POSITION.TOP_RIGHT,
-            });
-          }
+    const handleClickAddPlayList = (item) => {
+      const user = localStorage.getItem("user");
+      if (user) {
+        const checkItemPlayList = myPlayLists.filter((e) => e.id === item.id);
+        if (checkItemPlayList.length === 0) {
+          dispatch(userSlice.actions.addPlayList(item));
+          toast.success("Thêm Playlist thành công!", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         } else {
-          navigate("/login");
+          toast.error("Playlist đã tồn tại", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         }
+      } else {
+        navigate("/login");
       }
+    }
   return (
     <>
             <div title={props.item.name} className='khoinhac2'>
@@ -58,7 +54,6 @@ export default function Song3(props) {
                     </div>
                 </div>
             </div>
-        {/* </Link> */}
     </>
   )
 }

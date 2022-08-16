@@ -31,28 +31,26 @@ export default createSlice({
     addPlayList: (state, action) => {
       state.myPlayLists.push(action.payload);
       const data = JSON.parse(localStorage.getItem("data"));
-
       //kiem tra data có tồn tại hay không
       if (data) {
         let i = 0;
         const myPLayList = data.filter((item, index) => {
-          if (item.user._id == state.user._id) {
+          if (item.user._id == state.user._id) {//kiểm tra id user
             i = index;
             return item;
           }
         });
-
-        if (myPLayList.length === 0) {
+        if (myPLayList.length === 0) {//kiểm tra mảng playlist
           data.push({
             user: state.user,
             playlist: state.myPlayLists,
           });
         } else {
           const myData = myPLayList[0];
-          const newData = { ...myData, playlist: state.myPlayLists };
-          data[i] = newData;
+          const newData = { ...myData, playlist: state.myPlayLists };//sửa lại dữ liệu
+          data[i] = newData;//lấy dữ liệu vừa sửa
         }
-        localStorage.setItem("data", JSON.stringify(data));
+        localStorage.setItem("data", JSON.stringify(data));//cập nhật lên local
       } else {
         localStorage.setItem(
           "data",
@@ -103,7 +101,6 @@ export default createSlice({
       const playlist = state.myPlayLists.find(
         (item, index) => item.id == idPlaylist
       );
-
       if (playlist) {
         if (!playlist.array.includes(idSong)) {
           playlist.array.push(idSong);
